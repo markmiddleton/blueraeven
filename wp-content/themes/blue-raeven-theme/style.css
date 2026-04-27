@@ -1,0 +1,435 @@
+/*
+Theme Name: Blue Raeven
+Theme URI: https://blueraeven.com
+Author: Brilliance NW
+Author URI: https://brilliancenw.com
+Description: A Gutenberg block theme for Blue Raeven Farm & Pie Stand. Features a custom Pies post type, block patterns for all page sections, and full site editing support.
+Version: 2.0.5
+Requires at least: 6.4
+Tested up to: 6.7
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: blue-raeven
+Tags: block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, full-site-editing, one-column, wide-blocks
+
+Blue Raeven Theme - Gutenberg Block Theme
+A farm-to-table pie business in Amity, Oregon.
+*/
+
+/* ============================================
+   CUSTOM STYLES
+   Extends theme.json with component-specific CSS
+   ============================================ */
+
+/* ---------- SECTION HEADER COMPONENT ---------- */
+.br-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.br-section-header__label {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--gold);
+  margin-bottom: 0.75rem;
+}
+
+.br-section-header__title {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.br-section-header__script {
+  font-family: var(--wp--preset--font-family--script);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: var(--wp--preset--color--berry);
+}
+
+.br-section-header__divider {
+  width: 60px;
+  height: 3px;
+  background: var(--wp--preset--color--gold);
+  margin: 1.5rem auto 0;
+}
+
+/* ---------- STRIPE BORDER ---------- */
+.br-stripe-border {
+  display: flex;
+  height: 6px;
+}
+
+.br-stripe-border span {
+  flex: 1;
+}
+
+.br-stripe-border span:nth-child(1) { background: var(--wp--preset--color--navy); }
+.br-stripe-border span:nth-child(2) { background: var(--wp--preset--color--gold); }
+.br-stripe-border span:nth-child(3) { background: var(--wp--preset--color--berry); }
+
+/* ---------- PICKET FENCE SEPARATOR ---------- */
+.br-picket-fence {
+  background-image: url('assets/images/picket-fence-tile.svg');
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  background-size: auto 60px;
+  height: 60px;
+}
+
+/* ---------- PRODUCT CARD STYLING ---------- */
+.br-product-card {
+  background: var(--wp--preset--color--cream);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 37, 69, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.br-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(15, 37, 69, 0.12);
+}
+
+.br-product-card__image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.br-product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.br-product-card:hover .br-product-card__image img {
+  transform: scale(1.05);
+}
+
+.br-product-card__content {
+  padding: 1.5rem;
+}
+
+.br-product-card__tag {
+  display: inline-block;
+  font-family: var(--wp--preset--font-family--display);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--offwhite);
+  background: var(--wp--preset--color--berry);
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.br-product-card__title {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--navy);
+  margin-bottom: 0.5rem;
+}
+
+.br-product-card__description {
+  font-family: var(--wp--preset--font-family--body);
+  font-size: 0.9rem;
+  color: var(--wp--preset--color--warmgray);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.br-product-card__price {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--wp--preset--color--green);
+}
+
+/* ---------- BUTTON VARIANTS ---------- */
+.wp-block-button.is-style-berry .wp-block-button__link {
+  background: var(--wp--preset--color--berry);
+  color: var(--wp--preset--color--offwhite);
+}
+
+.wp-block-button.is-style-berry .wp-block-button__link:hover {
+  background: var(--wp--preset--color--berry-light);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+  background: transparent;
+  border: 2px solid var(--wp--preset--color--gold);
+  color: var(--wp--preset--color--navy);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+  background: var(--wp--preset--color--gold);
+}
+
+.wp-block-button.is-style-green .wp-block-button__link {
+  background: var(--wp--preset--color--green);
+  color: var(--wp--preset--color--offwhite);
+}
+
+.wp-block-button.is-style-green .wp-block-button__link:hover {
+  background: var(--wp--preset--color--green-light);
+}
+
+/* ---------- NAVIGATION STYLING ---------- */
+.br-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--wp--preset--color--navy-deep);
+  transition: background 0.3s ease;
+}
+
+.br-header .wp-block-navigation a {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--cream);
+}
+
+.br-header .wp-block-navigation a:hover {
+  color: var(--wp--preset--color--gold);
+}
+
+/* ---------- TESTIMONIAL STYLING ---------- */
+.br-testimonial {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.br-testimonial__quote {
+  font-family: var(--wp--preset--font-family--serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--wp--preset--color--cream);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.br-testimonial__attribution {
+  font-family: var(--wp--preset--font-family--display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--gold);
+}
+
+/* ---------- BODY OFFSET FOR FIXED NAV ---------- */
+body {
+  padding-top: 93px; /* nav height (90px) + stripe border (3px) */
+  background: var(--bg-body, #fefcf7);
+}
+
+/* Override WordPress global styles that add spacing */
+body.wp-embed-responsive .wp-site-blocks > * + *,
+.wp-site-blocks > * + *,
+body .wp-site-blocks > * + *,
+body .is-layout-flow > * + * {
+  margin-block-start: 0 !important;
+}
+
+:where(body .is-layout-flow) > * + *,
+:where(.wp-site-blocks) > * + * {
+  margin-block-start: 0 !important;
+}
+
+/* ---------- REMOVE GAPS BETWEEN BLOCKS ---------- */
+
+/* Reset all WordPress default block spacing */
+.wp-site-blocks {
+  padding: 0 !important;
+}
+
+.wp-site-blocks > * {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.wp-site-blocks > * + * {
+  margin-block-start: 0 !important;
+}
+
+/* HTML blocks should have no margin and be full width */
+.wp-block-html {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.wp-block-html > section,
+.wp-block-html > div {
+  width: 100%;
+}
+
+/* Ensure testimonial sections are full width */
+.section--navy {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* All block children inside main */
+main.wp-block-group,
+main.wp-block-group > *,
+.wp-block-group > .wp-block-html,
+.wp-block-group > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+/* Group blocks should have no gap */
+.wp-block-group {
+  gap: 0 !important;
+}
+
+/* Template parts should have no margin */
+.wp-block-template-part {
+  margin: 0 !important;
+}
+
+/* Ensure sections flow seamlessly */
+.section,
+.section--cream,
+.section--navy,
+.section--kraft,
+.hero,
+.page-hero,
+.page-hero--navy,
+.photo-banner,
+.picket-fence-separator,
+.footer,
+.season-banner,
+.pie-hero-split,
+.visit-hero-mosaic,
+.pie-feature,
+.form-section,
+.features,
+.pies-grid,
+.testimonial,
+.cta-banner,
+.story {
+  margin: 0 !important;
+}
+
+/* Fix for the container inside patterns */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- QUERY LOOP PIE CARDS ---------- */
+
+/* Grid gap for product archive */
+.wp-block-post-template.is-layout-grid {
+  gap: 2rem !important;
+}
+
+.wp-block-post-template .pie-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-block-post-template .pie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.wp-block-post-template .pie-card__image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5ead0 0%, #faf3e6 100%);
+  position: relative;
+}
+
+.wp-block-post-template .pie-card .wp-block-post-featured-image {
+  margin: 0;
+  height: 100%;
+}
+
+.wp-block-post-template .pie-card .wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.wp-block-post-template .pie-card:hover .wp-block-post-featured-image img {
+  transform: scale(1.05);
+}
+
+.wp-block-post-template .pie-card__body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-block-post-template .pie-card .wp-block-post-title {
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy, #1a3a6b);
+  margin-bottom: 0.5rem;
+}
+
+.wp-block-post-template .pie-card .wp-block-post-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wp-block-post-template .pie-card .wp-block-post-excerpt {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #6b6560);
+  line-height: 1.6;
+}
+
+/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+@media (max-width: 900px) {
+  .br-section-header__title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .br-section-header__title {
+    font-size: 1.5rem;
+  }
+
+  .br-product-card__content {
+    padding: 1rem;
+  }
+}

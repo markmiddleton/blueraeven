@@ -1,0 +1,39 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"cream","layout":{"type":"constrained"}} -->
+<main class="wp-block-group has-cream-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+
+    <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}}} -->
+    <div class="wp-block-columns">
+
+        <!-- wp:column {"width":"50%"} -->
+        <div class="wp-block-column" style="flex-basis:50%">
+            <!-- wp:post-featured-image {"aspectRatio":"4/3","style":{"border":{"radius":"8px"}}} /-->
+        </div>
+        <!-- /wp:column -->
+
+        <!-- wp:column {"width":"50%"} -->
+        <div class="wp-block-column" style="flex-basis:50%">
+
+            <!-- wp:post-title {"level":1,"style":{"typography":{"fontSize":"clamp(2rem, 4vw, 3rem)"}}} /-->
+
+            <!-- wp:post-content /-->
+
+            <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"2rem"}}}} -->
+            <div class="wp-block-buttons" style="margin-top:2rem">
+                <!-- wp:button {"backgroundColor":"gold","textColor":"navy-deep"} -->
+                <div class="wp-block-button"><a class="wp-block-button__link has-navy-deep-color has-gold-background-color has-text-color has-background wp-element-button" href="/visit/">Order at Farm Stand</a></div>
+                <!-- /wp:button -->
+            </div>
+            <!-- /wp:buttons -->
+
+        </div>
+        <!-- /wp:column -->
+
+    </div>
+    <!-- /wp:columns -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.67 450.59" width="155.67" height="450.59">
+  <defs>
+    <style>
+      .picket{fill:#fff;}
+      .rail{fill:#fff;}
+      .shadow{fill:#d0d0d0;}
+    </style>
+  </defs>
+  <!-- Horizontal rails -->
+  <rect class="rail" x="0" y="129.05" width="155.67" height="59.96"/>
+  <rect class="rail" x="0" y="316.13" width="155.67" height="59.96"/>
+  <!-- Shadow details on rails (grey for depth) -->
+  <polygon class="shadow" points="40.52 129.05 32.83 189.01 0.31 189.01 8 129.05 40.52 129.05"/>
+  <polygon class="shadow" points="105.82 129.05 98.14 189.01 65.62 189.01 73.3 129.05 105.82 129.05"/>
+  <polygon class="shadow" points="40.52 316.13 32.83 376.09 0.31 376.09 8 316.13 40.52 316.13"/>
+  <polygon class="shadow" points="105.82 316.13 98.14 376.09 65.62 376.09 73.3 316.13 105.82 316.13"/>
+  <!-- Vertical picket with pointed top -->
+  <polygon class="picket" points="95.51 450.59 14.34 450.59 14.34 67.64 54.93 0 95.51 67.64 95.51 450.59"/>
+</svg>

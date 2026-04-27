@@ -1,0 +1,42 @@
+# WordPress Core - WPEngine manages this
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+
+# Config files - WPEngine has its own
+wp-config.php
+wp-config-sample.php
+.htaccess
+
+# wp-content items to exclude
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/backup*/
+wp-content/w3tc-config/
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/db.php
+
+# Default plugins/themes we don't need to track (optional)
+wp-content/plugins/hello.php
+wp-content/plugins/akismet/
+
+# Nested git directories (themes/plugins with own repos)
+wp-content/themes/blue-raeven-theme/.git
+
+# IDE and OS files
+.idea/
+.DS_Store
+*.log
+*.swp
+*~
+Thumbs.db
+
+# Local development
+node_modules/
+.env
