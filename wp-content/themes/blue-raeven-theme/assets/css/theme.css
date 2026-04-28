@@ -583,7 +583,7 @@ ul { list-style: none; }
 }
 
 /* ---------- FEATURES ROW ---------- */
-.features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+.features { display: grid; grid-template-columns: repeat(3, minmax(200px, 280px)); gap: 2rem; text-align: center; justify-content: center; }
 .feature { padding: 2rem 1rem; }
 .feature__icon {
   width: 72px; height: 72px;
