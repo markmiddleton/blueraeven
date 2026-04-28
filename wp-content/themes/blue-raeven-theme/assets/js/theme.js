@@ -7,18 +7,37 @@
     // Mobile nav toggle
     function initMobileNav() {
         const toggle = document.getElementById('navToggle');
-        const links = document.getElementById('navLinks');
+        const linksLeft = document.getElementById('navLinksLeft');
+        const linksRight = document.getElementById('navLinksRight');
 
-        if (!toggle || !links) return;
+        if (!toggle) return;
 
         toggle.addEventListener('click', function() {
-            links.classList.toggle('open');
+            if (linksLeft) linksLeft.classList.toggle('open');
+            if (linksRight) linksRight.classList.toggle('open');
         });
 
-        links.querySelectorAll('a').forEach(function(a) {
+        document.querySelectorAll('.nav__links a').forEach(function(a) {
             a.addEventListener('click', function() {
-                links.classList.remove('open');
+                if (linksLeft) linksLeft.classList.remove('open');
+                if (linksRight) linksRight.classList.remove('open');
             });
+        });
+    }
+
+    // Set active nav link based on current page
+    function initActiveNav() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav__links a');
+
+        navLinks.forEach(function(link) {
+            const linkPath = new URL(link.href).pathname;
+
+            // Exact match or starts with (for child pages)
+            if (currentPath === linkPath ||
+                (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+                link.classList.add('active');
+            }
         });
     }
 
@@ -71,6 +90,7 @@
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', function() {
         initMobileNav();
+        initActiveNav();
         initHeroCarousel();
     });
 

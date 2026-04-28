@@ -263,37 +263,47 @@ ul { list-style: none; }
 .nav__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 90px;
+  position: relative;
 }
 .nav__brand {
+  position: relative;
+  z-index: 10;
+}
+.nav__logo-bg {
+  background: var(--navy-deep);
+  padding: 1rem 2rem 1.5rem;
+  margin-top: -45px;
+  padding-top: 45px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  top: 40px;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid var(--gold);
+  border-top: none;
 }
-.nav__logo {
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  background: var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 700; font-size: 1.1rem;
-  color: var(--navy-deep);
-}
-.nav__name {
-  font-family: var(--font-display);
-  font-weight: 600; font-size: 1.35rem;
-  color: var(--cream);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.nav__name span { color: var(--gold); }
 .nav__logo-img {
-  height: 72px;
+  height: 100px;
   width: auto;
   object-fit: contain;
 }
-.nav__links { display: flex; gap: 0.25rem; }
+.nav__links {
+  display: flex;
+  gap: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav__links--left {
+  right: calc(50% + 180px);
+}
+.nav__links--right {
+  left: calc(50% + 180px);
+}
 .nav__links a {
   padding: 0.5rem 1rem;
   font-family: var(--font-display);
@@ -309,11 +319,18 @@ ul { list-style: none; }
   color: var(--gold);
   background: rgba(212, 168, 83, 0.1);
 }
+.nav__links a.active {
+  font-weight: 600;
+}
 .nav__toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
   background: none; border: none; cursor: pointer; padding: 4px;
+  position: absolute;
+  right: clamp(1rem, 4vw, 2.5rem);
+  top: 50%;
+  transform: translateY(-50%);
 }
 .nav__toggle span {
   width: 24px; height: 2px;
@@ -1799,18 +1816,27 @@ ul { list-style: none; }
   .gallery { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .nav__links {
+  .nav__links--left,
+  .nav__links--right {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 90px; left: 0; right: 0;
     background: rgba(15,37,69,0.98);
     flex-direction: column;
     padding: 1rem;
     border-top: 1px solid rgba(212,168,83,0.2);
+    transform: none;
   }
+  .nav__links--right { top: auto; }
   .nav__links.open { display: flex; }
   .nav__toggle { display: flex; }
   .nav__links a { padding: 0.75rem 1rem; font-size: 0.9rem; }
+  .nav__logo-bg {
+    padding: 0.75rem 1.25rem 1rem;
+  }
+  .nav__logo-img {
+    height: 70px;
+  }
   .features { grid-template-columns: 1fr; gap: 0; }
   .footer__inner { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
