@@ -188,28 +188,17 @@ ul { list-style: none; }
   );
 }
 
-/* ---------- HATCH LINE SEPARATOR (cream diagonal over wood) ---------- */
+/* ---------- PINSTRIPE SEPARATOR ---------- */
 .picket-fence-separator,
 .pinstripe-separator {
-  height: 28px;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent 0px,
-      transparent 7px,
-      rgba(250, 243, 230, 0.85) 7px,
-      rgba(250, 243, 230, 0.85) 9px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      rgba(0, 0, 0, 0.04) 1px,
-      transparent 2px,
-      transparent 40px
-    ),
-    linear-gradient(180deg, #7a6648 0%, #8b7355 50%, #7a6648 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  height: 40px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--navy) 0px,
+    var(--navy) 6px,
+    white 6px,
+    white 12px
+  );
 }
 
 /* Deprecated: legacy picket fence classes hidden */

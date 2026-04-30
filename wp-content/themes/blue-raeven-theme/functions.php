@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Theme constants
-define( 'BLUE_RAEVEN_VERSION', '2.2.0' );
+define( 'BLUE_RAEVEN_VERSION', '2.2.1' );
 define( 'BLUE_RAEVEN_DIR', get_stylesheet_directory() );
 define( 'BLUE_RAEVEN_URI', get_stylesheet_directory_uri() );
 
