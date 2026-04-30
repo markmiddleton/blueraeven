@@ -237,9 +237,7 @@ ul { list-style: none; }
 
 /* ---------- WOOD TEXTURE ---------- */
 .wood-bg {
-  background:
-    repeating-linear-gradient(90deg, transparent 0px, rgba(0,0,0,0.03) 1px, transparent 2px, transparent 40px),
-    linear-gradient(180deg, #7a6648 0%, #8b7355 15%, #7e6a4f 30%, #917a5c 50%, #86744e 70%, #7a6648 85%, #8b7355 100%);
+  background: url('../images/wood-bg.jpg') center/cover no-repeat;
 }
 
 /* ---------- NAVIGATION ---------- */
@@ -346,14 +344,7 @@ ul { list-style: none; }
       rgba(250, 243, 230, 0.9) 6px,
       rgba(250, 243, 230, 0.9) 8px
     ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      rgba(0, 0, 0, 0.04) 1px,
-      transparent 2px,
-      transparent 40px
-    ),
-    linear-gradient(180deg, #7a6648 0%, #8b7355 50%, #7a6648 100%);
+    url('../images/wood-bg.jpg') center/cover no-repeat;
   border-top: 1px solid rgba(0, 0, 0, 0.18);
   border-bottom: 1px solid rgba(0, 0, 0, 0.18);
 }
@@ -424,10 +415,7 @@ ul { list-style: none; }
   position: relative;
   color: var(--cream);
   width: 100%;
-  background:
-    repeating-linear-gradient(90deg, transparent 0px, rgba(0,0,0,0.04) 1px, transparent 2px, transparent 60px),
-    repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.02) 2px, transparent 4px, transparent 110px),
-    linear-gradient(180deg, #6f5b3e 0%, #8b7355 25%, #7a6648 55%, #917a5c 80%, #7a6648 100%);
+  background: url('../images/wood-bg.jpg') center/cover no-repeat;
 }
 .section--wood::before {
   content: '';
@@ -626,10 +614,7 @@ ul { list-style: none; }
 .page-hero--wood {
   position: relative;
   color: var(--cream);
-  background:
-    repeating-linear-gradient(90deg, transparent 0px, rgba(0,0,0,0.05) 1px, transparent 2px, transparent 70px),
-    repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.02) 2px, transparent 4px, transparent 130px),
-    linear-gradient(175deg, #5c4a32 0%, #7a6648 35%, #8b7355 65%, #5c4a32 100%);
+  background: url('../images/wood-bg.jpg') center/cover no-repeat;
 }
 .page-hero--navy::after,
 .page-hero--wood::after {
@@ -1147,9 +1132,7 @@ ul { list-style: none; }
 .pie-feature--dark .pie-feature__text {
   position: relative;
   color: var(--cream);
-  background:
-    repeating-linear-gradient(90deg, transparent 0px, rgba(0,0,0,0.05) 1px, transparent 2px, transparent 60px),
-    linear-gradient(180deg, #6f5b3e 0%, #8b7355 50%, #6f5b3e 100%);
+  background: url('../images/wood-bg.jpg') center/cover no-repeat;
 }
 .pie-feature--dark .pie-feature__text > * { position: relative; z-index: 1; }
 .pie-feature--dark .pie-feature__label {
@@ -1322,9 +1305,7 @@ ul { list-style: none; }
   flex-direction: column;
   justify-content: center;
   padding: 3rem clamp(2rem, 5vw, 4rem);
-  background:
-    repeating-linear-gradient(90deg, transparent 0px, rgba(0,0,0,0.05) 1px, transparent 2px, transparent 70px),
-    linear-gradient(180deg, #6f5b3e 0%, #8b7355 50%, #6f5b3e 100%);
+  background: url('../images/wood-bg.jpg') center/cover no-repeat;
   color: var(--cream);
   border-left: 4px solid var(--berry);
 }
