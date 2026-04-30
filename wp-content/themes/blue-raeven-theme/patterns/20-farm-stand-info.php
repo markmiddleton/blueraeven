@@ -5,8 +5,6 @@
  * Categories: blue-raeven-cards
  * Description: Hours and location information blocks
  */
-$uploads = wp_upload_dir();
-$base_url = $uploads['baseurl'];
 ?>
 <!-- wp:html -->
 <section class="section">
@@ -28,7 +26,6 @@ $base_url = $uploads['baseurl'];
             </div>
             <div class="farmstand__info">
                 <div class="info-block">
-                    <div class="info-block__icon"><img src="<?php echo esc_url( $base_url ); ?>/2026/04/icon_farmstand.png" alt="" style="width:32px;height:32px;"></div>
                     <div class="info-block__title">Location</div>
                     <div class="info-block__text">
                         <strong>Blue Raeven Farmstand</strong><br>
@@ -37,7 +34,6 @@ $base_url = $uploads['baseurl'];
                     </div>
                 </div>
                 <div class="info-block">
-                    <div class="info-block__icon"><img src="<?php echo esc_url( $base_url ); ?>/2026/04/icon_heritage.png" alt="" style="width:32px;height:32px;"></div>
                     <div class="info-block__title">Get in Touch</div>
                     <div class="info-block__text">
                         <strong>Phone:</strong> (503) 555-0142<br>
