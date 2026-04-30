@@ -7,7 +7,7 @@
  */
 ?>
 <!-- wp:html -->
-<section class="section--navy" style="padding: 4rem 0; width: 100%;">
+<section class="section--wood" style="padding: 4rem 0; width: 100%;">
     <div class="container" style="display: flex; justify-content: center; padding: 0 2rem;">
         <div class="testimonial" style="max-width: 700px; text-align: center;">
             <p class="testimonial__quote">

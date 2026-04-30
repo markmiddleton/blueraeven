@@ -16,7 +16,7 @@
         </div>
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav__brand">
             <div class="nav__logo-bg">
-                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/logo-white.png" alt="Blue Raeven" class="nav__logo-img">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/logo-navy.png" alt="Blue Raeven" class="nav__logo-img">
             </div>
         </a>
         <div class="nav__links nav__links--right" id="navLinksRight">
@@ -27,5 +27,6 @@
             <span></span><span></span><span></span>
         </button>
     </div>
+    <div class="nav__hatch" aria-hidden="true"></div>
 </nav>
 <!-- /wp:html -->
