@@ -1869,6 +1869,18 @@ ul { list-style: none; }
   gap: 3rem;
   margin-bottom: 3rem;
 }
+.footer__inner--three-col {
+  grid-template-columns: 1fr 1.5fr 1fr;
+}
+.footer__hours {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(250,243,230,0.5);
+  margin-top: 0.25rem;
+}
+.footer__link-list--visit li {
+  margin-bottom: 1rem;
+}
 .footer__brand-name {
   font-family: var(--font-display);
   font-weight: 600; font-size: 1.1rem;
@@ -1928,7 +1940,7 @@ ul { list-style: none; }
     gap: 2.5rem;
   }
   .story__image-frame { aspect-ratio: 3/2; max-height: 350px; }
-  .footer__inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer__inner, .footer__inner--three-col { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .features { grid-template-columns: 1fr 1fr; }
   .pies-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
   .gallery { grid-template-columns: 1fr 1fr; }
@@ -1973,7 +1985,7 @@ ul { list-style: none; }
     height: 70px;
   }
   .features { grid-template-columns: 1fr; gap: 0; }
-  .footer__inner { grid-template-columns: 1fr; }
+  .footer__inner, .footer__inner--three-col { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .story__values { grid-template-columns: 1fr; }
   .hero__actions { flex-direction: column; align-items: center; }
