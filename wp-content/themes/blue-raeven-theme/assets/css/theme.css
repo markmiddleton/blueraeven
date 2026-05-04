@@ -325,6 +325,7 @@ ul { list-style: none; }
 }
 .nav__dropdown-trigger {
   cursor: pointer;
+  white-space: nowrap;
 }
 .nav__dropdown-trigger::after {
   content: '';
