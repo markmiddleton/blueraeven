@@ -10,7 +10,11 @@
 <!-- wp:html -->
 <footer class="footer">
     <div class="container">
-        <div class="footer__inner footer__inner--three-col">
+        <div class="footer__inner">
+            <div>
+                <div class="footer__brand-name">Blue <span>Raeven</span></div>
+                <p class="footer__brand-desc">Family heritage that delivers on community values. Local, fruit-forward, made with Oregon's finest fruit from our family farm.</p>
+            </div>
             <div>
                 <div class="footer__heading">Explore</div>
                 <ul class="footer__link-list">
@@ -46,6 +50,8 @@
         </div>
         <div class="footer__bottom">
             <span>&copy; <?php echo date('Y'); ?> Blue Raeven Farm &amp; Pie. All rights reserved.</span>
+            <span>Amity, Oregon</span>
+            <a href="https://brilliancenw.com" class="footer__credit">Site by Brilliance</a>
         </div>
     </div>
 </footer>
