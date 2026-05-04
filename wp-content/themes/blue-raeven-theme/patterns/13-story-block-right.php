@@ -14,16 +14,14 @@ $base_url = $uploads['baseurl'];
         <div class="story" style="direction: rtl;">
             <div style="direction: ltr;">
                 <div class="story__text">
-                    <h3>From Our Farm to Your Table</h3>
+                    <h3>Pies Fix Everything</h3>
                     <p>
-                        We take pride in every step of the process. From carefully tending
-                        our berry fields through the growing season, to hand-picking at
-                        the perfect moment of ripeness.
+                        Every pie begins long before it reaches your table. It starts in the fields, where we choose varieties for flavor, not production. We harvest berries at peak ripeness and freeze them to lock in flavor and juiciness year-round.
                     </p>
                     <p>
-                        Our pies aren't made in a factory. They're crafted in our kitchen,
-                        by people who care deeply about quality and tradition.
+                        As our team has grown, we still show up early, work hard, and treat everyone as an extension of our own family. We believe in supporting our neighbors, honoring our roots, and sharing the kind of pie goodness that brings people closer.
                     </p>
+                    <p><strong>Enjoy our pie and welcome to our family.</strong><br>&mdash; The Lewis Family</p>
                 </div>
             </div>
             <div style="direction: ltr;">

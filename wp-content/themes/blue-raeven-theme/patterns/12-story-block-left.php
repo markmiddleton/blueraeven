@@ -19,17 +19,12 @@ $base_url = $uploads['baseurl'];
                 <div class="story__frame-accent"></div>
             </div>
             <div class="story__text">
-                <h3>Rooted in Oregon Soil</h3>
+                <h3>Our Family, Our Farm, Our Pie Tradition</h3>
                 <p>
-                    What began as a family passion for growing the finest berries in
-                    Oregon's Willamette Valley has blossomed into something truly special.
-                    Blue Raeven is more than a farm &mdash; it's a gathering place where
-                    the land, the fruit, and the community come together.
+                    Our story began on a 4th generation family farm in Amity, Oregon, where Ron and Jamie Lewis have been building their legacy in the Willamette Valley since 1987, growing the kind of fruit that tastes like sunshine, rain, and hard work all at once.
                 </p>
                 <p>
-                    Every pie we bake starts in our fields. We grow the berries, pick
-                    them at their peak, and craft each pie by hand using recipes passed
-                    down through generations.
+                    In 2007, we decided that the best use for our family-grown fruit was to create delicious, hand-crafted pies. We believe a great pie starts with great local fruit.
                 </p>
                 <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="btn btn--navy">Read Our Story</a>
             </div>

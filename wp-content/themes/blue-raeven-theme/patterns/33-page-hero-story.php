@@ -10,7 +10,7 @@
 <div class="page-hero page-hero--navy">
     <div class="container">
         <h1 class="page-hero__title">Our Story</h1>
-        <p class="page-hero__script">Our family, our farm, our pie tradition.</p>
+        <p class="page-hero__script">Our Family, Our Farm, Our Pie Tradition</p>
         <div class="page-hero__divider"></div>
     </div>
 </div>
