@@ -319,6 +319,64 @@ ul { list-style: none; }
 .nav__links a.active {
   font-weight: 700;
 }
+/* Dropdown menus */
+.nav__dropdown {
+  position: relative;
+}
+.nav__dropdown-trigger {
+  cursor: pointer;
+}
+.nav__dropdown-trigger::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  vertical-align: middle;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.2s ease;
+}
+.nav__dropdown:hover .nav__dropdown-trigger::after {
+  transform: rotate(180deg);
+}
+.nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  background: var(--cream);
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(26, 58, 107, 0.15);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 1000;
+}
+.nav__dropdown:hover .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.nav__dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.nav__dropdown-menu a:hover {
+  color: var(--berry);
+  background: rgba(138, 32, 64, 0.06);
+}
 .nav__toggle {
   display: none;
   flex-direction: column;
@@ -1888,6 +1946,23 @@ ul { list-style: none; }
   .nav__links.open { display: flex; }
   .nav__toggle { display: flex; }
   .nav__links a { padding: 0.75rem 1rem; font-size: 0.9rem; }
+  /* Mobile dropdown styles */
+  .nav__dropdown { position: static; }
+  .nav__dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    background: transparent;
+    padding: 0 0 0 1rem;
+    min-width: auto;
+  }
+  .nav__dropdown-menu a {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .nav__dropdown-trigger::after { display: none; }
   .nav__logo-bg {
     padding: 0.75rem 1.25rem 1rem;
   }
