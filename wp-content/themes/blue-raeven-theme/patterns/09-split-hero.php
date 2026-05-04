@@ -14,11 +14,10 @@ $base_url = $uploads['baseurl'];
         <img src="<?php echo esc_url( $base_url ); ?>/2026/04/pies_flatlay.jpg" alt="Berry pies flat lay" style="width:100%;height:100%;object-fit:cover;">
     </div>
     <div class="pie-hero-split__text">
-        <h2>Baked Fresh Daily</h2>
-        <div class="script">Reminiscent of the good ol' days</div>
+        <h2>The Blue Raeven Difference</h2>
+        <div class="script">Fruit-Forward Flavor</div>
         <p>
-            Every Blue Raeven pie starts with fruit from our own fields. We hand-pick
-            at peak ripeness and bake in small batches using family recipes.
+            Every Blue Raeven pie and gourmet jam starts with fruit from our own fields or local producers. We hand-pick at peak ripeness and bake in small batches using family recipes. No preservatives, no fillers &mdash; just honest, fruit-forward flavor in a flaky crust.
         </p>
     </div>
 </div>

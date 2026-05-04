@@ -13,17 +13,17 @@
             <div class="contact-method">
                 <div class="contact-method__title">Visit Us</div>
                 <div class="contact-method__text">
-                    20650 S. Hwy 99W<br>
-                    Amity, Oregon 97101<br>
-                    <a href="<?php echo esc_url( home_url( '/visit/' ) ); ?>">Get Directions</a>
+                    Amity Farmstand &amp; McMinnville Pie Shop<br>
+                    See hours &amp; locations<br>
+                    <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Get Directions</a>
                 </div>
             </div>
             <div class="contact-method">
                 <div class="contact-method__title">Call Us</div>
                 <div class="contact-method__text">
-                    (503) 555-0142<br>
-                    Mon&ndash;Sat, 9am&ndash;6pm<br>
-                    <a href="tel:5035550142">Give Us a Ring</a>
+                    (503) 835-0740<br>
+                    Mon&ndash;Sat, 9am&ndash;5:30pm<br>
+                    <a href="tel:5038350740">Give Us a Ring</a>
                 </div>
             </div>
             <div class="contact-method">
