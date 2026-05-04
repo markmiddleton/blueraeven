@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="nav__dropdown">
-                <a href="<?php echo esc_url( home_url( '/pies-more/' ) ); ?>" class="nav__dropdown-trigger">Our Pies &amp; More</a>
+                <a href="<?php echo esc_url( home_url( '/pies-more/' ) ); ?>" class="nav__dropdown-trigger">Pies &amp; More</a>
                 <div class="nav__dropdown-menu">
                     <a href="<?php echo esc_url( home_url( '/pies-more/pies/' ) ); ?>">Pies</a>
                     <a href="<?php echo esc_url( home_url( '/pies-more/jams-spreads/' ) ); ?>">Jams &amp; Spreads</a>
@@ -36,7 +36,7 @@
         </a>
         <div class="nav__links nav__links--right" id="navLinksRight">
             <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Farmstand</a>
-            <a href="<?php echo esc_url( home_url( '/wholesale-fundraising/' ) ); ?>">Wholesale &amp; Fundraising</a>
+            <a href="<?php echo esc_url( home_url( '/wholesale-fundraising/' ) ); ?>">Wholesale</a>
             <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a>
         </div>
         <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
