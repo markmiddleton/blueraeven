@@ -322,6 +322,8 @@ ul { list-style: none; }
 /* Dropdown menus */
 .nav__dropdown {
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 .nav__dropdown-trigger {
   cursor: pointer;
