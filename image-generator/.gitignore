@@ -1,0 +1,14 @@
+# Environment variables (contains API keys)
+.env
+
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated images (optional - remove if you want to track them)
+*.jpg
+*.png
+*.webp

@@ -1876,7 +1876,27 @@ ul { list-style: none; }
   display: block;
   font-size: 0.75rem;
   color: rgba(250,243,230,0.5);
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
+}
+.footer__location-name {
+  font-weight: 600;
+  display: block;
+}
+.footer__social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.footer__social a {
+  color: rgba(180, 195, 220, 0.7);
+  transition: color 0.2s ease;
+}
+.footer__social a:hover {
+  color: rgba(180, 195, 220, 1);
+}
+.footer__social svg {
+  width: 18px;
+  height: 18px;
 }
 .footer__link-list--visit li {
   margin-bottom: 1rem;
