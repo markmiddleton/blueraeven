@@ -22,16 +22,14 @@ $base_url = $uploads['baseurl'];
         <button class="hero__indicator" data-slide="2" aria-label="Slide 3"></button>
     </div>
     <div class="hero__content">
-        <div class="hero__badge">Oregon Family Farm</div>
-        <h1 class="hero__title"><span class="hero__title-line">Blue <em>Raeven</em></span></h1>
-        <p class="hero__script">because great pie begins with great fruit.</p>
+        <h1 class="hero__title"><span class="hero__title-line">Blue <em>Raeven</em> Pie Company</span></h1>
+        <p class="hero__script">Because Pie Fixes Everything &reg;</p>
         <p class="hero__desc">
-            From our family farm to your table &mdash; handcrafted pies made with
-            Oregon's finest fruit, baked with heritage and served with love.
+            From our family farm to your table &ndash; handcrafted pies and preserves made with our own fruit, baked with our family recipes, and served with love.
         </p>
         <div class="hero__actions">
-            <a href="<?php echo esc_url( home_url( '/products/' ) ); ?>" class="btn btn--primary">Explore Our Pies</a>
-            <a href="<?php echo esc_url( home_url( '/visit/' ) ); ?>" class="btn btn--outline">Visit the Farm Stand</a>
+            <a href="<?php echo esc_url( home_url( '/pies-more/' ) ); ?>" class="btn btn--primary">Explore Our Pies</a>
+            <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>" class="btn btn--outline">Visit the Farm Stand</a>
         </div>
     </div>
 </section>
