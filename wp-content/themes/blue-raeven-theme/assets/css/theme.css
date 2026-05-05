@@ -2055,3 +2055,63 @@ ul { list-style: none; }
   .gallery { grid-template-columns: 1fr; }
   .season-banner__inner { flex-direction: column; gap: 0.5rem; }
 }
+
+/* ---------- DOWNLOAD CARDS ---------- */
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .download-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.download-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.download-card:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+  border-color: var(--gold);
+}
+.download-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.download-card__icon--pdf {
+  background: #dc3545;
+  color: white;
+}
+.download-card__icon--excel {
+  background: #198754;
+  color: white;
+}
+.download-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.download-card__desc {
+  font-size: 0.85rem;
+  color: rgba(250, 243, 230, 0.75);
+  line-height: 1.5;
+}
