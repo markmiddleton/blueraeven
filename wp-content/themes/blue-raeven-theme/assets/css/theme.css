@@ -963,8 +963,8 @@ ul { list-style: none; }
   display: flex; flex-direction: column; gap: 1.5rem;
 }
 .info-block {
-  padding: 2.5rem 3rem 2.75rem;
-  background: transparent url('../images/torn-paper-kraft-3.png') no-repeat center/100% 100%;
+  padding: 2.5rem 2rem 2.75rem;
+  background: transparent url('../images/torn-paper-kraft-3.png') no-repeat center/115% 110%;
   border-radius: 0;
   box-shadow: none;
   border: none;
