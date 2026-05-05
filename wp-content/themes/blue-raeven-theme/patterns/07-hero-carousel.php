@@ -9,7 +9,7 @@ $theme_url = get_template_directory_uri();
 ?>
 <!-- wp:html -->
 <section class="hero hero--pan">
-    <div class="hero__pan-image" style="background-image: url('<?php echo esc_url( $theme_url ); ?>/assets/images/blue-raeven-hero-v2.jpg');"></div>
+    <div class="hero__pan-image" style="background-image: url('<?php echo esc_url( $theme_url ); ?>/assets/images/blue-raeven-farmtable.jpg');"></div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
         <h1 class="hero__title"><span class="hero__title-line">Blue <em>Raeven</em> Pie Company</span></h1>
