@@ -579,7 +579,7 @@ ul { list-style: none; }
   background-position: 0 center;
   background-repeat: repeat-x;
   animation:
-    heroPan 240s linear infinite,
+    heroPan 65s linear infinite,
     heroZoom 20s ease-in-out infinite alternate;
 }
 @keyframes heroPan {
@@ -587,7 +587,7 @@ ul { list-style: none; }
     background-position: 0 center;
   }
   100% {
-    background-position: -10000px center;
+    background-position: -2728px center; /* Exact image width for seamless loop */
   }
 }
 @keyframes heroZoom {
