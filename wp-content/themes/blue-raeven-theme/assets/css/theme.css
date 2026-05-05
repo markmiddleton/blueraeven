@@ -565,6 +565,40 @@ ul { list-style: none; }
 .hero__slide.active {
   opacity: 1;
 }
+
+/* Hero with slow pan (Ken Burns) effect */
+.hero--pan {
+  min-height: 100vh;
+}
+.hero__pan-image {
+  position: absolute;
+  inset: -8%; /* Extra room for zoom */
+  width: 116%;
+  height: 116%;
+  background-size: auto 100%; /* Natural aspect ratio, full height */
+  background-position: 0 center;
+  background-repeat: repeat-x;
+  animation:
+    heroPan 240s linear infinite,
+    heroZoom 20s ease-in-out infinite alternate;
+}
+@keyframes heroPan {
+  0% {
+    background-position: 0 center;
+  }
+  100% {
+    background-position: -10000px center;
+  }
+}
+@keyframes heroZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+
 .hero__overlay {
   position: absolute;
   inset: 0;
