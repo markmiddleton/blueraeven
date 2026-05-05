@@ -579,8 +579,8 @@ ul { list-style: none; }
   background-position: 0 center;
   background-repeat: repeat-x;
   animation:
-    heroPan 65s linear infinite,
-    heroZoom 20s ease-in-out infinite alternate;
+    heroPan 80s linear infinite,
+    heroZoom 40s ease-in-out infinite alternate;
 }
 @keyframes heroPan {
   0% {
