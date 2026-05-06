@@ -7,21 +7,50 @@
     // Mobile nav toggle
     function initMobileNav() {
         const toggle = document.getElementById('navToggle');
-        const linksLeft = document.getElementById('navLinksLeft');
-        const linksRight = document.getElementById('navLinksRight');
+        const mobileMenu = document.getElementById('navMobileMenu');
 
-        if (!toggle) return;
+        if (!toggle || !mobileMenu) return;
 
+        // Toggle mobile menu
         toggle.addEventListener('click', function() {
-            if (linksLeft) linksLeft.classList.toggle('open');
-            if (linksRight) linksRight.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            toggle.classList.toggle('active');
         });
 
-        document.querySelectorAll('.nav__links a').forEach(function(a) {
-            a.addEventListener('click', function() {
-                if (linksLeft) linksLeft.classList.remove('open');
-                if (linksRight) linksRight.classList.remove('open');
+        // Accordion dropdowns
+        const dropdownTriggers = mobileMenu.querySelectorAll('.nav__mobile-dropdown-trigger');
+        dropdownTriggers.forEach(function(trigger) {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdown = trigger.closest('.nav__mobile-dropdown');
+
+                // Close other open dropdowns
+                dropdownTriggers.forEach(function(otherTrigger) {
+                    const otherDropdown = otherTrigger.closest('.nav__mobile-dropdown');
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('open');
+                    }
+                });
+
+                // Toggle this dropdown
+                dropdown.classList.toggle('open');
             });
+        });
+
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                toggle.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
+                mobileMenu.classList.remove('open');
+                toggle.classList.remove('active');
+            }
         });
     }
 
