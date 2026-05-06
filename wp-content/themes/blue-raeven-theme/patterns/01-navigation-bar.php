@@ -15,8 +15,7 @@
             <div class="nav__dropdown">
                 <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__dropdown-trigger">Our Story</a>
                 <div class="nav__dropdown-menu">
-                    <a href="<?php echo esc_url( home_url( '/story/family-farm/' ) ); ?>">Family Farm</a>
-                    <a href="<?php echo esc_url( home_url( '/story/fruit-from-the-farm/' ) ); ?>">Fruit From The Farm</a>
+                    <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
                 </div>
             </div>
             <div class="nav__dropdown">
@@ -54,8 +53,7 @@
             </button>
             <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__mobile-parent-link">Our Story Overview</a>
             <div class="nav__mobile-submenu">
-                <a href="<?php echo esc_url( home_url( '/story/family-farm/' ) ); ?>">Family Farm</a>
-                <a href="<?php echo esc_url( home_url( '/story/fruit-from-the-farm/' ) ); ?>">Fruit From The Farm</a>
+                <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
             </div>
         </div>
         <div class="nav__mobile-dropdown">
