@@ -34,7 +34,7 @@
             </div>
         </a>
         <div class="nav__links nav__links--right" id="navLinksRight">
-            <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Farmstand</a>
+            <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Find Us</a>
             <a href="<?php echo esc_url( home_url( '/wholesale-fundraising/' ) ); ?>">Wholesale</a>
             <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a>
         </div>
@@ -69,7 +69,7 @@
                 <a href="<?php echo esc_url( home_url( '/pies-more/baking-instructions-faqs/' ) ); ?>">Baking Instructions &amp; FAQs</a>
             </div>
         </div>
-        <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Farmstand</a>
+        <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Find Us</a>
         <a href="<?php echo esc_url( home_url( '/wholesale-fundraising/' ) ); ?>">Wholesale</a>
         <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a>
     </div>
