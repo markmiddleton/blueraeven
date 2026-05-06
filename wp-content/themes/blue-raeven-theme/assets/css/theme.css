@@ -2357,3 +2357,51 @@ ul { list-style: none; }
   color: rgba(250, 243, 230, 0.75);
   line-height: 1.5;
 }
+
+/* ---------- FAQ ACCORDIONS ---------- */
+.wp-block-details {
+  background: white;
+  border: 1px solid rgba(26, 58, 107, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+.wp-block-details:hover {
+  box-shadow: 0 2px 8px rgba(26, 58, 107, 0.1);
+}
+.wp-block-details summary {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.wp-block-details summary::-webkit-details-marker {
+  display: none;
+}
+.wp-block-details summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--berry);
+  transition: transform 0.2s ease;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+.wp-block-details[open] summary::after {
+  content: '−';
+}
+.wp-block-details[open] summary {
+  border-bottom: 1px solid rgba(26, 58, 107, 0.1);
+}
+.wp-block-details > *:not(summary) {
+  padding: 0 1.25rem 1rem;
+}
+.wp-block-details p {
+  margin-top: 1rem;
+}
