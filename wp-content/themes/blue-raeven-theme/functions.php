@@ -162,6 +162,20 @@ function blue_raeven_end_output_buffer() {
 add_action( 'wp_head', 'blue_raeven_start_output_buffer', -9999 );
 add_action( 'wp_footer', 'blue_raeven_end_output_buffer', 9999 );
 
+/**
+ * Add custom favicon links
+ */
+function blue_raeven_favicon_links() {
+    ?>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <?php
+}
+add_action( 'wp_head', 'blue_raeven_favicon_links', 1 );
+
 // Also try to prevent WordPress from generating them in the first place
 add_filter( 'wp_theme_json_data_theme', function( $theme_json ) {
     $data = $theme_json->get_data();
