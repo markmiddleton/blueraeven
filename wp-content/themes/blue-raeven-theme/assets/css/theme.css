@@ -155,6 +155,43 @@ ul { list-style: none; }
   padding: 0 clamp(1.25rem, 4vw, 2.5rem);
 }
 
+/* ---------- WORDPRESS BLOCK CONTENT SPACING ---------- */
+/* Default spacing for block content on pages */
+.wp-block-group p.has-text-color {
+  line-height: 1.9;
+}
+/* Only set default margin if no inline style is present */
+.wp-block-group p.has-text-color:not([style*="margin-bottom"]) {
+  margin-bottom: 2rem;
+}
+.wp-block-group h2.wp-block-heading {
+  margin-bottom: 0.5rem;
+}
+.wp-block-group h3.wp-block-heading {
+  margin-top: 3.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+/* Subtitle after h3 - tight to title, space below before content */
+.wp-block-group h3.wp-block-heading + p {
+  margin-bottom: 2.5rem !important;
+}
+/* Taglines after section headings need space below */
+.wp-block-group h2.wp-block-heading + p {
+  margin-bottom: 3rem !important;
+}
+.wp-block-group .wp-block-buttons {
+  margin-top: 3rem !important;
+}
+/* Section containers need adequate padding */
+.wp-block-group.alignfull.has-background {
+  padding-top: clamp(4rem, 8vw, 6rem) !important;
+  padding-bottom: clamp(4rem, 8vw, 6rem) !important;
+}
+/* Ensure proper spacing between adjacent groups */
+.wp-block-group + .wp-block-group {
+  margin-top: 0;
+}
+
 /* ---------- STRIPE BORDERS ---------- */
 /* Stripe borders removed per client request */
 .stripe-border,
@@ -1124,6 +1161,7 @@ ul { list-style: none; }
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   letter-spacing: 2px;
   text-transform: uppercase;
+  color: var(--cream);
   margin-bottom: 0.5rem;
 }
 .pie-hero-split__text .script {
@@ -1232,7 +1270,7 @@ ul { list-style: none; }
   font-size: 0.65rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--berry);
   margin-bottom: 0.5rem;
 }
 .pie-feature__name {
@@ -1607,8 +1645,8 @@ ul { list-style: none; }
 }
 .contact-method {
   text-align: center;
-  padding: 3rem 2rem 3.25rem;
-  background: transparent url('../images/torn-paper-kraft-5.png') no-repeat center/100% 100%;
+  padding: 3rem 2.5rem 3.25rem;
+  background: transparent url('../images/torn-paper-kraft-5.png') no-repeat center/130% 120%;
   border-radius: 0;
   box-shadow: none;
   border: none;
@@ -2180,7 +2218,7 @@ ul { list-style: none; }
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 3rem auto 0;
 }
 @media (max-width: 600px) {
   .download-grid {
