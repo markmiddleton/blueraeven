@@ -1975,6 +1975,9 @@ ul { list-style: none; }
 .timeline__images img.crop-top {
   object-position: top;
 }
+.timeline__images img.crop-bottom {
+  object-position: bottom;
+}
 .timeline__images--single img {
   width: 100%;
   max-width: 300px;

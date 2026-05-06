@@ -57,7 +57,7 @@
                 <div class="timeline__text">With our third and fourth generations working side by side, we're now welcoming the fifth generation into the joys of family farming. The littles wander the fields, pick berries straight from the vine, and savor the fruits of our labor one pie at a time.</div>
                 <div class="timeline__images">
                     <img src="/wp-content/uploads/2024/timeline/child-picking-berries.jpg" alt="Child picking blueberries" loading="lazy">
-                    <img src="/wp-content/uploads/2024/timeline/family-barn.jpg" alt="Lewis family at the barn" loading="lazy">
+                    <img src="/wp-content/uploads/2024/timeline/family-barn.jpg" alt="Lewis family at the barn" class="crop-bottom" loading="lazy">
                 </div>
             </div>
         </div>
