@@ -20,7 +20,7 @@
                 <div class="timeline__year">Planting Roots</div>
                 <div class="timeline__text">The Lewis family traces its farming roots back generations in the Willamette Valley. From that moment on, each generation was raised on the same principles—hard work, stewardship of the land, and a deep belief in family traditions.</div>
                 <div class="timeline__images">
-                    <img src="/wp-content/uploads/2024/timeline/planting-roots-family.jpg" alt="Lewis family vintage photo" loading="lazy">
+                    <img src="/wp-content/uploads/2024/timeline/planting-roots-family.jpg" alt="Lewis family vintage photo" class="crop-top" loading="lazy">
                     <img src="/wp-content/uploads/2024/timeline/planting-roots-kids.jpg" alt="Children in the fields" loading="lazy">
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="timeline__text">Blue Raeven Pie Company was born. Because Ronald and Jamie remain deeply involved in every part of the growing process, they wanted to find the highest and best use for their fruit—building from their family recipes to create hand-crafted pies.</div>
                 <div class="timeline__images">
                     <img src="/wp-content/uploads/2024/timeline/farmstand-building.jpg" alt="Blue Raeven Farm Stand" loading="lazy">
-                    <img src="/wp-content/uploads/2024/timeline/ronald-icecream.jpg" alt="Ronald with ice cream" loading="lazy">
+                    <img src="/wp-content/uploads/2024/timeline/ronald-icecream.jpg" alt="Ronald with ice cream" class="crop-top" loading="lazy">
                 </div>
             </div>
             <div class="timeline__item">

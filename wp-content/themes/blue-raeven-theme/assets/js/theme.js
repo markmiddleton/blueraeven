@@ -70,6 +70,56 @@
         });
     }
 
+    // Lightbox for timeline images
+    function initLightbox() {
+        // Create lightbox element
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox__content">
+                <button class="lightbox__close" aria-label="Close">&times;</button>
+                <img src="" alt="">
+                <div class="lightbox__caption"></div>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxCaption = lightbox.querySelector('.lightbox__caption');
+        const closeBtn = lightbox.querySelector('.lightbox__close');
+
+        // Open lightbox on timeline image click
+        document.querySelectorAll('.timeline__images img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxCaption.textContent = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
+
     // Hero carousel
     function initHeroCarousel() {
         const slides = document.querySelectorAll('.hero__slide');
@@ -121,6 +171,7 @@
         initMobileNav();
         initActiveNav();
         initHeroCarousel();
+        initLightbox();
     });
 
 })();
