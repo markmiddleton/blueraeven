@@ -2619,3 +2619,45 @@ ul { list-style: none; }
   background: var(--berry-light);
   color: white;
 }
+
+/* ---------- PRODUCT NAVIGATION CARDS ---------- */
+.product-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 900px) {
+  .product-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .product-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.product-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(26, 58, 107, 0.08);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(26, 58, 107, 0.08);
+}
+.product-nav__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(26, 58, 107, 0.12);
+  border-color: var(--berry);
+}
+.product-nav__title {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+}
