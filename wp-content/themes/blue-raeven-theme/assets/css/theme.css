@@ -2405,3 +2405,142 @@ ul { list-style: none; }
 .wp-block-details p {
   margin-top: 1rem;
 }
+
+/* ---------- BAKING INSTRUCTIONS PAGE ---------- */
+.instructions-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(26, 58, 107, 0.08);
+}
+.instructions-card__title {
+  font-family: var(--font-header-primary);
+  font-size: 1.5rem;
+  color: var(--berry);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: 0.5px;
+}
+.instructions-card__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--warmgray);
+  margin: 0 0 1.25rem 0;
+  font-style: italic;
+}
+.instructions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.instructions-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+}
+.instructions-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.instructions-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin-top: 3rem;
+}
+.faq-section__title {
+  font-family: var(--font-header-primary);
+  font-size: 1.75rem;
+  color: var(--navy);
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Smooth Accordion Animation */
+.faq-item {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 4px rgba(26, 58, 107, 0.06);
+  overflow: hidden;
+  border: 1px solid rgba(26, 58, 107, 0.08);
+}
+.faq-item summary {
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.4;
+  transition: background 0.2s ease;
+}
+.faq-item summary:hover {
+  background: rgba(26, 58, 107, 0.02);
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--berry);
+  margin-left: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq-item[open] summary {
+  background: rgba(26, 58, 107, 0.02);
+}
+
+/* Smooth content animation using grid */
+.faq-item .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.faq-item[open] .faq-answer {
+  grid-template-rows: 1fr;
+}
+.faq-item .faq-answer > div {
+  overflow: hidden;
+}
+.faq-item .faq-answer p {
+  padding: 0 1.5rem 1.25rem;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--warmgray);
+}
+
+/* Fallback for browsers without grid animation support */
+.faq-item > p {
+  padding: 0 1.5rem 1.25rem;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--warmgray);
+}
