@@ -2579,9 +2579,9 @@ ul { list-style: none; }
 /* Section Titles */
 .section-title {
   font-family: var(--font-header-primary);
-  font-size: 1.6rem;
+  font-size: 1.15rem;
   letter-spacing: 0.5px;
-  margin: 0 0 1.25rem 0;
+  margin: 0 0 1rem 0;
 }
 .section-title--berry {
   color: var(--berry);
