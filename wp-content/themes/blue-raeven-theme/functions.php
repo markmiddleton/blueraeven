@@ -91,11 +91,14 @@ function blue_raeven_enqueue_assets() {
     );
 
     // Enqueue main theme CSS (exact copy from static site)
+    // Use filemtime for cache busting - automatically updates when file changes
+    $theme_css_path = BLUE_RAEVEN_DIR . '/assets/css/theme.css';
+    $theme_css_version = file_exists( $theme_css_path ) ? filemtime( $theme_css_path ) : BLUE_RAEVEN_VERSION;
     wp_enqueue_style(
         'blue-raeven-theme',
         BLUE_RAEVEN_URI . '/assets/css/theme.css',
         array( 'blue-raeven-adobe-fonts', 'blue-raeven-local-fonts' ),
-        BLUE_RAEVEN_VERSION
+        $theme_css_version
     );
 
     // Enqueue WordPress style.css (for block editor styles)
