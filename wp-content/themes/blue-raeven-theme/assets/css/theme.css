@@ -309,7 +309,7 @@ ul { list-style: none; }
   top: 20px;
 }
 .nav__logo-img {
-  height: 120px;
+  height: 144px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
