@@ -166,12 +166,48 @@
         startAutoSlide();
     }
 
+    // Interactive pie cards (mobile tap to reveal)
+    function initPieCards() {
+        const pieCards = document.querySelectorAll('.pie-card');
+
+        if (pieCards.length === 0) return;
+
+        pieCards.forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                // Check if we're on a touch device
+                if (window.matchMedia('(hover: none)').matches) {
+                    e.preventDefault();
+
+                    // Close other open cards
+                    pieCards.forEach(function(otherCard) {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('is-active');
+                        }
+                    });
+
+                    // Toggle this card
+                    card.classList.toggle('is-active');
+                }
+            });
+        });
+
+        // Close cards when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.pie-card')) {
+                pieCards.forEach(function(card) {
+                    card.classList.remove('is-active');
+                });
+            }
+        });
+    }
+
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', function() {
         initMobileNav();
         initActiveNav();
         initHeroCarousel();
         initLightbox();
+        initPieCards();
     });
 
 })();

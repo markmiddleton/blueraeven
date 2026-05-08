@@ -2690,3 +2690,156 @@ ul { list-style: none; }
   color: var(--navy);
   line-height: 1.3;
 }
+
+/* ---------- INTERACTIVE PIE CARDS ---------- */
+.pie-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+@media (max-width: 900px) {
+  .pie-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .pie-cards {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.pie-card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(26, 58, 107, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(26, 58, 107, 0.15);
+}
+
+/* Bottom layer - pie image (static) */
+.pie-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Square aspect ratio */
+  overflow: hidden;
+}
+
+.pie-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Top layer - title + description (slides) */
+.pie-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  text-align: center;
+  /* Default: positioned so only title shows at bottom */
+  transform: translateY(calc(100% - 70px));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.pie-card__overlay-title {
+  font-family: var(--font-header-primary);
+  font-size: 1.4rem;
+  color: var(--berry);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.pie-card__overlay-subtitle {
+  font-family: var(--font-script);
+  font-size: 0.95rem;
+  color: var(--warmgray);
+  margin: 0.25rem 0 0;
+  font-style: italic;
+}
+
+.pie-card__description {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin: 1.25rem 0 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pie-card__tap-hint {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--warmgray);
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}
+
+/* Desktop hover state - slide up to cover image */
+@media (hover: hover) {
+  .pie-card:hover .pie-card__overlay {
+    transform: translateY(0);
+  }
+
+  .pie-card__tap-hint {
+    display: none;
+  }
+}
+
+/* Mobile/touch - click to expand */
+@media (hover: none) {
+  .pie-card.is-active .pie-card__overlay {
+    transform: translateY(0);
+  }
+}
+
+/* Placeholder image for pies without photos */
+.pie-card__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--cream-warm) 0%, var(--cream) 100%);
+}
+
+.pie-card__placeholder-icon {
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
+}
+
+.pie-card__placeholder-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--berry);
+}
