@@ -120,12 +120,15 @@
         });
     }
 
-    // Hero carousel
+    // Hero carousel (for simple image-only carousels)
+    // Skips if videos are present - those are handled by inline scripts
     function initHeroCarousel() {
         const slides = document.querySelectorAll('.hero__slide');
         const indicators = document.querySelectorAll('.hero__indicator');
 
+        // Skip if no slides or if videos present (handled by inline script)
         if (slides.length === 0) return;
+        if (document.querySelector('.hero__slide video')) return;
 
         let currentSlide = 0;
         let autoSlideInterval;
