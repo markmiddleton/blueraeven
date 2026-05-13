@@ -1015,8 +1015,8 @@ ul { list-style: none; }
 /* ---------- FARM STAND ---------- */
 .farmstand-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
 }
 .farmstand__sign {
   position: relative;
@@ -1078,7 +1078,9 @@ ul { list-style: none; }
   border: none;
   filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
 }
-.info-block:nth-child(2) { background-image: url('../images/torn-paper-kraft-4.png'); }
+.info-block:nth-child(1) { background-image: url('../images/torn-paper-kraft-1.png'); }
+.info-block:nth-child(2) { background-image: url('../images/torn-paper-kraft-3.png'); }
+.info-block:nth-child(3) { background-image: url('../images/torn-paper-kraft-4.png'); }
 .info-block:hover { filter: drop-shadow(0 10px 22px rgba(0,0,0,0.22)); }
 .info-block__title {
   font-family: var(--font-display);
@@ -1101,6 +1103,27 @@ ul { list-style: none; }
   text-align: center;
 }
 .info-block__text strong { color: var(--berry); font-weight: 700; }
+.info-block__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.info-block__list li {
+  margin-bottom: 0.5rem;
+}
+.info-block__list a {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.info-block__list a:hover {
+  color: var(--berry);
+  text-decoration: underline;
+}
 .map-placeholder {
   margin-top: 2rem;
   aspect-ratio: 16/7;

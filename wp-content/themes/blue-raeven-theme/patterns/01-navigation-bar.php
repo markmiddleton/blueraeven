@@ -41,7 +41,7 @@
             <span></span><span></span><span></span>
         </button>
     </div>
-    <div class="nav__hatch" aria-hidden="true"></div>
+    <div class="picket-fence-separator" aria-hidden="true"></div>
     <!-- Mobile Menu Panel -->
     <div class="nav__mobile-menu" id="navMobileMenu">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>

@@ -7,5 +7,5 @@
  */
 ?>
 <!-- wp:html -->
-<div class="picket-fence-separator" aria-hidden="true"></div>
+<div class="nav__hatch" aria-hidden="true"></div>
 <!-- /wp:html -->
