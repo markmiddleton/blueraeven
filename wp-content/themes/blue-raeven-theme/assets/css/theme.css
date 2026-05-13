@@ -2590,7 +2590,6 @@ ul { list-style: none; }
   font-weight: 500;
   color: var(--navy);
   line-height: 1.4;
-  background: rgba(26, 58, 107, 0.02);
 }
 .faq-item--open .faq-answer {
   display: block;
