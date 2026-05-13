@@ -736,8 +736,8 @@ ul { list-style: none; }
   margin-bottom: 2rem;
 }
 .hero__title {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-hero-title);
+  font-weight: 400;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 0.6;
   color: var(--cream);
