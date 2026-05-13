@@ -284,8 +284,6 @@ ul { list-style: none; }
   z-index: 1000;
   background: rgba(250, 243, 230, 0.97);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(26, 58, 107, 0.08);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 /* WordPress admin bar offset */
 .admin-bar .nav {
@@ -440,17 +438,8 @@ ul { list-style: none; }
 }
 .nav__hatch {
   height: 14px;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent 0px,
-      transparent 6px,
-      rgba(250, 243, 230, 0.9) 6px,
-      rgba(250, 243, 230, 0.9) 8px
-    ),
-    url('../images/wood-bg.jpg') center/cover no-repeat;
-  border-top: 1px solid rgba(0, 0, 0, 0.18);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  background: url('../images/block-tiles.png') repeat-x;
+  background-size: auto 14px;
 }
 
 /* ---------- BUTTONS ---------- */
