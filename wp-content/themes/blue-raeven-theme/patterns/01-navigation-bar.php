@@ -30,7 +30,7 @@
             </div>
         </div>
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav__brand">
-            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/blue-raeven-cloth-logo.png" alt="Blue Raeven" class="nav__logo-img">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/blue-raeven-farms-logo.png" alt="Blue Raeven" class="nav__logo-img">
         </a>
         <div class="nav__links nav__links--right" id="navLinksRight">
             <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Find Us</a>
