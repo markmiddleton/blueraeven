@@ -2574,6 +2574,39 @@ ul { list-style: none; }
   color: var(--warmgray);
 }
 
+/* Non-collapsible FAQ items (always open) */
+.faq-item--open {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 4px rgba(26, 58, 107, 0.06);
+  overflow: hidden;
+  border: 1px solid rgba(26, 58, 107, 0.08);
+}
+.faq-item--open .faq-item__question {
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.4;
+  background: rgba(26, 58, 107, 0.02);
+}
+.faq-item--open .faq-answer {
+  display: block;
+}
+.faq-item--open .faq-answer > div {
+  overflow: visible;
+}
+.faq-item--open .faq-answer p {
+  padding: 0 1.5rem 1.25rem;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--warmgray);
+}
+
 /* ---------- CONTENT PAGE FORMATTING ---------- */
 .content-block {
   margin-bottom: 2.5rem;

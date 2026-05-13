@@ -13,18 +13,18 @@
         <div class="nav__links nav__links--left" id="navLinksLeft">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
             <div class="nav__dropdown">
-                <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__dropdown-trigger">Our Story</a>
-                <div class="nav__dropdown-menu">
-                    <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
-                </div>
-            </div>
-            <div class="nav__dropdown">
                 <a href="<?php echo esc_url( home_url( '/pies-more/' ) ); ?>" class="nav__dropdown-trigger">Pies &amp; More</a>
                 <div class="nav__dropdown-menu">
                     <a href="<?php echo esc_url( home_url( '/pies-more/pies/' ) ); ?>">Pies</a>
                     <a href="<?php echo esc_url( home_url( '/pies-more/jams-spreads/' ) ); ?>">Jams &amp; Spreads</a>
                     <a href="<?php echo esc_url( home_url( '/pies-more/other-confections/' ) ); ?>">Other Confections</a>
                     <a href="<?php echo esc_url( home_url( '/pies-more/baking-instructions-faqs/' ) ); ?>">Baking Instructions &amp; FAQs</a>
+                </div>
+            </div>
+            <div class="nav__dropdown">
+                <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__dropdown-trigger">Our Story</a>
+                <div class="nav__dropdown-menu">
+                    <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
                 </div>
             </div>
         </div>
@@ -46,16 +46,6 @@
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
         <div class="nav__mobile-dropdown">
             <button class="nav__mobile-dropdown-trigger" type="button">
-                Our Story
-                <svg class="nav__mobile-arrow" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-            </button>
-            <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__mobile-parent-link">Our Story Overview</a>
-            <div class="nav__mobile-submenu">
-                <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
-            </div>
-        </div>
-        <div class="nav__mobile-dropdown">
-            <button class="nav__mobile-dropdown-trigger" type="button">
                 Pies &amp; More
                 <svg class="nav__mobile-arrow" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
             </button>
@@ -65,6 +55,16 @@
                 <a href="<?php echo esc_url( home_url( '/pies-more/jams-spreads/' ) ); ?>">Jams &amp; Spreads</a>
                 <a href="<?php echo esc_url( home_url( '/pies-more/other-confections/' ) ); ?>">Other Confections</a>
                 <a href="<?php echo esc_url( home_url( '/pies-more/baking-instructions-faqs/' ) ); ?>">Baking Instructions &amp; FAQs</a>
+            </div>
+        </div>
+        <div class="nav__mobile-dropdown">
+            <button class="nav__mobile-dropdown-trigger" type="button">
+                Our Story
+                <svg class="nav__mobile-arrow" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </button>
+            <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__mobile-parent-link">Our Story Overview</a>
+            <div class="nav__mobile-submenu">
+                <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
             </div>
         </div>
         <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Find Us</a>

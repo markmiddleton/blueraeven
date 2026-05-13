@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="timeline__item">
-                <div class="timeline__year">1987</div>
+                <div class="timeline__year">Raevenbrook Farms Began 1987</div>
                 <div class="timeline__text">Ronald and Jamie Lewis, third-generation farmers, made their home on Raevenbrook Farm in Amity, Oregon. Since then, the farm has blossomed into more than 130 acres of blueberries, boysenberries, marionberries, blackberries, tayberries, strawberries, apples, and peaches.</div>
                 <div class="timeline__images">
                     <img src="/wp-content/uploads/2024/timeline/raevenbrook-sign.png" alt="Raevenbrook Farms sign" loading="lazy">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="timeline__item">
-                <div class="timeline__year">2007</div>
+                <div class="timeline__year">Pies Introduced at Farmstand 2007</div>
                 <div class="timeline__text">Blue Raeven Pie Company was born. Because Ronald and Jamie remain deeply involved in every part of the growing process, they wanted to find the highest and best use for their fruit—building from their family recipes to create hand-crafted pies.</div>
                 <div class="timeline__images">
                     <img src="/wp-content/uploads/2024/timeline/farmstand-building.jpg" alt="Blue Raeven Farm Stand" loading="lazy">
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="timeline__item">
-                <div class="timeline__year">2017</div>
+                <div class="timeline__year">Pies Expand 2017</div>
                 <div class="timeline__text">As more people fell in love with our pies and a new generation stepped into the business, Blue Raeven moved into a dedicated commercial kitchen. We now bake thousands of pies each week, but every pie is still rolled, filled, and baked with the same care you'd find in our own family kitchen.</div>
                 <div class="timeline__images">
                     <img src="/wp-content/uploads/2024/timeline/store-demo.jpg" alt="Ronald and Jamie at store demo" loading="lazy">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="timeline__item">
-                <div class="timeline__year">2026</div>
+                <div class="timeline__year">Jams and More 2026</div>
                 <div class="timeline__text">We were finally certified to share our old-world jam and fruit spread recipes with wholesale partners. Our jams can now be found beyond our farmstands and in the stores you love.</div>
             </div>
             <div class="timeline__item">

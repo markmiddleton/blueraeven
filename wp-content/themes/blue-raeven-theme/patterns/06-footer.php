@@ -12,7 +12,7 @@
     <div class="container">
         <div class="footer__inner">
             <div>
-                <div class="footer__brand-name">Blue <span>Raeven</span></div>
+                <div class="footer__brand-name">Blue Raeven Farms</div>
                 <p class="footer__brand-desc">Family heritage that delivers on community values. Local, fruit-forward, made with Oregon's finest fruit from our family farm.</p>
             </div>
             <div>
