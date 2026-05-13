@@ -1,3 +1,4 @@
+<?php /* Force sync: 2026-05-13 */ ?>
 <?php
 /**
  * Title: Footer
