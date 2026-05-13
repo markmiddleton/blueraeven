@@ -2883,5 +2883,19 @@ ul { list-style: none; }
   height: 100%;
   fill: var(--berry);
 }
+/* Mobile padding for alignfull blocks */
+@media (max-width: 768px) {
+  .wp-block-group.alignfull.has-background {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .wp-block-group.alignfull .wp-block-columns {
+    flex-direction: column;
+  }
+  .wp-block-group.alignfull .wp-block-column {
+    flex-basis: 100% !important;
+  }
+}
+
 /* Deployed: Wed May 13 09:49:59 PDT 2026 */
 /* Force sync: 2026-05-13 */
