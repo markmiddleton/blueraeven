@@ -324,6 +324,32 @@ ul { list-style: none; }
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
+/* Desktop logo visible by default, mobile logo hidden */
+.nav__logo-img--mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .nav__logo-img--desktop {
+    display: none;
+  }
+  .nav__logo-img--mobile {
+    display: block;
+    width: auto !important;
+    height: 135px !important;
+    max-width: none !important;
+  }
+  .nav__brand {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    overflow: visible;
+  }
+  .nav__inner {
+    overflow: visible;
+  }
+}
 .nav__links {
   display: flex;
   gap: 2rem;
@@ -2886,14 +2912,19 @@ ul { list-style: none; }
 /* Mobile padding for alignfull blocks */
 @media (max-width: 768px) {
   .wp-block-group.alignfull.has-background {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .wp-block-group.alignfull .wp-block-columns {
     flex-direction: column;
   }
   .wp-block-group.alignfull .wp-block-column {
     flex-basis: 100% !important;
+  }
+  /* Page hero mobile padding */
+  .page-hero .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
