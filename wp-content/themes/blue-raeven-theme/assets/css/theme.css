@@ -765,7 +765,7 @@ ul { list-style: none; }
   font-family: var(--font-hero-title);
   font-weight: 400;
   font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 0.6;
+  line-height: 1;
   color: var(--cream);
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -777,6 +777,9 @@ ul { list-style: none; }
 }
 .hero__title-line {
   display: block;
+}
+.hero__title br {
+  display: none;
 }
 .hero__script {
   font-family: var(--font-script);
