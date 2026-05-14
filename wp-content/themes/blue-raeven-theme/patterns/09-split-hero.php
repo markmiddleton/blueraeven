@@ -15,7 +15,7 @@ $base_url = $uploads['baseurl'];
     </div>
     <div class="pie-hero-split__text">
         <h2>The Blue Raeven Difference</h2>
-        <div class="script">Fruit-Forward Flavor</div>
+        <div class="script">From Our Farm to Your Table</div>
         <p>
             Every Blue Raeven pie and gourmet jam starts with fruit from our own fields or local producers. We hand-pick at peak ripeness and bake in small batches using family recipes. No preservatives, no fillers &mdash; just honest, fruit-forward flavor in a flaky crust.
         </p>

@@ -541,6 +541,37 @@ ul { list-style: none; }
 .section--navy .container { width: 100%; max-width: var(--container-max); margin: 0 auto; }
 .section--navy .testimonial { margin-left: auto; margin-right: auto; }
 .section--kraft  { background: var(--cream-warm); }
+.section--gold-light { background: linear-gradient(180deg, #f5edd8 0%, #faf3e6 100%); }
+
+/* Retailer Links */
+.retailer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.retailer-link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--cream);
+  border: 2px solid var(--navy);
+  border-radius: 8px;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.retailer-link:hover {
+  background: var(--navy);
+  color: var(--cream);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 58, 107, 0.2);
+}
 
 .section--wood {
   position: relative;
@@ -849,7 +880,7 @@ ul { list-style: none; }
 }
 
 /* ---------- FEATURES ROW ---------- */
-.features { display: grid; grid-template-columns: repeat(3, minmax(200px, 280px)); gap: 2rem; text-align: center; justify-content: center; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 280px)); gap: 2rem; text-align: center; justify-content: center; }
 .feature {
   padding: 2rem 1rem;
   text-decoration: none;
@@ -2166,6 +2197,12 @@ ul { list-style: none; }
   margin-bottom: 0.75rem;
 }
 .footer__brand-name span { color: var(--gold); }
+.footer__brand-script {
+  font-family: var(--font-script);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
 .footer__brand-desc {
   font-size: 0.85rem;
   color: rgba(250,243,230,0.5);
