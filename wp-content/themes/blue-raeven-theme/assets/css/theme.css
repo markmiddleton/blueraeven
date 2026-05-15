@@ -1075,8 +1075,9 @@ ul { list-style: none; }
 /* ---------- FARM STAND ---------- */
 .farmstand-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
   gap: 2.5rem;
+  justify-content: center;
 }
 .farmstand__sign {
   position: relative;
