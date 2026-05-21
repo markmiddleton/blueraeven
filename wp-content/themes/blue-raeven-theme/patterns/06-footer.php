@@ -14,7 +14,7 @@
         <div class="footer__inner">
             <div>
                 <div class="footer__brand-name">Blue Raeven Farms</div>
-                <div class="footer__brand-script">From Our Farm to Your Table</div>
+                <div class="footer__brand-script">Handcrafted Pies from Our Farms</div>
                 <p class="footer__brand-desc">Family heritage that delivers on community values. Local, fruit-forward, made with Oregon's finest fruit from our family farm.</p>
             </div>
             <div>

@@ -1474,12 +1474,10 @@ ul { list-style: none; }
   overflow: hidden;
   background: white;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  border-top: 4px solid var(--green);
-  transition: transform 0.3s, border-top-color 0.3s;
+  transition: transform 0.3s;
 }
 .find-card:hover {
   transform: translateY(-4px);
-  border-top-color: var(--green-light);
 }
 .find-card__image {
   aspect-ratio: 3/2;
