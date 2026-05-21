@@ -732,11 +732,9 @@ ul { list-style: none; }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(15,37,69,0.4) 0%, rgba(15,37,69,0.6) 50%, rgba(15,37,69,0.8) 100%);
+  background: transparent;
   z-index: 1;
 }
-/* Hero gradient removed per client feedback */
 
 /* Carousel indicators */
 .hero__indicators {

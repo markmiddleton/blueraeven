@@ -14,9 +14,6 @@ $theme_url = get_template_directory_uri();
     <div class="hero__content">
         <h1 class="hero__title"><span class="hero__title-line">Blue <em>Raeven</em> Pie Company</span></h1>
         <p class="hero__script">Because Pie Fixes Everything &reg;</p>
-        <p class="hero__desc">
-            From our family farm to your table &ndash; handcrafted pies and preserves made with our own fruit, baked with our family recipes, and served with love.
-        </p>
         <div class="hero__actions">
             <a href="<?php echo esc_url( home_url( '/pies-more/' ) ); ?>" class="btn btn--primary">Explore Our Pies</a>
             <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>" class="btn btn--outline">Visit the Farm Stand</a>
