@@ -701,7 +701,7 @@
 <!-- /wp:heading -->
 <!-- wp:social-links {"iconColor":"navy","iconColorValue":"#1a3a6b","size":"has-normal-icon-size","style":{"spacing":{"blockGap":{"left":"1rem"}}},"className":"is-style-logos-only"} -->
 <ul class="wp-block-social-links has-normal-icon-size has-icon-color is-style-logos-only">
-<!-- wp:social-link {"url":"https://facebook.com/blueraeven","service":"facebook"} /-->
+<!-- wp:social-link {"url":"https://www.facebook.com/blueraevenpie","service":"facebook"} /-->
 <!-- wp:social-link {"url":"https://instagram.com/blueraeven","service":"instagram"} /-->
 </ul>
 <!-- /wp:social-links -->
