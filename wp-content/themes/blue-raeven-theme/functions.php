@@ -414,3 +414,17 @@ function blue_raeven_ocdi_after_import() {
     }
 }
 add_action( 'ocdi/after_import', 'blue_raeven_ocdi_after_import' );
+
+/**
+ * Redirect the "Pies & More" landing page to its Pies child page.
+ *
+ * The page itself stays published so its child pages keep their
+ * /pies-more/* URLs; we just 301 the parent landing view to /pies-more/pies/.
+ */
+function blue_raeven_redirect_pies_more() {
+    if ( is_page( 'pies-more' ) ) {
+        wp_safe_redirect( home_url( '/pies-more/pies/' ), 301 );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'blue_raeven_redirect_pies_more' );

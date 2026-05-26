@@ -14,7 +14,7 @@
         </p>
         <div class="farmstand-grid">
             <div class="info-block">
-                <div class="info-block__title">Blue Raeven Farmstand &ndash; Amity</div>
+                <div class="info-block__title">Blue Raeven Farmstand<br>Amity</div>
                 <div class="info-block__text">
                     <strong>20650 S Hwy 99W, Amity, OR 97101</strong><br><br>
                     Monday &ndash; Saturday: 9 AM to 5:30 PM<br>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="info-block">
-                <div class="info-block__title">Blue Raeven Pie Company &ndash; McMinnville</div>
+                <div class="info-block__title">Blue Raeven Pie Company<br>McMinnville</div>
                 <div class="info-block__text">
                     <strong>1101 NE Alpine Ave, McMinnville, OR 97128</strong><br><br>
                     Tuesday &ndash; Saturday: 10 AM to 5:30 PM<br>

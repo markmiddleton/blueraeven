@@ -25,7 +25,7 @@
             <div class="nav__dropdown">
                 <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__dropdown-trigger">Our Story</a>
                 <div class="nav__dropdown-menu">
-                    <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
+                    <a href="<?php echo esc_url( home_url( '/story/our-berries/' ) ); ?>">Our Berries</a>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
             </button>
             <a href="<?php echo esc_url( home_url( '/story/' ) ); ?>" class="nav__mobile-parent-link">Our Story Overview</a>
             <div class="nav__mobile-submenu">
-                <a href="<?php echo esc_url( home_url( '/story/fine-ingredients/' ) ); ?>">Fine Ingredients</a>
+                <a href="<?php echo esc_url( home_url( '/story/our-berries/' ) ); ?>">Our Berries</a>
             </div>
         </div>
         <a href="<?php echo esc_url( home_url( '/farmstand/' ) ); ?>">Find Us</a>

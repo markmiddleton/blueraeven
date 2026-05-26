@@ -3,10 +3,19 @@
    ============================================ */
 
 /* ---------- WEB FONTS ---------- */
+/* Monotype/MyFonts kit (Build 3867246): Hanley Pro Block + Fave Script Pro */
 @font-face {
   font-family: "HanleyProBlock";
   src: url('../fonts/HanleyProBlock/font.woff2') format('woff2'),
        url('../fonts/HanleyProBlock/font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FaveScriptPro";
+  src: url('../fonts/FaveScriptPro/font.woff2') format('woff2'),
+       url('../fonts/FaveScriptPro/font.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -42,8 +51,8 @@
   --font-header-alt: 'citrus-gothic-rough', 'Oswald', sans-serif;
   /* Subheads: Hanley Slim Sans */
   --font-subhead: 'hanley-slim-sans', 'Oswald', sans-serif;
-  /* Personality: Nexa Rust Script */
-  --font-script: 'Nexa Rust Script', 'Shadows Into Light', cursive;
+  /* Personality / script subtitles: Fave Script Pro (Monotype kit) */
+  --font-script: 'FaveScriptPro', 'Nexa Rust Script', cursive;
   /* Body: Futura Condensed */
   --font-body: 'futura-pt-condensed', 'futura-pt', 'Inter', sans-serif;
   /* Legacy aliases for compatibility */
@@ -159,6 +168,15 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
+/* Brand-gold underlines on every link, site-wide. !important is needed to
+   beat inline "text-decoration:underline" in page content, whose shorthand
+   otherwise pins the underline color to the link's (berry) text color. Only
+   affects links that actually have an underline; text color is untouched. */
+a { text-decoration-color: var(--gold) !important; }
+/* Content links hardcode color:var(--berry) inline; make the whole link
+   (text + underline) brand gold. Scoped to that inline berry color so header
+   nav and footer links — which carry no inline styles — stay untouched. */
+a[style*="--berry"] { color: var(--gold) !important; }
 ul { list-style: none; }
 
 .container {
@@ -696,7 +714,7 @@ ul { list-style: none; }
   width: 116%;
   height: 116%;
   background-size: auto 100%; /* Natural aspect ratio, full height */
-  background-position: 0 center;
+  background-position: -800px center; /* start left-of-center */
   background-repeat: repeat-x;
   animation:
     heroPan 80s linear infinite,
@@ -704,10 +722,10 @@ ul { list-style: none; }
 }
 @keyframes heroPan {
   0% {
-    background-position: 0 center;
+    background-position: -800px center; /* start left-of-center */
   }
   100% {
-    background-position: -2728px center; /* Exact image width for seamless loop */
+    background-position: -3528px center; /* +2728px (one image width) for seamless loop */
   }
 }
 @keyframes heroZoom {
@@ -1130,17 +1148,30 @@ ul { list-style: none; }
   display: flex; flex-direction: column; gap: 1.5rem;
 }
 .info-block {
+  position: relative;
   padding: 2.5rem 2rem 2.75rem;
-  background: transparent url('../images/torn-paper-kraft-3.png') no-repeat center/130% 120%;
+  background: none;
   border-radius: 0;
   box-shadow: none;
   border: none;
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
 }
-.info-block:nth-child(1) { background-image: url('../images/torn-paper-kraft-1.png'); }
-.info-block:nth-child(2) { background-image: url('../images/torn-paper-kraft-3.png'); }
-.info-block:nth-child(3) { background-image: url('../images/torn-paper-kraft-4.png'); }
-.info-block:hover { filter: drop-shadow(0 10px 22px rgba(0,0,0,0.22)); }
+.info-block::before {
+  content: "";
+  position: absolute;
+  /* Negative inset lets the PNG (with its internal transparent padding
+     and baked-in shadow) extend beyond the content box, so the visible
+     torn-paper region covers all the content. */
+  inset: -1.75rem -2.25rem;
+  background: transparent url('../images/torn-paper-kraft-3.png') no-repeat center/100% 100%;
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
+  transition: filter 0.25s ease;
+}
+.info-block:nth-child(1)::before { background-image: url('../images/torn-paper-kraft-1.png'); }
+.info-block:nth-child(2)::before { background-image: url('../images/torn-paper-kraft-4.png'); }
+.info-block:nth-child(3)::before { background-image: url('../images/torn-paper-kraft-5.png'); }
+.info-block:hover::before { filter: drop-shadow(0 10px 22px rgba(0,0,0,0.22)); }
 .info-block__title {
   font-family: var(--font-display);
   font-weight: 700; font-size: 0.95rem;
@@ -1362,6 +1393,11 @@ ul { list-style: none; }
   flex-direction: column;
   justify-content: center;
   padding: 2.5rem clamp(2rem, 5vw, 3.5rem);
+}
+/* Keep CTA buttons sized to their content instead of stretching
+   the full width of the flex column. */
+.pie-feature__text .btn {
+  align-self: flex-start;
 }
 .pie-feature__text--cream {
   background: var(--cream-warm);
@@ -1695,6 +1731,14 @@ ul { list-style: none; }
 .form-field textarea:focus,
 .form-field select:focus { border-color: var(--gold); }
 .form-field textarea { resize: vertical; min-height: 120px; }
+/* Force readable dropdown options. The closed select uses cream text on the
+   dark form, but the open option list renders in the browser's native popup
+   (often a white background), so options need explicit dark-on-white colors
+   to avoid white-on-white in some browsers. */
+.form-field select option {
+  color: var(--charcoal);
+  background-color: #ffffff;
+}
 
 /* ---------- CONTACT PAGE: HERO IMAGE ---------- */
 .contact-hero-image {
@@ -1744,29 +1788,44 @@ ul { list-style: none; }
   margin-bottom: 4rem;
 }
 .contact-method {
+  position: relative;
   text-align: center;
   padding: 3rem 2.5rem 3.25rem;
-  background: transparent url('../images/torn-paper-kraft-5.png') no-repeat center/130% 120%;
+  background: none;
   border-radius: 0;
   box-shadow: none;
   border: none;
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
-  transition: transform 0.3s, filter 0.3s;
+  transition: transform 0.3s;
 }
-.contact-method:nth-child(2) { background-image: url('../images/torn-paper-kraft-6.png'); }
-.contact-method:nth-child(3) { background-image: url('../images/torn-paper-kraft-1.png'); }
+.contact-method::before {
+  content: "";
+  position: absolute;
+  /* Negative inset + 100% sizing keeps each paper's baked-in shadow
+     fully visible (never cropped by the box) and consistent across all three. */
+  inset: -1.25rem -0.75rem;
+  background: transparent url('../images/torn-paper-kraft-1.png') no-repeat center/100% 100%;
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
+  transition: filter 0.3s;
+}
+.contact-method:nth-child(1)::before { background-image: url('../images/torn-paper-kraft-1.png'); }
+.contact-method:nth-child(2)::before { background-image: url('../images/torn-paper-kraft-4.png'); }
+.contact-method:nth-child(3)::before { background-image: url('../images/torn-paper-kraft-5.png'); }
 .contact-method:hover {
   transform: translateY(-4px);
+}
+.contact-method:hover::before {
   filter: drop-shadow(0 12px 24px rgba(0,0,0,0.22));
 }
 .contact-method__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--berry);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.85rem;
 }
 .contact-method__text {
   font-size: 0.95rem;
@@ -1973,6 +2032,51 @@ ul { list-style: none; }
   font-size: clamp(1.4rem, 3vw, 2rem);
   color: var(--navy);
   margin-bottom: 1.5rem;
+}
+
+/* ---------- STORY BANNER ---------- */
+.story-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+.story-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(15, 37, 69, 0.45); /* navy-deep overlay for legibility */
+}
+.story-banner__box {
+  position: relative; z-index: 1;
+  background: rgba(250, 243, 230, 0.78); /* cream */
+  border-radius: 8px;
+  padding: 3rem 3.5rem;
+  max-width: 1200px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.story-banner__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.story-banner__subhead {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--berry);
+  margin-bottom: 2rem;
+}
+@media (max-width: 600px) {
+  .story-banner { padding: 4rem 1.25rem; }
+  .story-banner__box { padding: 2.25rem 1.75rem; }
 }
 
 /* ---------- SEASON BANNER ---------- */
