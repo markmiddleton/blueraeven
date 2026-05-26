@@ -4,91 +4,107 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Blue Raeven Farm Stand - A WordPress site for an Oregon pie company, using a custom Gutenberg block theme with Full Site Editing. Hosted on WPEngine.
+Blue Raeven Farm Stand — a WordPress site for an Oregon pie company, hosted on WPEngine. The repo is the full WordPress install, but only the custom theme and tracked plugins are version-controlled. Everything else (core, uploads, config) is owned by WPEngine and is gitignored.
 
-## Deployment Architecture
+The site is a Gutenberg block theme with Full Site Editing — there is no PHP templating for page layouts; pages are composed from block patterns inside `wp-admin`.
 
-- **Git Remotes**: `origin` (GitHub) and `wpengine` (production)
-- **Production**: Push to `wpengine` remote deploys to WPEngine
-- **Branch**: `main` for development, `main-wpengine` tracks production
+## Deployment
 
-## WP-CLI Commands
+Two remotes:
+- `origin` → `github.com:markmiddleton/blueraeven.git` (source of truth)
+- `wpengine` → `git.wpengine.com:blueraeven.git` (auto-deploys on push)
 
-The `wp-cli.yml` defines environment aliases:
+Workflow: develop on `main`, then `git push wpengine main` — WPEngine deploys automatically from the push, no manual step needed. The `main-wpengine` branch tracks what's live in production.
+
+Media (`wp-content/uploads/`) is not in git. To push local uploads to production, use `./sync-uploads.sh` — it runs `rsync` with a dry-run preview and prompts before transferring. It is additive (no `--delete`).
+
+SSH: `blueraeven@blueraeven.ssh.wpengine.net`
+
+## Database workflow
+
+**Never make DB changes directly on production.** All content/option/menu edits happen on the local install; the user manually copies the local DB to production when ready.
+
+This means:
+- Use `wp @local <command>` for any write operation (`post update`, `option update`, `menu item add-post`, imports, etc.).
+- `wp @production <command>` is **read-only** — only use it to inspect live state (e.g. `wp @production post list`, `wp @production option get`).
+- If a change can't be done in PHP/templates and requires the DB, do it locally and tell the user it's ready to copy up.
+
+## WP-CLI
+
+`wp-cli.yml` defines two aliases:
 
 ```bash
-# Run commands on production (live site)
-wp @production <command>
-
-# Run commands locally
-wp @local <command>
-
-# Examples
-wp @production post list --post_type=page
-wp @production menu item list 5
-wp @production option get blogname
+wp @local <command>        # runs against local install — use for all writes
+wp @production <command>   # runs against live site over SSH — read-only inspection only
 ```
 
-SSH access is configured: `blueraeven@blueraeven.ssh.wpengine.net`
+Useful references:
+- Main Menu ID: `5` (`wp @local menu item list 5`)
+- Pages list: `wp @local post list --post_type=page --fields=ID,post_title,post_name`
 
 ## Theme Architecture
 
-The custom theme is at `wp-content/themes/blue-raeven-theme/`:
+All custom work lives in `wp-content/themes/blue-raeven-theme/`. **The theme has its own nested git repo** (`.git` ignored by the parent) — be aware of which repo you're committing to.
 
-### Key Files
-- `theme.json` - Design tokens (colors, typography, spacing)
-- `functions.php` - Theme setup, CPT registration, asset enqueuing
-- `inc/class-cpt-products.php` - Products custom post type
+### How a page gets rendered
 
-### Design System (from theme.json)
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Navy | #1a3a6b | Primary, headers |
-| Gold | #d4a853 | Accents, CTAs |
-| Cream | #faf3e6 | Backgrounds |
-| Berry | #8a2040 | Script text |
+1. WordPress picks a template from `templates/*.html` (e.g. `page-visit.html`, `front-page.html`, `single-product.html`).
+2. The template references `parts/header.html` and `parts/footer.html`, plus inline `<!-- wp:pattern {"slug":"..."} -->` references.
+3. Patterns are PHP files in `patterns/` (numbered `01-` through `37-`). Each has a header comment (`Title:`, `Slug:`, `Categories:`) and emits Gutenberg block markup.
+4. Styles come from a single `assets/css/theme.css` (cache-busted via `filemtime`) plus `theme.json` design tokens.
 
-Typography: Citrus Gothic (display), Nexa Rust Script (script), Adobe fonts via Typekit
+### Pattern registration quirk
 
-### Template Structure
-- `templates/` - Full page templates (front-page.html, page-visit.html, etc.)
-- `parts/` - Reusable parts (header.html, footer.html)
-- `patterns/` - 37 block patterns (numbered 01-37, PHP files)
+Patterns numbered 01–28 are auto-discovered by WordPress from the `patterns/` directory. Patterns **29–37 are manually registered** inside `functions.php` (`blue_raeven_register_block_patterns`) because they weren't auto-loading. When adding a new pattern past `28-`, either ensure it auto-loads or add its slug to the `$manual_patterns` array in `functions.php`.
 
-### Block Patterns
-Patterns are PHP files that register Gutenberg block markup. Key patterns:
-- `01-navigation-bar.php` - Site header
-- `06-footer.php` - Site footer
-- `07-hero-carousel.php` - Homepage hero
-- `19-pie-card-grid.php` - Product cards
+Pattern categories used for the inserter: `blue-raeven`, `blue-raeven-global`, `blue-raeven-heroes`, `blue-raeven-content`, `blue-raeven-cards`, `blue-raeven-ctas`, `blue-raeven-lists`.
 
-## Git Workflow
+### Custom post types and ACF
 
-Only `wp-content/themes/` and `wp-content/plugins/` are tracked. WordPress core, uploads, and config are gitignored (managed by WPEngine).
+- **Products CPT** (`inc/class-cpt-products.php`) — internally referred to as "Pies".
+- **ACF Pro** is an expected dependency. `functions.php` registers two ACF blocks (`product-card`, `product-grid`, rendered from `blocks/*.php`) and an ACF options page ("Theme Settings"). All of this is wrapped in `function_exists()` checks, so the theme degrades gracefully if ACF is absent — but blocks won't render.
 
-The theme has its own nested git repo at `wp-content/themes/blue-raeven-theme/.git` (ignored by parent).
+### Design system (theme.json)
+
+| Color | Hex | |
+|-------|-----|---|
+| Navy / Navy Deep | `#1a3a6b` / `#0f2545` | Primary, dark sections |
+| Gold / Gold Light | `#d4a853` / `#e8c878` | Accents, hover |
+| Cream / Cream Warm | `#faf3e6` / `#f5ead0` | Backgrounds |
+| Berry | `#8a2040` | Script text |
+| Green | `#4a7637` | Secondary CTAs |
+| Aqua | `#5bbfcf` | Accent text |
+
+Fonts:
+- **Adobe Typekit** (`https://use.typekit.net/spx7fio.css`): Citrus Gothic, Hanley Block, Hanley Slim Sans, Futura Condensed — loaded via `wp_enqueue_style` *and* `add_editor_style` so they appear in the block editor too.
+- **Local fonts** (`assets/css/fonts.css`): Nexa Rust Script.
+- The theme README lists Google fonts (Oswald, Lora, Inter, Shadows Into Light) but the actual enqueued stack is Typekit + Nexa Rust — treat the README as stale on this point.
+
+### Font-face stripping (gotcha)
+
+`functions.php` wraps the whole page in an output buffer (`blue_raeven_filter_font_face`) that strips any `@font-face` block referencing `fonts.gstatic.com`. This is a workaround for WordPress caching outdated gstatic URLs from earlier theme versions. It also removes `fontFace` entries from `theme.json` via the `wp_theme_json_data_theme` filter and unhooks `wp_print_font_faces`. If you add a legitimate `@font-face` rule that needs to survive, be aware of this filter.
+
+### Custom image sizes
+
+Registered in `functions.php`: `product-card` (600×450), `product-card-large` (800×600), `hero-banner` (1920×800), `gallery-thumb` (400×300). These are selectable in the media library.
+
+### Custom block styles
+
+Registered for `core/button` (`berry`, `green`) and `core/group` (`navy-section`, `cream-section`).
 
 ## Image Generator
 
-`image-generator/` contains a Python script for generating torn paper background images:
+`image-generator/` is a standalone Python script for generating torn-paper background PNGs used as section dividers/textures. It is not part of the WordPress runtime.
+
 ```bash
 cd image-generator
 source venv/bin/activate
 python generate_image.py
 ```
 
-## Content Management via WP-CLI
+## Editing tips
 
-Common content operations on production:
-
-```bash
-# Pages
-wp @production post list --post_type=page --fields=ID,post_title,post_name
-
-# Menus (Main Menu ID: 5)
-wp @production menu item list 5
-wp @production menu item add-post 5 <page_id> --title="Title"
-
-# Options
-wp @production option update blogdescription "New tagline"
-```
+- For layout/content changes, prefer editing patterns and `theme.json` over inline styles. The single source of CSS is `assets/css/theme.css`.
+- After editing `theme.css`, no version bump is needed — `filemtime` cache-busts automatically.
+- After editing `functions.php` or any PHP, bump `BLUE_RAEVEN_VERSION` if you want to bust style/script caches that don't use `filemtime`.
+- Templates and patterns are HTML/PHP files — they are not edited through the WordPress admin once shipped via the theme.
