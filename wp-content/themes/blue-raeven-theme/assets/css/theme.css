@@ -1015,6 +1015,38 @@ ul { list-style: none; }
 }
 .gallery__item:hover img { transform: scale(1.05); }
 
+/* ---- Story page "Our Fields & Family": square mosaic w/ rotating images ---- */
+#storyGallery {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 0.75rem;
+}
+#storyGallery .gallery__item {
+  aspect-ratio: 1 / 1; /* square; object-fit:cover crops any image to fit */
+  position: relative;
+}
+/* Feature tiles: 2x2 large squares. Gap math stays square because items are 1:1. */
+#storyGallery .gallery__item--large { grid-column: span 2; grid-row: span 2; }
+/* Stack images so a new one can crossfade in over the current one (no blank gap) */
+#storyGallery .gallery__item img {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.9s ease, filter 0.9s ease, transform 0.4s ease;
+}
+/* Incoming image starts invisible + softly blurred, then animates to clear */
+#storyGallery .gallery__item img.is-incoming {
+  opacity: 0;
+  filter: blur(10px);
+}
+@media (max-width: 900px) {
+  #storyGallery { grid-template-columns: repeat(2, 1fr); }
+  #storyGallery .gallery__item--large { grid-column: auto; grid-row: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #storyGallery .gallery__item img { transition: opacity 0.5s ease; }
+  #storyGallery .gallery__item img.is-incoming { filter: none; }
+}
+
 /* ---------- PIE CARDS ---------- */
 .pies-grid {
   display: grid;
