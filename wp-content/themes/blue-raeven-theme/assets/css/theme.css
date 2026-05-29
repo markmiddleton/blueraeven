@@ -884,7 +884,7 @@ ul { list-style: none; }
 }
 .page-hero__script {
   font-family: var(--font-script);
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
   color: var(--gold-light);
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
