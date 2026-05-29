@@ -830,7 +830,7 @@ ul { list-style: none; }
 }
 .hero__script {
   font-family: var(--font-script);
-  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-size: clamp(2.6rem, 6vw, 4rem);
   color: var(--aqua-light);
   margin-bottom: 2rem; line-height: 1.3;
 }
@@ -1027,7 +1027,8 @@ ul { list-style: none; }
 }
 /* Feature tiles: 2x2 large squares. Gap math stays square because items are 1:1. */
 #storyGallery .gallery__item--large { grid-column: span 2; grid-row: span 2; }
-/* Stack images so a new one can crossfade in over the current one (no blank gap) */
+/* Stack images so a new one can crossfade in over the current one (no blank gap).
+   All pool images are square, so the inherited object-fit:cover doesn't crop. */
 #storyGallery .gallery__item img {
   position: absolute;
   inset: 0;
@@ -1898,7 +1899,7 @@ ul { list-style: none; }
 }
 .form-section__form-wrap .subtitle {
   font-family: var(--font-script);
-  font-size: 1.2rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
   color: var(--aqua-light);
   margin-bottom: 2rem;
 }
@@ -2117,6 +2118,23 @@ ul { list-style: none; }
 @media (max-width: 600px) {
   .story-banner { padding: 4rem 1.25rem; }
   .story-banner__box { padding: 2.25rem 1.75rem; }
+}
+/* "Open" variant: no cream box, light text with stroke + shadow so the
+   text reads cleanly directly over the photo background. */
+.story-banner--open::before {
+  background: rgba(15, 37, 69, 0.55); /* slightly stronger photo overlay */
+}
+.story-banner--open .story-banner__box {
+  background: transparent;
+  box-shadow: none;
+}
+.story-banner--open .story-banner__title,
+.story-banner--open .story-banner__subhead {
+  color: var(--cream);
+  text-shadow: 0 2px 14px rgba(0,0,0,0.75), 0 0 4px rgba(0,0,0,0.6);
+}
+.story-banner--open .story-banner__title {
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.5);
 }
 
 /* ---------- SEASON BANNER ---------- */
@@ -2340,7 +2358,7 @@ ul { list-style: none; }
 .footer__brand-name span { color: var(--gold); }
 .footer__brand-script {
   font-family: var(--font-script);
-  font-size: 1.1rem;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
   color: var(--gold);
   margin-bottom: 0.75rem;
 }
