@@ -2076,6 +2076,14 @@ ul { list-style: none; }
   display: flex;
   justify-content: center;
 }
+/* Spacer element for breathing room above each story banner.
+   We tried margin-top on .story-banner, but WP injects
+   `body .is-layout-flow > * + * { margin-block-start: 0 !important }`
+   from global-styles-inline-css and outranked our selector. A real block
+   with explicit height sidesteps that entirely (height isn't zeroed). */
+.story-banner-spacer {
+  height: 0.5rem;
+}
 .story-banner::before {
   content: '';
   position: absolute; inset: 0;
