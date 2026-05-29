@@ -428,3 +428,87 @@ function blue_raeven_redirect_pies_more() {
     }
 }
 add_action( 'template_redirect', 'blue_raeven_redirect_pies_more' );
+
+/**
+ * Legacy URL redirects from the old blueraevenfarmstand.com site structure.
+ *
+ * Fires only for paths that don't resolve to a real page on the new site
+ * (otherwise WP would have already served the page before template_redirect).
+ * Matches the path portion of REQUEST_URI, case-insensitive, ignoring
+ * trailing slashes and query strings.
+ */
+function blue_raeven_legacy_redirects() {
+    $path = strtolower( trim( (string) parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' ) );
+    if ( $path === '' ) {
+        return; // homepage, nothing to do
+    }
+
+    // Exact-match map: old path => new path (always start with /, end with /).
+    $exact = array(
+        'home'                    => '/',
+        'hours-and-directions'    => '/farmstand/',
+        'about'                   => '/story/',
+        'contact.html'            => '/contact/',
+        'all-our-products'        => '/pies-more/',
+        'all-our-products-2'      => '/pies-more/',
+        'baking-instructions'     => '/pies-more/baking-instructions-faqs/',
+        'product-category/pies'   => '/pies-more/pies/',
+        'shop'                    => '/pies-more/pies/',
+        'shop/cart'               => '/pies-more/pies/',
+        'shop/checkout'           => '/pies-more/pies/',
+        'shop/my-account'         => '/pies-more/pies/',
+        'shop.1.html'             => '/pies-more/pies/',
+    );
+    if ( isset( $exact[ $path ] ) ) {
+        wp_safe_redirect( home_url( $exact[ $path ] ), 301 );
+        exit;
+    }
+
+    // Wildcard fallbacks: any deeper path under these prefixes
+    if ( strpos( $path, 'product/' ) === 0 ) {
+        // Individual product pages (apple-pie, razzle-dazzle, etc.) -> pies listing
+        wp_safe_redirect( home_url( '/pies-more/pies/' ), 301 );
+        exit;
+    }
+    if ( strpos( $path, 'product-category/' ) === 0 ) {
+        // Other product categories besides /pies/ -> pies & more overview
+        wp_safe_redirect( home_url( '/pies-more/' ), 301 );
+        exit;
+    }
+    if ( strpos( $path, 'shop/' ) === 0 ) {
+        // Any other /shop/* path (e.g. order tracking, address, etc.) -> pies listing
+        wp_safe_redirect( home_url( '/pies-more/pies/' ), 301 );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'blue_raeven_legacy_redirects' );
+
+/**
+ * Google Tag Manager — head snippet.
+ * Priority 1 so it prints as high in <head> as possible (GTM best practice).
+ */
+function blue_raeven_gtm_head() {
+    ?>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N79LWGKC');</script>
+    <!-- End Google Tag Manager -->
+    <?php
+}
+add_action( 'wp_head', 'blue_raeven_gtm_head', 1 );
+
+/**
+ * Google Tag Manager — noscript fallback, right after <body>.
+ */
+function blue_raeven_gtm_body() {
+    ?>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N79LWGKC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <?php
+}
+add_action( 'wp_body_open', 'blue_raeven_gtm_body' );
