@@ -754,9 +754,9 @@ ul { list-style: none; }
      indicators. Roughly half the opacity of the pre-removal version. */
   background: linear-gradient(
     to bottom,
-    rgba(15, 37, 69, 0.22) 0%,
-    rgba(15, 37, 69, 0.32) 50%,
-    rgba(15, 37, 69, 0.45) 100%
+    rgba(15, 37, 69, 0.11) 0%,
+    rgba(15, 37, 69, 0.16) 50%,
+    rgba(15, 37, 69, 0.22) 100%
   );
   z-index: 1;
 }
