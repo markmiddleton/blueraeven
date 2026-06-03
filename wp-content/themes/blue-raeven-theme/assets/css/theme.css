@@ -750,7 +750,14 @@ ul { list-style: none; }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: transparent;
+  /* Gentle navy gradient, darker toward the bottom to anchor the carousel
+     indicators. Roughly half the opacity of the pre-removal version. */
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 37, 69, 0.22) 0%,
+    rgba(15, 37, 69, 0.32) 50%,
+    rgba(15, 37, 69, 0.45) 100%
+  );
   z-index: 1;
 }
 
@@ -791,8 +798,21 @@ ul { list-style: none; }
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: calc(var(--section-pad) + 2rem) 2rem var(--section-pad);
+  padding: calc(var(--section-pad) + 1rem) 1rem var(--section-pad);
   max-width: 900px;
+}
+/* Pin content to the top of the hero (overrides parent's align-items:center).
+   margin-inline auto explicitly centers horizontally as a flex item. */
+.hero__content--top {
+  align-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero__brand-image {
+  display: block;
+  width: clamp(280px, 65vw, 720px);
+  height: auto;
+  margin: 0 auto;
 }
 .hero__badge {
   display: inline-flex;
@@ -1201,7 +1221,7 @@ ul { list-style: none; }
   filter: drop-shadow(0 6px 14px rgba(0,0,0,0.18));
   transition: filter 0.25s ease;
 }
-.info-block:nth-child(1)::before { background-image: url('../images/torn-paper-kraft-1.png'); }
+.info-block:nth-child(1)::before { background-image: url('../images/torn-paper-kraft-4.png'); }
 .info-block:nth-child(2)::before { background-image: url('../images/torn-paper-kraft-4.png'); }
 .info-block:nth-child(3)::before { background-image: url('../images/torn-paper-kraft-5.png'); }
 .info-block:hover::before { filter: drop-shadow(0 10px 22px rgba(0,0,0,0.22)); }
