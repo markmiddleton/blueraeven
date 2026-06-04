@@ -736,6 +736,19 @@ ul { list-style: none; }
     transform: scale(1.12);
   }
 }
+/* Variant: start the pan flush against the left edge of the image.
+   Travel = exact image width (2048px) for a seamless repeat-x loop.
+   Duration scaled from heroPan (60s vs 80s) to keep the same px/sec. */
+.hero__pan-image--from-left {
+  background-position: 0 center;
+  animation:
+    heroPanFromLeft 60s linear infinite,
+    heroZoom 40s ease-in-out infinite alternate;
+}
+@keyframes heroPanFromLeft {
+  0%   { background-position: 0 center; }
+  100% { background-position: -2048px center; }
+}
 
 /* Hero Video Background */
 .hero__video {
