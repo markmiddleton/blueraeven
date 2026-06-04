@@ -51,7 +51,6 @@
                 Pies &amp; More
                 <svg class="nav__mobile-arrow" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
             </button>
-            <a href="<?php echo esc_url( home_url( '/pies-more/' ) ); ?>" class="nav__mobile-parent-link">Pies &amp; More Overview</a>
             <div class="nav__mobile-submenu">
                 <a href="<?php echo esc_url( home_url( '/pies-more/pies/' ) ); ?>">Pies</a>
                 <a href="<?php echo esc_url( home_url( '/pies-more/jams-spreads/' ) ); ?>">Jams &amp; Spreads</a>
