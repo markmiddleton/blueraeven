@@ -2195,7 +2195,7 @@ ul { list-style: none; }
 
 /* ---------- PHOTO BANNER ---------- */
 .photo-banner {
-  height: 475px;
+  height: 225px;
   overflow: hidden;
   position: relative;
 }
@@ -2608,10 +2608,16 @@ ul { list-style: none; }
 /* ---------- DOWNLOAD CARDS ---------- */
 .download-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  max-width: 700px;
+  max-width: 900px;
   margin: 3rem auto 0;
+}
+@media (max-width: 900px) {
+  .download-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
 }
 @media (max-width: 600px) {
   .download-grid {
