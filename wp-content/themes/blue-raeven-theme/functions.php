@@ -556,3 +556,108 @@ function blue_raeven_meta_description() {
     }
 }
 add_action( 'wp_head', 'blue_raeven_meta_description', 2 );
+
+/**
+ * JSON-LD structured data.
+ *
+ *   - Organization: emitted sitewide (brand entity)
+ *   - WebSite:      emitted on the home page
+ *   - Bakery x 2:   emitted on the /farmstand/ page, one for each physical
+ *                   location (Amity Farmstand + McMinnville Pie Company)
+ *
+ * Output as multiple <script type="application/ld+json"> blocks — easier
+ * to validate / read in view-source than a combined @graph.
+ */
+function blue_raeven_schema() {
+    $home = home_url( '/' );
+    $logo = esc_url_raw( get_stylesheet_directory_uri() . '/assets/images/blue-raeven-farms-logo.png' );
+    $json_flags = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT;
+
+    // ---- Organization (sitewide) ----
+    $organization = array(
+        '@context'     => 'https://schema.org',
+        '@type'        => 'Organization',
+        'name'         => 'Blue Raeven Farms',
+        'url'          => $home,
+        'logo'         => $logo,
+        'foundingDate' => '1928',
+        'sameAs'       => array(
+            'https://www.facebook.com/blueraevenpie',
+            'https://www.instagram.com/blueraevenpie',
+        ),
+    );
+    echo "\n" . '<script type="application/ld+json">' . wp_json_encode( $organization, $json_flags ) . '</script>' . "\n";
+
+    // ---- WebSite (homepage only) ----
+    if ( is_front_page() ) {
+        $website = array(
+            '@context' => 'https://schema.org',
+            '@type'    => 'WebSite',
+            'name'     => 'Blue Raeven Farms',
+            'url'      => $home,
+        );
+        echo '<script type="application/ld+json">' . wp_json_encode( $website, $json_flags ) . '</script>' . "\n";
+    }
+
+    // ---- LocalBusinesses (Amity + McMinnville, on /farmstand/) ----
+    if ( is_page( 'farmstand' ) ) {
+        $amity = array(
+            '@context'   => 'https://schema.org',
+            '@type'      => 'Bakery',
+            'name'       => 'Blue Raeven Farmstand – Amity',
+            'url'        => home_url( '/farmstand/' ),
+            'image'      => $logo,
+            'telephone'  => '+1-503-835-0740',
+            'address'    => array(
+                '@type'           => 'PostalAddress',
+                'streetAddress'   => '20650 S Hwy 99W',
+                'addressLocality' => 'Amity',
+                'addressRegion'   => 'OR',
+                'postalCode'      => '97101',
+                'addressCountry'  => 'US',
+            ),
+            'openingHoursSpecification' => array(
+                array(
+                    '@type'     => 'OpeningHoursSpecification',
+                    'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ),
+                    'opens'     => '09:00',
+                    'closes'    => '17:30',
+                ),
+                array(
+                    '@type'     => 'OpeningHoursSpecification',
+                    'dayOfWeek' => array( 'Sunday' ),
+                    'opens'     => '10:00',
+                    'closes'    => '17:00',
+                ),
+            ),
+        );
+        echo '<script type="application/ld+json">' . wp_json_encode( $amity, $json_flags ) . '</script>' . "\n";
+
+        $mcminnville = array(
+            '@context'   => 'https://schema.org',
+            '@type'      => 'Bakery',
+            'name'       => 'Blue Raeven Pie Company – McMinnville',
+            'url'        => home_url( '/farmstand/' ),
+            'image'      => $logo,
+            'telephone'  => '+1-503-474-2856',
+            'address'    => array(
+                '@type'           => 'PostalAddress',
+                'streetAddress'   => '1101 NE Alpine Ave',
+                'addressLocality' => 'McMinnville',
+                'addressRegion'   => 'OR',
+                'postalCode'      => '97128',
+                'addressCountry'  => 'US',
+            ),
+            'openingHoursSpecification' => array(
+                array(
+                    '@type'     => 'OpeningHoursSpecification',
+                    'dayOfWeek' => array( 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ),
+                    'opens'     => '10:00',
+                    'closes'    => '17:30',
+                ),
+            ),
+        );
+        echo '<script type="application/ld+json">' . wp_json_encode( $mcminnville, $json_flags ) . '</script>' . "\n";
+    }
+}
+add_action( 'wp_head', 'blue_raeven_schema', 5 );
