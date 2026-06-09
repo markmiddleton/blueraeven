@@ -512,3 +512,47 @@ function blue_raeven_gtm_body() {
     <?php
 }
 add_action( 'wp_body_open', 'blue_raeven_gtm_body' );
+
+/**
+ * Per-page meta descriptions for SEO + AI snippets.
+ *
+ * Switches on the queried page's slug. All page slugs on this site are
+ * unique (verified via `wp post list --post_type=page`), so slug-based
+ * dispatch is safe. If a page isn't in the map, no description is emitted
+ * (search engines fall back to auto-generated snippets).
+ */
+function blue_raeven_meta_description() {
+    if ( ! is_singular() && ! is_front_page() ) {
+        return;
+    }
+
+    $description = '';
+
+    if ( is_front_page() ) {
+        $description = 'Handcrafted pies from Blue Raeven Farms in Amity, Oregon. Farm-grown berries, family recipes since 1928. Visit our farmstand, pie shop, or local grocers.';
+    } else {
+        $post = get_queried_object();
+        if ( ! $post || ! isset( $post->post_name ) ) {
+            return;
+        }
+        $map = array(
+            'story'                     => 'Four generations of farming in Oregon\'s Willamette Valley since 1928. Discover the Lewis family story behind Blue Raeven Farms and our handcrafted pies.',
+            'our-berries'               => 'Marionberries, boysenberries, blueberries, and more — grown on 130+ acres at Blue Raeven Farms in Amity, Oregon. The fruit that fills every pie.',
+            'farmstand'                 => 'Visit Blue Raeven Farmstand in Amity or our pie shop in McMinnville, OR. Open daily for handcrafted pies, jams, fresh berries, and seasonal treats.',
+            'pies'                      => 'Handcrafted fruit pies from Blue Raeven Farms: Apple, Marionberry, Boysenberry, Blue Raeven Berry, and more — made with our own Oregon-grown berries.',
+            'jams-spreads'              => 'Small-batch jams and fruit spreads made with farm-grown Oregon berries — old-world recipes from Blue Raeven Farms in Amity, now in stores.',
+            'other-confections'         => 'Blueberry, boysenberry, marionberry, raspberry, peach & tayberry syrups — gourmet recipes from Blue Raeven Farms, available at our farmstand.',
+            'baking-instructions-faqs'  => 'How to bake your frozen Blue Raeven pie to golden perfection — temperatures, times, and answers to common questions about handling and storage.',
+            'wholesale-fundraising'     => 'Sell Blue Raeven pies at your store or use them for fundraising. Wholesale catalog, order forms, and sales sheets — partner with Blue Raeven Farms.',
+            'contact'                   => 'Questions, custom orders, or wholesale inquiries? Get in touch with Blue Raeven Farms in Amity, OR — we\'d love to hear from you.',
+        );
+        if ( isset( $map[ $post->post_name ] ) ) {
+            $description = $map[ $post->post_name ];
+        }
+    }
+
+    if ( $description ) {
+        echo "\n" . '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
+    }
+}
+add_action( 'wp_head', 'blue_raeven_meta_description', 2 );
