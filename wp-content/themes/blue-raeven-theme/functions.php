@@ -537,6 +537,12 @@ function blue_raeven_register_acf_blocks() {
             'cart',
             array( 'preorder', 'seasonal', 'farmstand' ),
         ),
+        'download-grid' => array(
+            __( 'Download Grid', 'blue-raeven' ),
+            __( 'File download cards with PDF/Excel icons.', 'blue-raeven' ),
+            'download',
+            array( 'downloads', 'files', 'pdf' ),
+        ),
     );
 
     foreach ( $migration_blocks as $block_name => $def ) {
