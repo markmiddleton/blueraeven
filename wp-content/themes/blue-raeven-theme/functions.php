@@ -519,6 +519,24 @@ function blue_raeven_register_acf_blocks() {
             'share',
             array( 'social', 'facebook', 'instagram' ),
         ),
+        'pie-hero-split' => array(
+            __( 'Pie Hero Split', 'blue-raeven' ),
+            __( 'Photo beside a navy text panel.', 'blue-raeven' ),
+            'align-left',
+            array( 'split', 'photo', 'intro' ),
+        ),
+        'pie-card-list' => array(
+            __( 'Pie Card List', 'blue-raeven' ),
+            __( 'Hanging sign plus pie description cards.', 'blue-raeven' ),
+            'index-card',
+            array( 'pies', 'menu', 'cards' ),
+        ),
+        'preorder-section' => array(
+            __( 'Pre-Order Section', 'blue-raeven' ),
+            __( 'Farmstand-only categories with a CTA button.', 'blue-raeven' ),
+            'cart',
+            array( 'preorder', 'seasonal', 'farmstand' ),
+        ),
     );
 
     foreach ( $migration_blocks as $block_name => $def ) {

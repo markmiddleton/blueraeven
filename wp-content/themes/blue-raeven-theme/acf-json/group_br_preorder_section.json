@@ -1,0 +1,67 @@
+{
+    "key": "group_br_preorder_section",
+    "title": "Pre-Order Section",
+    "fields": [
+        {
+            "key": "field_brpo_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text"
+        },
+        {
+            "key": "field_brpo_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "text"
+        },
+        {
+            "key": "field_brpo_categories",
+            "label": "Categories",
+            "name": "categories",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add category",
+            "sub_fields": [
+                {
+                    "key": "field_brpo_cat_label",
+                    "label": "Category name",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "e.g. Seasonal — the colon is added automatically."
+                },
+                {
+                    "key": "field_brpo_cat_items",
+                    "label": "Items",
+                    "name": "items",
+                    "type": "textarea",
+                    "rows": 2,
+                    "new_lines": "",
+                    "instructions": "Separate items with the • character."
+                }
+            ]
+        },
+        {
+            "key": "field_brpo_btn_label",
+            "label": "Button text",
+            "name": "btn_label",
+            "type": "text"
+        },
+        {
+            "key": "field_brpo_btn_url",
+            "label": "Button link",
+            "name": "btn_url",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/preorder-section"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}
