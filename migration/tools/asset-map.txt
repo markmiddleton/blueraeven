@@ -5,3 +5,4 @@
 /wp-content/themes/blue-raeven-theme/assets/downloads/Individual Order Form 2026 - Blue Raeven.pdf	/wp-content/uploads/2026/06/Individual-Order-Form-2026-Blue-Raeven.pdf
 /wp-content/themes/blue-raeven-theme/assets/downloads/Online Order Form Template 2026 - Blue Raeven.xlsx	/wp-content/uploads/2026/06/Online-Order-Form-Template-2026-Blue-Raeven.xlsx
 /wp-content/themes/blue-raeven-theme/assets/downloads/Tally Sheet Template 2026 - Blue Raeven.xlsx	/wp-content/uploads/2026/06/Tally-Sheet-Template-2026-Blue-Raeven.xlsx
+/wp-content/themes/blue-raeven-theme/assets/images/pie-fixes-everything.png	/wp-content/uploads/2026/06/pie-fixes-everything.png

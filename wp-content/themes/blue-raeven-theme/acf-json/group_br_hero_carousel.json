@@ -1,0 +1,104 @@
+{
+    "key": "group_br_hero_carousel",
+    "title": "Hero Carousel",
+    "fields": [
+        {
+            "key": "field_brhc_slides",
+            "label": "Slides",
+            "name": "slides",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add slide",
+            "sub_fields": [
+                {
+                    "key": "field_brhc_slide_type",
+                    "label": "Slide type",
+                    "name": "type",
+                    "type": "button_group",
+                    "choices": {
+                        "pan": "Panning photo",
+                        "video": "Video"
+                    },
+                    "default_value": "pan"
+                },
+                {
+                    "key": "field_brhc_slide_image",
+                    "label": "Photo",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "instructions": "Wide photo (about 2700px wide pans best).",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brhc_slide_type",
+                                "operator": "==",
+                                "value": "pan"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_brhc_slide_from_left",
+                    "label": "Start pan from left edge",
+                    "name": "from_left",
+                    "type": "true_false",
+                    "ui": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brhc_slide_type",
+                                "operator": "==",
+                                "value": "pan"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_brhc_slide_video",
+                    "label": "Video file (MP4)",
+                    "name": "video",
+                    "type": "file",
+                    "return_format": "array",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brhc_slide_type",
+                                "operator": "==",
+                                "value": "video"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_brhc_brand",
+            "label": "Brand graphic",
+            "name": "brand",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "instructions": "The “Pie Fixes Everything” graphic shown near the top of the hero."
+        },
+        {
+            "key": "field_brhc_duration",
+            "label": "Seconds per slide (milliseconds)",
+            "name": "duration",
+            "type": "number",
+            "default_value": 12000
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/hero-carousel"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

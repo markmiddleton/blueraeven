@@ -1,0 +1,73 @@
+{
+    "key": "group_br_pie_feature",
+    "title": "Pie Feature",
+    "fields": [
+        {
+            "key": "field_brpf_image",
+            "label": "Photo",
+            "name": "image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_brpf_reverse",
+            "label": "Photo on the right",
+            "name": "reverse",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "field_brpf_colored",
+            "label": "Berry/navy color scheme",
+            "name": "colored",
+            "type": "true_false",
+            "ui": 1,
+            "instructions": "On: berry label, navy title, charcoal text (like “Ready for Your Table”). Off: default colors."
+        },
+        {
+            "key": "field_brpf_label",
+            "label": "Small label",
+            "name": "label",
+            "type": "text",
+            "instructions": "Uppercase kicker above the title, e.g. “Take One Home”."
+        },
+        {
+            "key": "field_brpf_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_brpf_desc",
+            "label": "Paragraph",
+            "name": "desc",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_brpf_btn_label",
+            "label": "Button text",
+            "name": "btn_label",
+            "type": "text"
+        },
+        {
+            "key": "field_brpf_btn_url",
+            "label": "Button link",
+            "name": "btn_url",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/pie-feature"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

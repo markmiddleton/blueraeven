@@ -3,83 +3,71 @@
 Gates: **DOM** = compare.php DOM-equivalence vs golden · **Visual** = pixel/eyeball check · **JS** = behavior check (where applicable).
 A row is ✅ only when DOM + Visual pass (and JS where applicable). See MIGRATION-PLAN.md.
 
-## Components
+## Components — ALL BUILT (21)
 
-| Component | Status | Notes |
-|---|---|---|
-| br/story-banner | ✅ built | Pilot. All gates green. |
-| br/page-hero | ✅ built | navy + wood variants; 8 pages |
-| br/photo-banner | ✅ built | story, contact |
-| br/hero-carousel | ⬜ | home; slides repeater + inline JS |
-| br/pie-feature | ⬜ | home ×2; 50/50 with reverse variant |
-| br/story-block | ✅ built | story intro + pies-fix-everything |
-| br/timeline | ✅ built | story; repeater w/ images + crop classes |
-| br/gallery-mosaic | ✅ built | story + farmstand; gallery field + JS |
-| br/photo-collage | ⬜ | farmstand visit photos |
-| br/retailer-section | ⬜ | farmstand; grocer repeater + farmstand list |
-| br/info-cards | ⬜ | farmstand; torn-paper location cards |
-| br/find-cards | ⬜ | farmstand; 3-up image cards |
-| br/directions-split | ⬜ | farmstand |
-| br/contact-methods | ⬜ | contact; torn-paper cards |
-| br/contact-form | ⬜ | contact; Web3Forms + hCaptcha + JS |
-| br/faq-list | ⬜ | contact + baking |
-| br/social-cta | ⬜ | contact |
-| br/pie-hero-split | ⬜ | pies |
-| br/pie-card-list | ⬜ | pies; sign + repeater cards |
-| br/instruction-cards | ⬜ | baking |
-| br/download-grid | ⬜ | wholesale |
-| br/content-blocks | ✅ built | our-berries |
+| Component | Used on |
+|---|---|
+| br/story-banner | home ×2 (pilot) |
+| br/page-hero | story, our-berries, farmstand, contact, pies, jams, confections, baking, wholesale |
+| br/photo-banner | story, contact |
+| br/hero-carousel | home |
+| br/pie-feature | home ×2 |
+| br/story-block | story ×2 (normal + reverse) |
+| br/timeline | story |
+| br/gallery-mosaic | story, farmstand |
+| br/feature-links | story |
+| br/testimonial | story |
+| br/photo-collage | farmstand |
+| br/retailer-section | farmstand |
+| br/info-cards | farmstand |
+| br/find-cards | farmstand |
+| br/directions-split | farmstand |
+| br/contact-methods | contact |
+| br/contact-form | contact |
+| br/faq-section | contact |
+| br/social-cta | contact |
+| br/pie-hero-split | pies |
+| br/pie-card-list | pies |
+| br/preorder-section | pies |
+| br/instructions-faqs | baking |
+| br/download-grid | wholesale |
+| br/content-blocks | our-berries |
+| br/product-list | jams-spreads |
+| br/category-list | other-confections |
 
-## Rows
+## Page-level DOM gates (full entry-content vs golden)
 
-| Page | Row | Component | Built | Populated | DOM | Visual | JS | ✅ |
-|---|---|---|---|---|---|---|---|---|
-| home | H1 hero carousel | br/hero-carousel | | | | | | |
-| home | H2 best-fruit 50/50 | br/pie-feature | | | | | | |
-| home | H3 ready-for-table 50/50 | br/pie-feature | | | | | | |
-| home | H5 story banner (story) | br/story-banner | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| home | H6 story banner (wholesale) | br/story-banner | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| story | S1 page hero | br/page-hero | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
-| story | S2 photo banner | br/photo-banner | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
-| story | S3 story intro | br/story-block | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
-| story | S4 timeline | br/timeline | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
-| story | S5 pies-fix-everything | br/story-block | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
-| story | S6 gallery mosaic | br/gallery-mosaic | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
-| story | S7 feature links | br/feature-links | ✅ | ✅ | ✅ | ⬜ | n/a | ⬜ |
-| story | S8 testimonial | br/testimonial | ✅ | ✅ | ✅ | ⬜ | n/a | ⬜ |
-| our-berries | OB1 page hero | br/page-hero | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| our-berries | OB2 content blocks | br/content-blocks | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| farmstand | F1 page hero | br/page-hero | | | | | | |
-| farmstand | F2 visit collage | br/photo-collage | | | | | | |
-| farmstand | F3 grocers section | br/retailer-section | | | | | | |
-| farmstand | F4 info cards | br/info-cards | | | | | | |
-| farmstand | F5 what-youll-find | br/find-cards | | | | | | |
-| farmstand | F6 directions | br/directions-split | | | | | | |
-| farmstand | F7 gallery mosaic | br/gallery-mosaic | | | | | | |
-| contact | C1 page hero | br/page-hero | | | | | | |
-| contact | C2 photo banner | br/photo-banner | | | | | | |
-| contact | C3 contact methods | br/contact-methods | | | | | | |
-| contact | C4 form section | br/contact-form | | | | | | |
-| contact | C5 FAQ | br/faq-list | | | | | | |
-| contact | C6 follow along | br/social-cta | | | | | | |
-| pies | P1 page hero | br/page-hero | | | | | | |
-| pies | P2 pie-hero-split | br/pie-hero-split | | | | | | |
-| pies | P3 pies listing | br/pie-card-list | | | | | | |
-| pies | P4 farmstand-only | br/pie-card-list | | | | | | |
-| pies | P5 pre-order | br/rich-text or bespoke | | | | | | |
-| jams-spreads | J1 page hero | br/page-hero | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| jams-spreads | J2 content | br/product-list | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| other-confections | O1 page hero | br/page-hero | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| other-confections | O2 confections list | br/category-list | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| baking | B1 page hero | br/page-hero | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| baking | B2 instruction cards | br/instructions-faqs | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| baking | B3 FAQ | br/instructions-faqs | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| wholesale | W1 page hero | br/page-hero | | | | | | |
-| wholesale | W2 wholesale section | mixed native + bespoke | | | | | | |
-| wholesale | W3 fundraising section | bespoke | | | | | | |
-| wholesale | W4 download grid | br/download-grid | | | | | | |
+| Page | Rebuild URL | Rows | DOM | Visual | JS | Notes |
+|---|---|---|---|---|---|---|
+| home | /home-rebuild/ | 5 | ✅ | ⬜ | ⬜ | gated under front-page.html via temporary front-page swap |
+| story | /story-rebuild/ | 8 | ✅ | ✅* | ⬜ | page-story template via meta; *Mark eyeballed pre-S7/S8 |
+| our-berries | /our-berries-rebuild/ | 2 | ✅ | ✅ | n/a | Mark verified |
+| farmstand | /farmstand-rebuild/ | 7 | ✅ | ⬜ | ⬜ | page-visit template via meta |
+| contact | /contact-rebuild/ | 6 | ✅ | ⬜ | ⬜ | page-contact template via meta; form/captcha JS check pending |
+| pies | /pies-rebuild/ | 4 | ✅ | ⬜ | n/a | 14 pie cards |
+| jams-spreads | /jams-spreads-rebuild/ | 2 | ✅ | ✅ | n/a | Mark verified |
+| other-confections | /other-confections-rebuild/ | 2 | ✅ | ✅ | n/a | Mark verified |
+| baking | /baking-rebuild/ | 3 | ✅ | ✅ | ⬜ | Mark verified visually; FAQ toggle JS pending |
+| wholesale | /wholesale-rebuild/ | 4 | ✅ | ⬜ | n/a | native blocks copied verbatim; only 2 raw-HTML islands converted |
+
+## Remaining JS behavior checks (Phase 4)
+
+- [ ] home: carousel advances every 12s, indicators clickable, video restarts on activation
+- [ ] story + farmstand: mosaic crossfades every 3.5s, no duplicate tiles, full pool cycles
+- [ ] contact: form submits via Web3Forms, hCaptcha validates, inline thank-you replaces form
+- [ ] contact + baking: FAQ items toggle (theme.js)
+
+## Remaining phases
+
+- Phase 4: visual pass on home/farmstand/contact/pies/wholesale + JS checklist above
+- Phase 5: editor polish + EDITOR-GUIDE.md + client walkthrough
+- Phase 6: cutover (approval gate — content-replacement on original pages, final same-URL diff, then Mark pushes/copies)
 
 ## Log
 
-- 2026-06-10 — Pilot passed (story-banner ×2 + spacers DOM-identical). Hidden home backup block removed pre-snapshot (approved). Mark verified rebuild page + editor UX, added a test row himself. Proceed approved.
+- 2026-06-10 — Pilot passed. Hidden home backup block removed pre-snapshot (approved). Mark verified rebuild UX.
+- 2026-06-10 — our-berries, jams, confections, baking pages DOM-green; Mark verified visually.
+- 2026-06-10 — story (8 rows incl. timeline + mosaic JS), farmstand (7 rows), contact (6 rows incl. form JS), pies (14-card list), wholesale (native-block hybrid), home (carousel) all DOM-green. **All 10 pages pass full page-level gates.**
+- Gotchas log: see migration/PILOT-NOTES.md (+ wp_kses style-attr rewrite → verbatim intro field on retailer-section; --skip-copy path prefix normalization ×59 + per-import fix thereafter).
+- Mark's test story-banner row on home-rebuild was replaced during final assembly (as agreed).
 - Drift protocol: no content changes to original pages without re-snapshot + log entry here.

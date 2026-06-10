@@ -543,6 +543,18 @@ function blue_raeven_register_acf_blocks() {
             'download',
             array( 'downloads', 'files', 'pdf' ),
         ),
+        'hero-carousel' => array(
+            __( 'Hero Carousel', 'blue-raeven' ),
+            __( 'Full-screen rotating hero with pan/video slides and brand graphic.', 'blue-raeven' ),
+            'slides',
+            array( 'hero', 'carousel', 'slides', 'video' ),
+        ),
+        'pie-feature' => array(
+            __( 'Pie Feature', 'blue-raeven' ),
+            __( '50/50 photo and text panel with CTA button.', 'blue-raeven' ),
+            'align-pull-right',
+            array( 'feature', '50/50', 'cta' ),
+        ),
     );
 
     foreach ( $migration_blocks as $block_name => $def ) {
