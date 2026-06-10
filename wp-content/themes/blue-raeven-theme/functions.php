@@ -423,6 +423,12 @@ function blue_raeven_register_acf_blocks() {
             'editor-ul',
             array( 'categories', 'confections', 'list' ),
         ),
+        'instructions-faqs' => array(
+            __( 'Instruction Cards + FAQs', 'blue-raeven' ),
+            __( 'Image instruction cards with step lists, plus an FAQ list.', 'blue-raeven' ),
+            'editor-help',
+            array( 'instructions', 'baking', 'faq', 'steps' ),
+        ),
     );
 
     foreach ( $migration_blocks as $block_name => $def ) {
