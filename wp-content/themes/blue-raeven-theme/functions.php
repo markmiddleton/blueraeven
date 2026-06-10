@@ -429,6 +429,42 @@ function blue_raeven_register_acf_blocks() {
             'editor-help',
             array( 'instructions', 'baking', 'faq', 'steps' ),
         ),
+        'photo-banner' => array(
+            __( 'Photo Banner', 'blue-raeven' ),
+            __( 'Full-width photo strip.', 'blue-raeven' ),
+            'format-image',
+            array( 'photo', 'banner', 'image' ),
+        ),
+        'story-block' => array(
+            __( 'Story Block', 'blue-raeven' ),
+            __( 'Framed photo beside prose paragraphs; photo left or right.', 'blue-raeven' ),
+            'align-pull-left',
+            array( 'story', 'text', 'photo', '50/50' ),
+        ),
+        'timeline' => array(
+            __( 'Timeline', 'blue-raeven' ),
+            __( 'Vertical history timeline with entries and photos.', 'blue-raeven' ),
+            'backup',
+            array( 'timeline', 'history', 'journey' ),
+        ),
+        'gallery-mosaic' => array(
+            __( 'Gallery Mosaic', 'blue-raeven' ),
+            __( 'Square photo mosaic with crossfading rotation.', 'blue-raeven' ),
+            'format-gallery',
+            array( 'gallery', 'photos', 'mosaic', 'rotation' ),
+        ),
+        'feature-links' => array(
+            __( 'Feature Links', 'blue-raeven' ),
+            __( 'Icon cards linking to other pages.', 'blue-raeven' ),
+            'screenoptions',
+            array( 'features', 'links', 'icons' ),
+        ),
+        'testimonial' => array(
+            __( 'Testimonial', 'blue-raeven' ),
+            __( 'Wood-background centered customer quote.', 'blue-raeven' ),
+            'format-quote',
+            array( 'quote', 'testimonial', 'review' ),
+        ),
     );
 
     foreach ( $migration_blocks as $block_name => $def ) {

@@ -1,0 +1,67 @@
+{
+    "key": "group_br_story_block",
+    "title": "Story Block",
+    "fields": [
+        {
+            "key": "field_brstb_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "instructions": "Press Enter to split the heading onto two lines."
+        },
+        {
+            "key": "field_brstb_image",
+            "label": "Framed photo",
+            "name": "image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_brstb_reverse",
+            "label": "Photo on the right",
+            "name": "reverse",
+            "type": "true_false",
+            "ui": 1,
+            "instructions": "Off: photo left, text right. On: text left, photo right."
+        },
+        {
+            "key": "field_brstb_paragraphs",
+            "label": "Paragraphs",
+            "name": "paragraphs",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add paragraph",
+            "sub_fields": [
+                {
+                    "key": "field_brstb_para_text",
+                    "label": "Paragraph",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 4,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_brstb_para_strong",
+                    "label": "Bold",
+                    "name": "strong",
+                    "type": "true_false",
+                    "ui": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/story-block"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

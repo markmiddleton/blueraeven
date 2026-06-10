@@ -1,0 +1,33 @@
+{
+    "key": "group_br_testimonial",
+    "title": "Testimonial",
+    "fields": [
+        {
+            "key": "field_brts_quote",
+            "label": "Quote",
+            "name": "quote",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "required": 1
+        },
+        {
+            "key": "field_brts_author",
+            "label": "Attribution",
+            "name": "author",
+            "type": "text",
+            "instructions": "e.g. “A Happy Customer • Portland, OR”"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/testimonial"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

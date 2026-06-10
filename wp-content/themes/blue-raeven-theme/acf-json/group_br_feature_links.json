@@ -1,0 +1,55 @@
+{
+    "key": "group_br_feature_links",
+    "title": "Feature Links",
+    "fields": [
+        {
+            "key": "field_brfl_features",
+            "label": "Features",
+            "name": "features",
+            "type": "repeater",
+            "instructions": "Icon cards that link to other pages.",
+            "layout": "block",
+            "button_label": "Add feature",
+            "sub_fields": [
+                {
+                    "key": "field_brfl_url",
+                    "label": "Link",
+                    "name": "url",
+                    "type": "text",
+                    "instructions": "Where the card goes, e.g. /pies-more/"
+                },
+                {
+                    "key": "field_brfl_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_brfl_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brfl_desc",
+                    "label": "Description",
+                    "name": "desc",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/feature-links"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}
