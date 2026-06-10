@@ -1,0 +1,69 @@
+{
+    "key": "group_br_category_list",
+    "title": "Category List",
+    "fields": [
+        {
+            "key": "field_brcl_intro",
+            "label": "Intro paragraph",
+            "name": "intro",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_brcl_categories",
+            "label": "Categories",
+            "name": "categories",
+            "type": "repeater",
+            "instructions": "Each category has a heading and a list of items. Separate items with the • character.",
+            "layout": "block",
+            "button_label": "Add category",
+            "sub_fields": [
+                {
+                    "key": "field_brcl_cat_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brcl_cat_items",
+                    "label": "Items",
+                    "name": "items",
+                    "type": "textarea",
+                    "rows": 2,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_brcl_cat_note",
+                    "label": "Note (italic, optional)",
+                    "name": "note",
+                    "type": "text",
+                    "instructions": "Small italic line under the items, e.g. available sizes."
+                }
+            ]
+        },
+        {
+            "key": "field_brcl_btn_label",
+            "label": "Button text",
+            "name": "btn_label",
+            "type": "text"
+        },
+        {
+            "key": "field_brcl_btn_url",
+            "label": "Button link",
+            "name": "btn_url",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/category-list"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

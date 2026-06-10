@@ -1,0 +1,140 @@
+{
+    "key": "group_br_content_blocks",
+    "title": "Content Blocks",
+    "fields": [
+        {
+            "key": "field_brcb_blocks",
+            "label": "Blocks",
+            "name": "blocks",
+            "type": "repeater",
+            "instructions": "Each block is a paragraph (optionally with a photo floated beside it) or a centered button.",
+            "layout": "block",
+            "button_label": "Add block",
+            "sub_fields": [
+                {
+                    "key": "field_brcb_type",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "button_group",
+                    "choices": {
+                        "text": "Paragraph",
+                        "button": "Button"
+                    },
+                    "default_value": "text"
+                },
+                {
+                    "key": "field_brcb_image",
+                    "label": "Photo (optional, floats right of the text)",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brcb_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_brcb_lead",
+                    "label": "Large intro style",
+                    "name": "lead",
+                    "type": "true_false",
+                    "ui": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brcb_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_brcb_text",
+                    "label": "Paragraph text",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 5,
+                    "new_lines": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brcb_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_brcb_btn_label",
+                    "label": "Button text",
+                    "name": "btn_label",
+                    "type": "text",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brcb_type",
+                                "operator": "==",
+                                "value": "button"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_brcb_btn_url",
+                    "label": "Button link",
+                    "name": "btn_url",
+                    "type": "text",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brcb_type",
+                                "operator": "==",
+                                "value": "button"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "key": "field_brcb_btn_style",
+                    "label": "Button color",
+                    "name": "btn_style",
+                    "type": "button_group",
+                    "choices": {
+                        "berry": "Berry",
+                        "primary": "Gold",
+                        "green": "Green"
+                    },
+                    "default_value": "berry",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_brcb_type",
+                                "operator": "==",
+                                "value": "button"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/content-blocks"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

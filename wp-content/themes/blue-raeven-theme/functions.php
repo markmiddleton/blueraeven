@@ -388,25 +388,60 @@ function blue_raeven_register_acf_blocks() {
 
     /*
      * Component-migration blocks (see MIGRATION-PLAN.md). Render templates
-     * intentionally mirror the legacy hand-coded markup exactly.
+     * intentionally mirror the legacy hand-coded markup exactly. Each entry:
+     * name => [ title, description, dashicon, keywords[] ].
+     * Template path is blocks/{name}.php; field groups live in acf-json/.
      */
-
-    // Story Banner
-    acf_register_block_type( array(
-        'name'              => 'story-banner',
-        'title'             => __( 'Story Banner', 'blue-raeven' ),
-        'description'       => __( 'Full-width photo banner with title, script subhead, and CTA button.', 'blue-raeven' ),
-        'render_template'   => BLUE_RAEVEN_DIR . '/blocks/story-banner.php',
-        'category'          => 'blue-raeven',
-        'icon'              => 'cover-image',
-        'keywords'          => array( 'banner', 'story', 'photo', 'cta' ),
-        'mode'              => 'preview',
-        'supports'          => array(
-            'align'  => false,
-            'anchor' => false,
-            'mode'   => true,
+    $migration_blocks = array(
+        'story-banner' => array(
+            __( 'Story Banner', 'blue-raeven' ),
+            __( 'Full-width photo banner with title, script subhead, and CTA button.', 'blue-raeven' ),
+            'cover-image',
+            array( 'banner', 'story', 'photo', 'cta' ),
         ),
-    ) );
+        'page-hero' => array(
+            __( 'Page Hero', 'blue-raeven' ),
+            __( 'Navy or wood headline banner for the top of a page.', 'blue-raeven' ),
+            'heading',
+            array( 'hero', 'title', 'header' ),
+        ),
+        'content-blocks' => array(
+            __( 'Content Blocks', 'blue-raeven' ),
+            __( 'Prose section: paragraphs with optional floated photos, centered buttons.', 'blue-raeven' ),
+            'text-page',
+            array( 'content', 'prose', 'paragraphs' ),
+        ),
+        'product-list' => array(
+            __( 'Product List', 'blue-raeven' ),
+            __( 'Photo, intro paragraphs, and product cards (Jams & Spreads style).', 'blue-raeven' ),
+            'list-view',
+            array( 'products', 'jams', 'cards' ),
+        ),
+        'category-list' => array(
+            __( 'Category List', 'blue-raeven' ),
+            __( 'Intro, categorized item lists, and a button (Other Confections style).', 'blue-raeven' ),
+            'editor-ul',
+            array( 'categories', 'confections', 'list' ),
+        ),
+    );
+
+    foreach ( $migration_blocks as $block_name => $def ) {
+        acf_register_block_type( array(
+            'name'            => $block_name,
+            'title'           => $def[0],
+            'description'     => $def[1],
+            'render_template' => BLUE_RAEVEN_DIR . '/blocks/' . $block_name . '.php',
+            'category'        => 'blue-raeven',
+            'icon'            => $def[2],
+            'keywords'        => $def[3],
+            'mode'            => 'preview',
+            'supports'        => array(
+                'align'  => false,
+                'anchor' => false,
+                'mode'   => true,
+            ),
+        ) );
+    }
 }
 add_action( 'acf/init', 'blue_raeven_register_acf_blocks' );
 
