@@ -495,6 +495,30 @@ function blue_raeven_register_acf_blocks() {
             'location-alt',
             array( 'map', 'directions', 'address' ),
         ),
+        'contact-methods' => array(
+            __( 'Contact Methods', 'blue-raeven' ),
+            __( 'Torn-paper visit/call/email cards.', 'blue-raeven' ),
+            'phone',
+            array( 'contact', 'phone', 'email', 'visit' ),
+        ),
+        'contact-form' => array(
+            __( 'Contact Form', 'blue-raeven' ),
+            __( 'Web3Forms contact form with hCaptcha and side photo.', 'blue-raeven' ),
+            'email-alt',
+            array( 'form', 'contact', 'web3forms' ),
+        ),
+        'faq-section' => array(
+            __( 'FAQ Section', 'blue-raeven' ),
+            __( 'Standalone FAQ list in a cream section.', 'blue-raeven' ),
+            'editor-help',
+            array( 'faq', 'questions' ),
+        ),
+        'social-cta' => array(
+            __( 'Social CTA', 'blue-raeven' ),
+            __( 'Navy follow-along section with social icons.', 'blue-raeven' ),
+            'share',
+            array( 'social', 'facebook', 'instagram' ),
+        ),
     );
 
     foreach ( $migration_blocks as $block_name => $def ) {

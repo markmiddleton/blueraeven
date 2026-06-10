@@ -1,0 +1,62 @@
+{
+    "key": "group_br_social_cta",
+    "title": "Social CTA",
+    "fields": [
+        {
+            "key": "field_brsc_label",
+            "label": "Section label",
+            "name": "label",
+            "type": "text"
+        },
+        {
+            "key": "field_brsc_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_brsc_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "text"
+        },
+        {
+            "key": "field_brsc_links",
+            "label": "Social links",
+            "name": "links",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add social link",
+            "sub_fields": [
+                {
+                    "key": "field_brsc_platform",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "choices": {
+                        "facebook": "Facebook",
+                        "instagram": "Instagram"
+                    },
+                    "default_value": "facebook"
+                },
+                {
+                    "key": "field_brsc_url",
+                    "label": "Profile URL",
+                    "name": "url",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/social-cta"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}
