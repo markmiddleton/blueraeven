@@ -1,0 +1,69 @@
+{
+    "key": "group_br_gallery_mosaic",
+    "title": "Gallery Mosaic",
+    "fields": [
+        {
+            "key": "field_brgm_label",
+            "label": "Section label",
+            "name": "label",
+            "type": "text"
+        },
+        {
+            "key": "field_brgm_title",
+            "label": "Section title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_brgm_tiles",
+            "label": "Starting photos",
+            "name": "tiles",
+            "type": "gallery",
+            "instructions": "The 5 photos shown when the page first loads. The FIRST one displays as the large square.",
+            "return_format": "array",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_brgm_pool",
+            "label": "Photo pool (rotation)",
+            "name": "pool",
+            "type": "gallery",
+            "instructions": "All photos in the rotation. Every few seconds one tile crossfades to the next photo from this pool — every photo is shown once before any repeats.",
+            "return_format": "array",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_brgm_swap_ms",
+            "label": "Seconds between swaps (milliseconds)",
+            "name": "swap_ms",
+            "type": "number",
+            "default_value": 3500
+        },
+        {
+            "key": "field_brgm_fade_ms",
+            "label": "Crossfade duration (milliseconds)",
+            "name": "fade_ms",
+            "type": "number",
+            "default_value": 900
+        },
+        {
+            "key": "field_brgm_anchor",
+            "label": "Gallery ID",
+            "name": "anchor",
+            "type": "text",
+            "default_value": "storyGallery",
+            "instructions": "Technical ID used by the styling and rotation script. Leave as storyGallery unless told otherwise."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/gallery-mosaic"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

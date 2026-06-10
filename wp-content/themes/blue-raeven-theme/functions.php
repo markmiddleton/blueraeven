@@ -205,6 +205,15 @@ function blue_raeven_add_image_sizes() {
 add_action( 'after_setup_theme', 'blue_raeven_add_image_sizes' );
 
 /**
+ * Keep uploaded originals intact. WP's default 2560px "big image" threshold
+ * silently replaces large uploads with a -scaled copy, which breaks
+ * pixel-exact assets (e.g. the 2728px hero pan images whose animation
+ * keyframes depend on exact width). All site images are pre-optimized
+ * before upload, so the safety net is unnecessary.
+ */
+add_filter( 'big_image_size_threshold', '__return_false' );
+
+/**
  * Make custom image sizes selectable
  */
 function blue_raeven_custom_image_sizes( $sizes ) {
@@ -376,6 +385,195 @@ function blue_raeven_register_acf_blocks() {
             'align' => array( 'wide', 'full' ),
         ),
     ) );
+
+    /*
+     * Component-migration blocks (see MIGRATION-PLAN.md). Render templates
+     * intentionally mirror the legacy hand-coded markup exactly. Each entry:
+     * name => [ title, description, dashicon, keywords[] ].
+     * Template path is blocks/{name}.php; field groups live in acf-json/.
+     */
+    $migration_blocks = array(
+        'story-banner' => array(
+            __( 'Story Banner', 'blue-raeven' ),
+            __( 'Full-width photo banner with title, script subhead, and CTA button.', 'blue-raeven' ),
+            'cover-image',
+            array( 'banner', 'story', 'photo', 'cta' ),
+        ),
+        'page-hero' => array(
+            __( 'Page Hero', 'blue-raeven' ),
+            __( 'Navy or wood headline banner for the top of a page.', 'blue-raeven' ),
+            'heading',
+            array( 'hero', 'title', 'header' ),
+        ),
+        'content-blocks' => array(
+            __( 'Content Blocks', 'blue-raeven' ),
+            __( 'Prose section: paragraphs with optional floated photos, centered buttons.', 'blue-raeven' ),
+            'text-page',
+            array( 'content', 'prose', 'paragraphs' ),
+        ),
+        'product-list' => array(
+            __( 'Product List', 'blue-raeven' ),
+            __( 'Photo, intro paragraphs, and product cards (Jams & Spreads style).', 'blue-raeven' ),
+            'list-view',
+            array( 'products', 'jams', 'cards' ),
+        ),
+        'category-list' => array(
+            __( 'Category List', 'blue-raeven' ),
+            __( 'Intro, categorized item lists, and a button (Other Confections style).', 'blue-raeven' ),
+            'editor-ul',
+            array( 'categories', 'confections', 'list' ),
+        ),
+        'instructions-faqs' => array(
+            __( 'Instruction Cards + FAQs', 'blue-raeven' ),
+            __( 'Image instruction cards with step lists, plus an FAQ list.', 'blue-raeven' ),
+            'editor-help',
+            array( 'instructions', 'baking', 'faq', 'steps' ),
+        ),
+        'photo-banner' => array(
+            __( 'Photo Banner', 'blue-raeven' ),
+            __( 'Full-width photo strip.', 'blue-raeven' ),
+            'format-image',
+            array( 'photo', 'banner', 'image' ),
+        ),
+        'story-block' => array(
+            __( 'Story Block', 'blue-raeven' ),
+            __( 'Framed photo beside prose paragraphs; photo left or right.', 'blue-raeven' ),
+            'align-pull-left',
+            array( 'story', 'text', 'photo', '50/50' ),
+        ),
+        'timeline' => array(
+            __( 'Timeline', 'blue-raeven' ),
+            __( 'Vertical history timeline with entries and photos.', 'blue-raeven' ),
+            'backup',
+            array( 'timeline', 'history', 'journey' ),
+        ),
+        'gallery-mosaic' => array(
+            __( 'Gallery Mosaic', 'blue-raeven' ),
+            __( 'Square photo mosaic with crossfading rotation.', 'blue-raeven' ),
+            'format-gallery',
+            array( 'gallery', 'photos', 'mosaic', 'rotation' ),
+        ),
+        'feature-links' => array(
+            __( 'Feature Links', 'blue-raeven' ),
+            __( 'Icon cards linking to other pages.', 'blue-raeven' ),
+            'screenoptions',
+            array( 'features', 'links', 'icons' ),
+        ),
+        'testimonial' => array(
+            __( 'Testimonial', 'blue-raeven' ),
+            __( 'Wood-background centered customer quote.', 'blue-raeven' ),
+            'format-quote',
+            array( 'quote', 'testimonial', 'review' ),
+        ),
+        'photo-collage' => array(
+            __( 'Photo Collage', 'blue-raeven' ),
+            __( 'Large main photo with stacked side photos.', 'blue-raeven' ),
+            'images-alt2',
+            array( 'photos', 'collage', 'mosaic' ),
+        ),
+        'retailer-section' => array(
+            __( 'Retailer Section', 'blue-raeven' ),
+            __( 'Grocery retailer buttons plus an area-farmstands list.', 'blue-raeven' ),
+            'store',
+            array( 'retailers', 'grocers', 'stores' ),
+        ),
+        'info-cards' => array(
+            __( 'Location Info Cards', 'blue-raeven' ),
+            __( 'Torn-paper location cards with address, hours, and phone.', 'blue-raeven' ),
+            'location',
+            array( 'locations', 'hours', 'address' ),
+        ),
+        'find-cards' => array(
+            __( 'Find Cards', 'blue-raeven' ),
+            __( '3-up image cards with titles and descriptions.', 'blue-raeven' ),
+            'grid-view',
+            array( 'cards', 'images', 'find' ),
+        ),
+        'directions-split' => array(
+            __( 'Directions Split', 'blue-raeven' ),
+            __( 'Google Maps embed beside directions text.', 'blue-raeven' ),
+            'location-alt',
+            array( 'map', 'directions', 'address' ),
+        ),
+        'contact-methods' => array(
+            __( 'Contact Methods', 'blue-raeven' ),
+            __( 'Torn-paper visit/call/email cards.', 'blue-raeven' ),
+            'phone',
+            array( 'contact', 'phone', 'email', 'visit' ),
+        ),
+        'contact-form' => array(
+            __( 'Contact Form', 'blue-raeven' ),
+            __( 'Web3Forms contact form with hCaptcha and side photo.', 'blue-raeven' ),
+            'email-alt',
+            array( 'form', 'contact', 'web3forms' ),
+        ),
+        'faq-section' => array(
+            __( 'FAQ Section', 'blue-raeven' ),
+            __( 'Standalone FAQ list in a cream section.', 'blue-raeven' ),
+            'editor-help',
+            array( 'faq', 'questions' ),
+        ),
+        'social-cta' => array(
+            __( 'Social CTA', 'blue-raeven' ),
+            __( 'Navy follow-along section with social icons.', 'blue-raeven' ),
+            'share',
+            array( 'social', 'facebook', 'instagram' ),
+        ),
+        'pie-hero-split' => array(
+            __( 'Pie Hero Split', 'blue-raeven' ),
+            __( 'Photo beside a navy text panel.', 'blue-raeven' ),
+            'align-left',
+            array( 'split', 'photo', 'intro' ),
+        ),
+        'pie-card-list' => array(
+            __( 'Pie Card List', 'blue-raeven' ),
+            __( 'Hanging sign plus pie description cards.', 'blue-raeven' ),
+            'index-card',
+            array( 'pies', 'menu', 'cards' ),
+        ),
+        'preorder-section' => array(
+            __( 'Pre-Order Section', 'blue-raeven' ),
+            __( 'Farmstand-only categories with a CTA button.', 'blue-raeven' ),
+            'cart',
+            array( 'preorder', 'seasonal', 'farmstand' ),
+        ),
+        'download-grid' => array(
+            __( 'Download Grid', 'blue-raeven' ),
+            __( 'File download cards with PDF/Excel icons.', 'blue-raeven' ),
+            'download',
+            array( 'downloads', 'files', 'pdf' ),
+        ),
+        'hero-carousel' => array(
+            __( 'Hero Carousel', 'blue-raeven' ),
+            __( 'Full-screen rotating hero with pan/video slides and brand graphic.', 'blue-raeven' ),
+            'slides',
+            array( 'hero', 'carousel', 'slides', 'video' ),
+        ),
+        'pie-feature' => array(
+            __( 'Pie Feature', 'blue-raeven' ),
+            __( '50/50 photo and text panel with CTA button.', 'blue-raeven' ),
+            'align-pull-right',
+            array( 'feature', '50/50', 'cta' ),
+        ),
+    );
+
+    foreach ( $migration_blocks as $block_name => $def ) {
+        acf_register_block_type( array(
+            'name'            => $block_name,
+            'title'           => $def[0],
+            'description'     => $def[1],
+            'render_template' => BLUE_RAEVEN_DIR . '/blocks/' . $block_name . '.php',
+            'category'        => 'blue-raeven',
+            'icon'            => $def[2],
+            'keywords'        => $def[3],
+            'mode'            => 'preview',
+            'supports'        => array(
+                'align'  => false,
+                'anchor' => false,
+                'mode'   => true,
+            ),
+        ) );
+    }
 }
 add_action( 'acf/init', 'blue_raeven_register_acf_blocks' );
 

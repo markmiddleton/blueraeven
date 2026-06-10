@@ -1,0 +1,135 @@
+<main class="wp-block-group is-layout-flow wp-container-core-group-is-layout-76b37640 wp-block-group-is-layout-flow" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
+
+    <div class="entry-content wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow">
+<section class="hero hero--carousel">
+    <div class="hero__slides">
+        <!-- Slide 1: Panning Image -->
+        <div class="hero__slide hero__slide--pan active">
+            <div class="hero__pan-image" style="background-image: url('/wp-content/themes/blue-raeven-theme/assets/images/blue-raeven-farmtable.jpg');"></div>
+        </div>
+        <!-- Slide 2: Night Harvest Video -->
+        <div class="hero__slide hero__slide--video">
+            <video class="hero__video" autoplay muted loop playsinline>
+                <source src="/wp-content/uploads/2026/04/nigh-harvest-hero.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content hero__content--top">
+        <img class="hero__brand-image" src="/wp-content/themes/blue-raeven-theme/assets/images/pie-fixes-everything.png" alt="Pie Fixes Everything" decoding="async">
+    </div>
+    <div class="hero__indicators">
+        <button class="hero__indicator active" data-slide="0"></button>
+        <button class="hero__indicator" data-slide="1"></button>
+    </div>
+</section>
+<script>
+(function() {
+    const slides = document.querySelectorAll(".hero__slide");
+    const indicators = document.querySelectorAll(".hero__indicator");
+    const SLIDE_DURATION = 12000; // 12 seconds per slide
+    let current = 0;
+    let timer;
+
+    // Ensure all videos are playing (they loop in background)
+    function initVideos() {
+        document.querySelectorAll(".hero__video").forEach(video => {
+            video.play().catch(() => {});
+        });
+    }
+
+    function showSlide(index) {
+        // Update slide visibility
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+        });
+        
+        // Update indicators
+        indicators.forEach((ind, i) => {
+            ind.classList.toggle("active", i === index);
+        });
+        
+        // Restart video from beginning when slide becomes active
+        const activeVideo = slides[index].querySelector("video");
+        if (activeVideo) {
+            activeVideo.currentTime = 0;
+            activeVideo.play().catch(() => {});
+        }
+        
+        current = index;
+        
+        // Schedule next slide
+        clearTimeout(timer);
+        timer = setTimeout(nextSlide, SLIDE_DURATION);
+    }
+
+    function nextSlide() {
+        showSlide((current + 1) % slides.length);
+    }
+
+    // Initialize
+    initVideos();
+    timer = setTimeout(nextSlide, SLIDE_DURATION);
+
+    // Click indicators
+    indicators.forEach(ind => {
+        ind.addEventListener("click", () => {
+            showSlide(parseInt(ind.dataset.slide));
+        });
+    });
+})();
+</script>
+
+
+
+<div class="pie-feature">
+    <div class="pie-feature__image">
+        <img decoding="async" src="/wp-content/uploads/2026/04/cherry-pie.jpg" alt="Close up of berry pie slice" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="pie-feature__text" style="background: var(--cream-warm);">
+        <div class="pie-feature__label">The Blue Raeven Farms Difference</div>
+        <h3 class="pie-feature__name">The Best Fruit Makes the Best Pies</h3>
+        <p class="pie-feature__desc">
+            Our pies are loaded with fruit &mdash; not fillers. We use a higher fruit-to-crust ratio than most, so every bite bursts with real berry flavor, grown on our farm or from nearby Northwest neighbors. This is how pie is meant to taste.
+        </p>
+        <a href="/pies-more/pies/" class="btn btn--primary" style="margin-top:1.5rem;">View our Handcrafted Pies</a>
+    </div>
+</div>
+<div class="pie-feature pie-feature--reverse">
+    <div class="pie-feature__image">
+        <img decoding="async" src="/wp-content/uploads/2026/04/pie_boxes.jpg" alt="Blue Raeven pie boxes" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="pie-feature__text" style="background: var(--cream-warm);">
+        <div class="pie-feature__label" style="color:var(--berry);">Take One Home</div>
+        <h3 class="pie-feature__name" style="color:var(--navy);">Ready for Your Table</h3>
+        <p class="pie-feature__desc" style="color:var(--charcoal);">
+            Whether buying from our farmstands or grocery store, every pie is packaged with care in our signature Blue Raeven box. If you&#8217;re taking one home for the family, gifting to a friend, or planning for a special occasion, trust that our pies travel beautifully.
+        </p>
+        <a href="/farmstand/" class="btn btn--primary" style="margin-top:1.5rem;">Find Us Near You</a>
+    </div>
+</div>
+
+
+
+<div class="story-banner-spacer" aria-hidden="true"></div>
+<section class="story-banner story-banner--open" style="background-image: url('/wp-content/themes/blue-raeven-theme/assets/images/blue-raeven-farm-aerial.jpg');">
+    <div class="story-banner__box">
+        <h2 class="story-banner__title">The Story Behind our Handcrafted Pies</h2>
+        <p class="story-banner__subhead">A generational legacy of farming, fruit, and family tradition</p>
+        <a href="/story/" class="btn btn--primary">Read Our Story</a>
+    </div>
+</section>
+
+
+
+<div class="story-banner-spacer" aria-hidden="true"></div>
+<section class="story-banner story-banner--open" style="background-image: url('/wp-content/themes/blue-raeven-theme/assets/images/blue-raeven-farmtable.jpg');">
+    <div class="story-banner__box">
+        <h2 class="story-banner__title">Wholesale and Fundraising</h2>
+        <p class="story-banner__subhead">Great Pie is Good Business</p>
+        <a href="/wholesale-fundraising/" class="btn btn--primary">Partner With Us</a>
+    </div>
+</section>
+</div>
+
+</main>

@@ -1,0 +1,69 @@
+{
+    "key": "group_br_product_list",
+    "title": "Product List",
+    "fields": [
+        {
+            "key": "field_brpl_image",
+            "label": "Top photo",
+            "name": "image",
+            "type": "image",
+            "instructions": "Wide product photo shown above the intro text.",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_brpl_paragraphs",
+            "label": "Intro paragraphs",
+            "name": "paragraphs",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add paragraph",
+            "sub_fields": [
+                {
+                    "key": "field_brpl_para_text",
+                    "label": "Paragraph",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 4,
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_brpl_cards",
+            "label": "Product cards",
+            "name": "cards",
+            "type": "repeater",
+            "instructions": "Each card has a heading and a list of products. Separate products with the • character (copy it from an existing card).",
+            "layout": "block",
+            "button_label": "Add card",
+            "sub_fields": [
+                {
+                    "key": "field_brpl_card_title",
+                    "label": "Card heading",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brpl_card_desc",
+                    "label": "Products",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/product-list"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

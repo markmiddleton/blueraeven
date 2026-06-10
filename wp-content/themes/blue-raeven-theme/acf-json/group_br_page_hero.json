@@ -1,0 +1,45 @@
+{
+    "key": "group_br_page_hero",
+    "title": "Page Hero",
+    "fields": [
+        {
+            "key": "field_brph_title",
+            "label": "Page title",
+            "name": "title",
+            "type": "text",
+            "instructions": "The big headline at the top of the page.",
+            "required": 1
+        },
+        {
+            "key": "field_brph_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "instructions": "Handwritten-style line under the title. Press Enter to split it onto two lines."
+        },
+        {
+            "key": "field_brph_variant",
+            "label": "Background style",
+            "name": "variant",
+            "type": "button_group",
+            "choices": {
+                "navy": "Navy",
+                "wood": "Wood"
+            },
+            "default_value": "navy"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/page-hero"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

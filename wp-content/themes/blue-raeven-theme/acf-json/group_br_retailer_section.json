@@ -1,0 +1,83 @@
+{
+    "key": "group_br_retailer_section",
+    "title": "Retailer Section",
+    "fields": [
+        {
+            "key": "field_brrs_title",
+            "label": "Section title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_brrs_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "text"
+        },
+        {
+            "key": "field_brrs_intro",
+            "label": "Intro paragraph",
+            "name": "intro",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": "",
+            "instructions": "Plain text. You may include a link like: <a href=\"/page/\" style=\"color:var(--berry); text-decoration:underline;\">word</a>"
+        },
+        {
+            "key": "field_brrs_retailers",
+            "label": "Grocery retailers",
+            "name": "retailers",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add retailer",
+            "sub_fields": [
+                {
+                    "key": "field_brrs_ret_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brrs_ret_url",
+                    "label": "Website",
+                    "name": "url",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_brrs_sub_title",
+            "label": "Sub-list heading",
+            "name": "sub_title",
+            "type": "text",
+            "instructions": "e.g. “Also at area farmstands”. Leave empty to hide the sub-list."
+        },
+        {
+            "key": "field_brrs_farmstands",
+            "label": "Area farmstands (no links)",
+            "name": "farmstands",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add farmstand",
+            "sub_fields": [
+                {
+                    "key": "field_brrs_fs_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/retailer-section"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

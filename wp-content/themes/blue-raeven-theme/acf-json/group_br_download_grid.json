@@ -1,0 +1,58 @@
+{
+    "key": "group_br_download_grid",
+    "title": "Download Grid",
+    "fields": [
+        {
+            "key": "field_brdg_cards",
+            "label": "Downloads",
+            "name": "cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add download",
+            "sub_fields": [
+                {
+                    "key": "field_brdg_file",
+                    "label": "File",
+                    "name": "file",
+                    "type": "file",
+                    "return_format": "array",
+                    "instructions": "PDF or Excel file from the media library."
+                },
+                {
+                    "key": "field_brdg_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "button_group",
+                    "choices": {
+                        "pdf": "PDF",
+                        "excel": "Excel"
+                    },
+                    "default_value": "pdf"
+                },
+                {
+                    "key": "field_brdg_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brdg_desc",
+                    "label": "Description",
+                    "name": "desc",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/download-grid"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

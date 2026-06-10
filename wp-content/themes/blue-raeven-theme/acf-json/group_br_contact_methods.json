@@ -1,0 +1,59 @@
+{
+    "key": "group_br_contact_methods",
+    "title": "Contact Methods",
+    "fields": [
+        {
+            "key": "field_brcm_cards",
+            "label": "Method cards",
+            "name": "cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add method",
+            "sub_fields": [
+                {
+                    "key": "field_brcm_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "e.g. Visit Us / Call Us / Email Us"
+                },
+                {
+                    "key": "field_brcm_line1",
+                    "label": "First line",
+                    "name": "line1",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brcm_line2",
+                    "label": "Second line",
+                    "name": "line2",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brcm_link_label",
+                    "label": "Link text",
+                    "name": "link_label",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brcm_link_url",
+                    "label": "Link",
+                    "name": "link_url",
+                    "type": "text",
+                    "instructions": "A page like /farmstand/, a phone like tel:5038350740, or an email like mailto:hello@blueraeven.com"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/contact-methods"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

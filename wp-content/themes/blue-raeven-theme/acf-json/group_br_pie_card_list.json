@@ -1,0 +1,57 @@
+{
+    "key": "group_br_pie_card_list",
+    "title": "Pie Card List",
+    "fields": [
+        {
+            "key": "field_brpcl_sign",
+            "label": "Sign image",
+            "name": "sign",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "instructions": "The hanging sign image beside the list."
+        },
+        {
+            "key": "field_brpcl_cards",
+            "label": "Pies",
+            "name": "cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add pie",
+            "sub_fields": [
+                {
+                    "key": "field_brpcl_card_title",
+                    "label": "Pie name",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brpcl_card_lead",
+                    "label": "Berry list (italic lead, optional)",
+                    "name": "lead",
+                    "type": "text",
+                    "instructions": "For blend pies, e.g. “Blueberry, Boysenberry & Marionberry”. Shown in italics before the description."
+                },
+                {
+                    "key": "field_brpcl_card_desc",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/pie-card-list"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

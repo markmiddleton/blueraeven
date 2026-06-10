@@ -1,0 +1,53 @@
+{
+    "key": "group_br_faq_section",
+    "title": "FAQ Section",
+    "fields": [
+        {
+            "key": "field_brfs_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_brfs_anchor",
+            "label": "Anchor ID (optional)",
+            "name": "anchor",
+            "type": "text"
+        },
+        {
+            "key": "field_brfs_faqs",
+            "label": "Questions",
+            "name": "faqs",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add question",
+            "sub_fields": [
+                {
+                    "key": "field_brfs_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brfs_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/faq-section"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

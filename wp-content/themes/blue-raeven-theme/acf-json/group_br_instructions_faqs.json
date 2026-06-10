@@ -1,0 +1,107 @@
+{
+    "key": "group_br_instructions_faqs",
+    "title": "Instruction Cards + FAQs",
+    "fields": [
+        {
+            "key": "field_brif_cards",
+            "label": "Instruction cards",
+            "name": "cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add instruction card",
+            "sub_fields": [
+                {
+                    "key": "field_brif_card_anchor",
+                    "label": "Anchor ID",
+                    "name": "anchor",
+                    "type": "text",
+                    "instructions": "Used for direct links, e.g. baking-instructions. Lowercase, hyphens only."
+                },
+                {
+                    "key": "field_brif_card_image",
+                    "label": "Photo",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_brif_card_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brif_card_subtitle",
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brif_card_steps",
+                    "label": "Steps",
+                    "name": "steps",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add step",
+                    "sub_fields": [
+                        {
+                            "key": "field_brif_step_text",
+                            "label": "Step",
+                            "name": "text",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_brif_faq_anchor",
+            "label": "FAQ anchor ID",
+            "name": "faq_anchor",
+            "type": "text",
+            "instructions": "Optional, e.g. baking-faqs."
+        },
+        {
+            "key": "field_brif_faq_title",
+            "label": "FAQ title",
+            "name": "faq_title",
+            "type": "text"
+        },
+        {
+            "key": "field_brif_faqs",
+            "label": "FAQs",
+            "name": "faqs",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add question",
+            "sub_fields": [
+                {
+                    "key": "field_brif_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brif_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/instructions-faqs"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

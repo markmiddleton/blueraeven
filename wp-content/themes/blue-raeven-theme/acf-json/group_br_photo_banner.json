@@ -1,0 +1,27 @@
+{
+    "key": "group_br_photo_banner",
+    "title": "Photo Banner",
+    "fields": [
+        {
+            "key": "field_brpb_image",
+            "label": "Photo",
+            "name": "image",
+            "type": "image",
+            "instructions": "Full-width banner photo (wide panoramas work best).",
+            "required": 1,
+            "return_format": "array",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/photo-banner"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

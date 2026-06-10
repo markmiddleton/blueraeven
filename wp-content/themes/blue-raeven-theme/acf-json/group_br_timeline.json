@@ -1,0 +1,93 @@
+{
+    "key": "group_br_timeline",
+    "title": "Timeline",
+    "fields": [
+        {
+            "key": "field_brtl_label",
+            "label": "Section label",
+            "name": "label",
+            "type": "text",
+            "instructions": "Small uppercase label above the title, e.g. “Our Journey”."
+        },
+        {
+            "key": "field_brtl_title",
+            "label": "Section title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_brtl_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "text",
+            "instructions": "Handwritten-style line under the title (optional)."
+        },
+        {
+            "key": "field_brtl_items",
+            "label": "Timeline entries",
+            "name": "items",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add entry",
+            "sub_fields": [
+                {
+                    "key": "field_brtl_item_year",
+                    "label": "Entry title",
+                    "name": "year_title",
+                    "type": "text",
+                    "instructions": "e.g. “Blueberry Fields Planted 1987”."
+                },
+                {
+                    "key": "field_brtl_item_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_brtl_item_images",
+                    "label": "Photos (optional)",
+                    "name": "images",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add photo",
+                    "sub_fields": [
+                        {
+                            "key": "field_brtl_img_image",
+                            "label": "Photo",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_brtl_img_crop",
+                            "label": "Crop focus",
+                            "name": "crop",
+                            "type": "select",
+                            "choices": {
+                                "": "Center (default)",
+                                "crop-top": "Show top of photo",
+                                "crop-bottom": "Show bottom of photo"
+                            },
+                            "default_value": "",
+                            "allow_null": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/timeline"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

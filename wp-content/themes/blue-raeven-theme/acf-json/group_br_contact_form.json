@@ -1,0 +1,94 @@
+{
+    "key": "group_br_contact_form",
+    "title": "Contact Form",
+    "fields": [
+        {
+            "key": "field_brcf_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text"
+        },
+        {
+            "key": "field_brcf_subtitle",
+            "label": "Subtitle (script line)",
+            "name": "subtitle",
+            "type": "text"
+        },
+        {
+            "key": "field_brcf_access_key",
+            "label": "Web3Forms access key",
+            "name": "access_key",
+            "type": "text",
+            "instructions": "From your web3forms.com dashboard. Submissions stop working if this is wrong."
+        },
+        {
+            "key": "field_brcf_sitekey",
+            "label": "hCaptcha site key",
+            "name": "sitekey",
+            "type": "text",
+            "instructions": "Web3Forms free plan uses 50b2fe65-b00b-4b9e-ad62-3ba471098be2."
+        },
+        {
+            "key": "field_brcf_subjects",
+            "label": "Subject choices",
+            "name": "subjects",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add subject",
+            "sub_fields": [
+                {
+                    "key": "field_brcf_subj_value",
+                    "label": "Value (no spaces)",
+                    "name": "value",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brcf_subj_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_brcf_button",
+            "label": "Send button text",
+            "name": "button",
+            "type": "text",
+            "default_value": "Send Message"
+        },
+        {
+            "key": "field_brcf_thanks_title",
+            "label": "Thank-you message (script line)",
+            "name": "thanks_title",
+            "type": "text",
+            "default_value": "Thanks! Your message is on its way."
+        },
+        {
+            "key": "field_brcf_thanks_text",
+            "label": "Thank-you sub-line",
+            "name": "thanks_text",
+            "type": "text",
+            "default_value": "We’ll get back to you soon."
+        },
+        {
+            "key": "field_brcf_image",
+            "label": "Side photo",
+            "name": "image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/contact-form"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

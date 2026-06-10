@@ -1,0 +1,45 @@
+{
+    "key": "group_br_pie_hero_split",
+    "title": "Pie Hero Split",
+    "fields": [
+        {
+            "key": "field_brph2_image",
+            "label": "Photo (left half)",
+            "name": "image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_brph2_heading",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text"
+        },
+        {
+            "key": "field_brph2_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "text"
+        },
+        {
+            "key": "field_brph2_text",
+            "label": "Paragraph",
+            "name": "text",
+            "type": "textarea",
+            "rows": 5,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/pie-hero-split"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

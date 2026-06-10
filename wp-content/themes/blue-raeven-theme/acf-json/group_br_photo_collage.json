@@ -1,0 +1,51 @@
+{
+    "key": "group_br_photo_collage",
+    "title": "Photo Collage",
+    "fields": [
+        {
+            "key": "field_brpc_main",
+            "label": "Main photo (large, left)",
+            "name": "main",
+            "type": "image",
+            "required": 1,
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_brpc_sides",
+            "label": "Side photos",
+            "name": "sides",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add side photo",
+            "sub_fields": [
+                {
+                    "key": "field_brpc_side_image",
+                    "label": "Photo",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_brpc_side_pos",
+                    "label": "Focus adjustment (advanced)",
+                    "name": "position",
+                    "type": "text",
+                    "instructions": "Optional CSS object-position override, e.g. center calc(50% + 100px). Leave empty for centered."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/photo-collage"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}
