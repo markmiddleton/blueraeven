@@ -465,6 +465,36 @@ function blue_raeven_register_acf_blocks() {
             'format-quote',
             array( 'quote', 'testimonial', 'review' ),
         ),
+        'photo-collage' => array(
+            __( 'Photo Collage', 'blue-raeven' ),
+            __( 'Large main photo with stacked side photos.', 'blue-raeven' ),
+            'images-alt2',
+            array( 'photos', 'collage', 'mosaic' ),
+        ),
+        'retailer-section' => array(
+            __( 'Retailer Section', 'blue-raeven' ),
+            __( 'Grocery retailer buttons plus an area-farmstands list.', 'blue-raeven' ),
+            'store',
+            array( 'retailers', 'grocers', 'stores' ),
+        ),
+        'info-cards' => array(
+            __( 'Location Info Cards', 'blue-raeven' ),
+            __( 'Torn-paper location cards with address, hours, and phone.', 'blue-raeven' ),
+            'location',
+            array( 'locations', 'hours', 'address' ),
+        ),
+        'find-cards' => array(
+            __( 'Find Cards', 'blue-raeven' ),
+            __( '3-up image cards with titles and descriptions.', 'blue-raeven' ),
+            'grid-view',
+            array( 'cards', 'images', 'find' ),
+        ),
+        'directions-split' => array(
+            __( 'Directions Split', 'blue-raeven' ),
+            __( 'Google Maps embed beside directions text.', 'blue-raeven' ),
+            'location-alt',
+            array( 'map', 'directions', 'address' ),
+        ),
     );
 
     foreach ( $migration_blocks as $block_name => $def ) {

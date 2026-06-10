@@ -1,0 +1,65 @@
+{
+    "key": "group_br_find_cards",
+    "title": "Find Cards",
+    "fields": [
+        {
+            "key": "field_brfc_label",
+            "label": "Section label",
+            "name": "label",
+            "type": "text"
+        },
+        {
+            "key": "field_brfc_title",
+            "label": "Section title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_brfc_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "text"
+        },
+        {
+            "key": "field_brfc_cards",
+            "label": "Cards",
+            "name": "cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add card",
+            "sub_fields": [
+                {
+                    "key": "field_brfc_card_image",
+                    "label": "Photo",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_brfc_card_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brfc_card_desc",
+                    "label": "Description",
+                    "name": "desc",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/find-cards"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

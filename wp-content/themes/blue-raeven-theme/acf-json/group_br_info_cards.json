@@ -1,0 +1,88 @@
+{
+    "key": "group_br_info_cards",
+    "title": "Location Info Cards",
+    "fields": [
+        {
+            "key": "field_bric_title",
+            "label": "Section title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_bric_script",
+            "label": "Script line",
+            "name": "script",
+            "type": "text"
+        },
+        {
+            "key": "field_bric_intro",
+            "label": "Intro paragraph",
+            "name": "intro",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_bric_cards",
+            "label": "Location cards",
+            "name": "cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add location",
+            "sub_fields": [
+                {
+                    "key": "field_bric_card_title",
+                    "label": "Location name",
+                    "name": "title",
+                    "type": "textarea",
+                    "rows": 2,
+                    "new_lines": "",
+                    "instructions": "Press Enter to split onto two lines, e.g. “Blue Raeven Farmstand” / “Amity”."
+                },
+                {
+                    "key": "field_bric_card_address",
+                    "label": "Address",
+                    "name": "address",
+                    "type": "textarea",
+                    "rows": 2,
+                    "new_lines": "",
+                    "instructions": "Street on the first line, city/state/zip on the second."
+                },
+                {
+                    "key": "field_bric_card_hours",
+                    "label": "Hours",
+                    "name": "hours",
+                    "type": "textarea",
+                    "rows": 2,
+                    "new_lines": "",
+                    "instructions": "One line per hours entry, e.g. “Monday – Saturday: 9 AM to 5:30 PM”."
+                },
+                {
+                    "key": "field_bric_card_phone",
+                    "label": "Phone (display)",
+                    "name": "phone",
+                    "type": "text",
+                    "instructions": "As shown, e.g. (503) 835-0740"
+                },
+                {
+                    "key": "field_bric_card_tel",
+                    "label": "Phone (digits for dialing)",
+                    "name": "tel",
+                    "type": "text",
+                    "instructions": "Digits only, e.g. 5038350740"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/info-cards"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}
