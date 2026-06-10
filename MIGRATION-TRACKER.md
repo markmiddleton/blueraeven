@@ -9,12 +9,12 @@ A row is ✅ only when DOM + Visual pass (and JS where applicable). See MIGRATIO
 |---|---|---|
 | br/story-banner | ✅ built | Pilot. All gates green. |
 | br/page-hero | ✅ built | navy + wood variants; 8 pages |
-| br/photo-banner | ⬜ | story, contact |
+| br/photo-banner | ✅ built | story, contact |
 | br/hero-carousel | ⬜ | home; slides repeater + inline JS |
 | br/pie-feature | ⬜ | home ×2; 50/50 with reverse variant |
-| br/story-block | ⬜ | story intro + pies-fix-everything |
-| br/timeline | ⬜ | story; repeater w/ images + crop classes |
-| br/gallery-mosaic | ⬜ | story + farmstand; gallery field + JS |
+| br/story-block | ✅ built | story intro + pies-fix-everything |
+| br/timeline | ✅ built | story; repeater w/ images + crop classes |
+| br/gallery-mosaic | ✅ built | story + farmstand; gallery field + JS |
 | br/photo-collage | ⬜ | farmstand visit photos |
 | br/retailer-section | ⬜ | farmstand; grocer repeater + farmstand list |
 | br/info-cards | ⬜ | farmstand; torn-paper location cards |
@@ -39,12 +39,14 @@ A row is ✅ only when DOM + Visual pass (and JS where applicable). See MIGRATIO
 | home | H3 ready-for-table 50/50 | br/pie-feature | | | | | | |
 | home | H5 story banner (story) | br/story-banner | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
 | home | H6 story banner (wholesale) | br/story-banner | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
-| story | S1 page hero | br/page-hero | | | | | | |
-| story | S2 photo banner | br/photo-banner | | | | | | |
-| story | S3 story intro | br/story-block | | | | | | |
-| story | S4 timeline | br/timeline | | | | | | |
-| story | S5 pies-fix-everything | br/story-block | | | | | | |
-| story | S6 gallery mosaic | br/gallery-mosaic | | | | | | |
+| story | S1 page hero | br/page-hero | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| story | S2 photo banner | br/photo-banner | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| story | S3 story intro | br/story-block | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| story | S4 timeline | br/timeline | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| story | S5 pies-fix-everything | br/story-block | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| story | S6 gallery mosaic | br/gallery-mosaic | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| story | S7 feature links | br/feature-links | ✅ | ✅ | ✅ | ⬜ | n/a | ⬜ |
+| story | S8 testimonial | br/testimonial | ✅ | ✅ | ✅ | ⬜ | n/a | ⬜ |
 | our-berries | OB1 page hero | br/page-hero | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
 | our-berries | OB2 content blocks | br/content-blocks | ✅ | ✅ | ✅ | ✅ | n/a | ✅ |
 | farmstand | F1 page hero | br/page-hero | | | | | | |
