@@ -98,6 +98,24 @@ Most of this page is regular WordPress text blocks — click any paragraph and t
 
 ---
 
+## Header & Footer (Theme Settings)
+
+The navigation menus and footer are **not** edited on a page — they appear on every page and are managed in one place: **wp-admin → Theme Settings**.
+
+### Header Navigation
+- **Left nav items** (before the logo): each item has a label and link. Add a **dropdown** by giving an item one or more "Dropdown items." The "Mobile overview link label" is the optional tappable parent link shown above a dropdown's items on phones (e.g. "Our Story Overview") — leave blank for none.
+- **Right nav items** (after the logo): simple label + link each.
+- The logo stays managed by the developer (not in this screen).
+
+### Footer
+- **Brand**: name, script line, description.
+- **Explore / Connect links**: label + link lists.
+- **Visit locations**: each has a name, a map link, and any number of hours lines.
+- **Social icons**: choose Facebook, Instagram, or Newsletter and give each a link.
+- **Bottom bar**: copyright text (the year is added automatically), location, and the site credit.
+
+Changes here update the header/footer across the **whole site** at once. Click **Update** to save.
+
 ## Things to know
 
 - **The • separator**: product lists use the "•" character between items. Copy-paste it from existing text rather than typing a regular dash.

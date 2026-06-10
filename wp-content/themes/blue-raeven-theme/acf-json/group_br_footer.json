@@ -1,0 +1,146 @@
+{
+    "key": "group_br_footer",
+    "title": "Footer",
+    "fields": [
+        {
+            "key": "field_brf_brand_name",
+            "label": "Brand name",
+            "name": "brand_name",
+            "type": "text"
+        },
+        {
+            "key": "field_brf_brand_script",
+            "label": "Brand script line",
+            "name": "brand_script",
+            "type": "text"
+        },
+        {
+            "key": "field_brf_brand_desc",
+            "label": "Brand description",
+            "name": "brand_desc",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_brf_explore_heading",
+            "label": "Explore — heading",
+            "name": "explore_heading",
+            "type": "text"
+        },
+        {
+            "key": "field_brf_explore_links",
+            "label": "Explore — links",
+            "name": "explore_links",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add link",
+            "sub_fields": [
+                { "key": "field_brf_explore_label", "label": "Label", "name": "label", "type": "text" },
+                { "key": "field_brf_explore_url", "label": "Link", "name": "url", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_brf_visit_heading",
+            "label": "Visit — heading",
+            "name": "visit_heading",
+            "type": "text"
+        },
+        {
+            "key": "field_brf_visit_locations",
+            "label": "Visit — locations",
+            "name": "visit_locations",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add location",
+            "sub_fields": [
+                { "key": "field_brf_visit_name", "label": "Location name", "name": "name", "type": "text" },
+                { "key": "field_brf_visit_map", "label": "Map link", "name": "map_url", "type": "text" },
+                {
+                    "key": "field_brf_visit_hours",
+                    "label": "Hours lines",
+                    "name": "hours",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add hours line",
+                    "sub_fields": [
+                        { "key": "field_brf_visit_hours_line", "label": "Line", "name": "line", "type": "text" }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_brf_connect_heading",
+            "label": "Connect — heading",
+            "name": "connect_heading",
+            "type": "text"
+        },
+        {
+            "key": "field_brf_connect_links",
+            "label": "Connect — links",
+            "name": "connect_links",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add link",
+            "sub_fields": [
+                { "key": "field_brf_connect_label", "label": "Label", "name": "label", "type": "text" },
+                { "key": "field_brf_connect_url", "label": "Link", "name": "url", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_brf_social",
+            "label": "Social icons",
+            "name": "social",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add social icon",
+            "sub_fields": [
+                {
+                    "key": "field_brf_social_platform",
+                    "label": "Icon",
+                    "name": "platform",
+                    "type": "select",
+                    "choices": { "facebook": "Facebook", "instagram": "Instagram", "newsletter": "Newsletter (envelope)" },
+                    "default_value": "facebook"
+                },
+                { "key": "field_brf_social_url", "label": "Link", "name": "url", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_brf_copyright",
+            "label": "Copyright text",
+            "name": "copyright",
+            "type": "text",
+            "instructions": "The year is added automatically in front of this text."
+        },
+        {
+            "key": "field_brf_bottom_location",
+            "label": "Bottom location text",
+            "name": "bottom_location",
+            "type": "text"
+        },
+        {
+            "key": "field_brf_credit_label",
+            "label": "Credit label",
+            "name": "credit_label",
+            "type": "text"
+        },
+        {
+            "key": "field_brf_credit_url",
+            "label": "Credit link",
+            "name": "credit_url",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "blue-raeven-settings"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

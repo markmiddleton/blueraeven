@@ -1,0 +1,92 @@
+{
+    "key": "group_br_header_nav",
+    "title": "Header Navigation",
+    "fields": [
+        {
+            "key": "field_brhn_left",
+            "label": "Left nav items (before the logo)",
+            "name": "left_items",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add left item",
+            "sub_fields": [
+                {
+                    "key": "field_brhn_left_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brhn_left_url",
+                    "label": "Link",
+                    "name": "url",
+                    "type": "text",
+                    "instructions": "A path like /story/ or a full https:// address."
+                },
+                {
+                    "key": "field_brhn_left_overview",
+                    "label": "Mobile overview link label",
+                    "name": "mobile_overview_label",
+                    "type": "text",
+                    "instructions": "Dropdowns only: a tappable link shown above this menu's items on mobile (e.g. 'Our Story Overview'), pointing at the Link above. Leave blank for none."
+                },
+                {
+                    "key": "field_brhn_left_children",
+                    "label": "Dropdown items",
+                    "name": "children",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add dropdown item",
+                    "instructions": "Leave empty for a plain link; add rows to make this a dropdown.",
+                    "sub_fields": [
+                        {
+                            "key": "field_brhn_child_label",
+                            "label": "Label",
+                            "name": "label",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_brhn_child_url",
+                            "label": "Link",
+                            "name": "url",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_brhn_right",
+            "label": "Right nav items (after the logo)",
+            "name": "right_items",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add right item",
+            "sub_fields": [
+                {
+                    "key": "field_brhn_right_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                },
+                {
+                    "key": "field_brhn_right_url",
+                    "label": "Link",
+                    "name": "url",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "blue-raeven-settings"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}

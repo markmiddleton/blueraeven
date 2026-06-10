@@ -333,6 +333,26 @@ function blue_raeven_register_block_styles() {
 add_action( 'init', 'blue_raeven_register_block_styles' );
 
 /**
+ * Resolve a nav/footer link stored in ACF options.
+ * Relative paths (e.g. "/story/") are run through home_url() so output
+ * matches the legacy hardcoded home_url() links exactly; full URLs
+ * (http/https/mailto/tel) are returned untouched.
+ *
+ * @param string $url Stored link value.
+ * @return string Resolved URL.
+ */
+function blue_raeven_nav_url( $url ) {
+    $url = (string) $url;
+    if ( '' === $url ) {
+        return '';
+    }
+    if ( preg_match( '#^(https?:)?//#', $url ) || preg_match( '#^(mailto:|tel:|#)#', $url ) ) {
+        return $url;
+    }
+    return home_url( $url );
+}
+
+/**
  * Add ACF options page
  */
 function blue_raeven_acf_options_page() {
