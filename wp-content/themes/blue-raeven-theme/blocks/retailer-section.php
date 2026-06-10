@@ -4,8 +4,10 @@
  * farmstands (Farmstand page style). Markup mirrors the legacy hand-coded
  * rows exactly (see MIGRATION-PLAN.md).
  *
- * The intro paragraph permits a limited inline link (see field instructions);
- * everything else is escaped.
+ * The intro paragraph is a WYSIWYG field (basic toolbar) — wpautop wraps it
+ * in <p> so existing plain values and editor-saved values render the same.
+ * Its styling lives in .retailer-section__intro CSS, so editor-added links
+ * inherit the brand berry colour. Everything else is escaped.
  *
  * @package Blue_Raeven
  */
@@ -36,14 +38,9 @@ foreach ( (array) $farmstands as $fs ) {
             <p class="section__script"><?php echo esc_html( $script ); ?></p>
             <div class="section__divider"></div>
         </div>
-        <p style="text-align:center; max-width:800px; margin:0 auto 2.5rem; color:var(--charcoal); font-size:1.05rem; line-height:1.8;">
-            <?php
-            // Emitted verbatim to preserve the inline link exactly (wp_kses
-            // rewrites style attributes). Field is editor-entered, same trust
-            // model as the legacy raw-HTML blocks this replaces.
-            echo $intro; // phpcs:ignore WordPress.Security.EscapeOutput
-            ?>
-        </p>
+        <div class="retailer-section__intro">
+            <?php echo wpautop( $intro ); // phpcs:ignore WordPress.Security.EscapeOutput — WYSIWYG content ?>
+        </div>
         <div class="retailer-list">
 <?php foreach ( $retailers as $r ) : ?>
             <a href="<?php echo esc_url( $r['url'] ); ?>" target="_blank" rel="noopener" class="retailer-link"><?php echo esc_html( $r['name'] ); ?></a>

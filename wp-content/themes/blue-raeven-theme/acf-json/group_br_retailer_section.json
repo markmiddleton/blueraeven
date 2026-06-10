@@ -18,10 +18,11 @@
             "key": "field_brrs_intro",
             "label": "Intro paragraph",
             "name": "intro",
-            "type": "textarea",
-            "rows": 4,
-            "new_lines": "",
-            "instructions": "Plain text. You may include a link like: <a href=\"/page/\" style=\"color:var(--berry); text-decoration:underline;\">word</a>"
+            "type": "wysiwyg",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "instructions": "Use the toolbar to add bold text or links — no HTML needed."
         },
         {
             "key": "field_brrs_retailers",

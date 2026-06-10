@@ -33,7 +33,7 @@ Many blocks contain lists — pies, FAQs, retailers, timeline entries, photo sli
 
 | Block | What you can edit |
 |---|---|
-| **Page Hero** | Title + script line. Navy or wood background. |
+| **Page Hero** | Title + script line. |
 | **Photo Banner** | The full-width photo strip. |
 | **Story Block** (×2) | Framed photo + paragraphs. Add/remove paragraphs; "Bold" toggle for sign-off lines; photo left or right. |
 | **Timeline** | The family history. Each entry = title, text, and up to a few photos (with a "crop focus" dropdown if a photo's important part is at the top or bottom). Add new entries as history happens! |
@@ -54,7 +54,7 @@ Many blocks contain lists — pies, FAQs, retailers, timeline entries, photo sli
 |---|---|
 | **Page Hero** | Title + script. |
 | **Photo Collage** | The big photo + two stacked side photos. |
-| **Retailer Section** | The grocery store buttons (name + website each) and the "Also at area farmstands" name list. Add a new store in seconds. |
+| **Retailer Section** | The intro paragraph is a rich-text editor — use its toolbar to add bold text or links (no HTML needed). Plus the grocery store buttons (name + website each) and the "Also at area farmstands" name list. Add a new store in seconds. |
 | **Location Info Cards** | The two torn-paper cards: address, hours, phone for each location. **This is where you change store hours.** |
 | **Find Cards** | The three "What You'll Find" cards. |
 | **Directions Split** | The map (paste a Google Maps embed address) and the directions text. |

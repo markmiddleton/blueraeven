@@ -562,6 +562,24 @@ ul { list-style: none; }
 .section--gold-light { background: linear-gradient(180deg, #f5edd8 0%, #faf3e6 100%); }
 
 /* Retailer Links */
+/* Retailer-section intro (WYSIWYG). Reproduces the former inline <p> styles
+   so the rich-text field renders identically and editor-added links are
+   brand berry without needing inline styles. */
+.retailer-section__intro {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.retailer-section__intro p {
+  color: var(--charcoal);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0;
+}
+.retailer-section__intro a {
+  color: var(--berry);
+  text-decoration: underline;
+}
 .retailer-list {
   display: flex;
   flex-wrap: wrap;

@@ -18,17 +18,6 @@
             "rows": 2,
             "new_lines": "",
             "instructions": "Handwritten-style line under the title. Press Enter to split it onto two lines."
-        },
-        {
-            "key": "field_brph_variant",
-            "label": "Background style",
-            "name": "variant",
-            "type": "button_group",
-            "choices": {
-                "navy": "Navy",
-                "wood": "Wood"
-            },
-            "default_value": "navy"
         }
     ],
     "location": [
