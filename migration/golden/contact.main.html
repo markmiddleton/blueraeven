@@ -1,0 +1,206 @@
+<main class="wp-block-group is-layout-flow wp-container-core-group-is-layout-76b37640 wp-block-group-is-layout-flow" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0">
+
+    <div class="entry-content wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow">
+<div class="page-hero page-hero--navy">
+    <div class="container">
+        <h1 class="page-hero__title">Get In Touch</h1>
+        <p class="page-hero__script">We&#8217;d love to hear from you</p>
+        <div class="page-hero__divider"></div>
+    </div>
+</div>
+
+
+
+<div class="photo-banner">
+    <img decoding="async" src="/wp-content/uploads/2026/04/farm_banner.jpg" alt="Oregon berry farm panoramic view">
+</div>
+
+
+
+<section class="section">
+    <div class="container">
+        <div class="contact-methods">
+            <div class="contact-method">
+                <div class="contact-method__title">Visit Us</div>
+                <div class="contact-method__text">
+                    Amity Farmstand &amp; McMinnville Pie Shop<br>
+                    See hours &amp; locations<br>
+                    <a href="/farmstand/">Get Directions</a>
+                </div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-method__title">Call Us</div>
+                <div class="contact-method__text">
+                    (503) 835-0740<br>
+                    Mon&ndash;Sat, 9am&ndash;5:30pm<br>
+                    <a href="tel:5038350740">Give Us a Ring</a>
+                </div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-method__title">Email Us</div>
+                <div class="contact-method__text">
+                    hello@blueraeven.com<br>
+                    We reply within 24 hours<br>
+                    <a href="mailto:hello@blueraeven.com">Send a Message</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="form-section">
+    <div class="form-section__form-wrap">
+        <h3>Drop Us a Line</h3>
+        <div class="subtitle">for orders, events, or just to say hi</div>
+        <form id="form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="9508eed0-a2f2-4133-8688-ea9e430b8f41">
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="contact-name">Your Name</label>
+                    <input type="text" id="contact-name" name="name" placeholder="Jane Doe" required>
+                </div>
+                <div class="form-field">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" placeholder="jane@example.com" required>
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="contact-subject">Subject</label>
+                <select id="contact-subject" name="subject">
+                    <option value="">Choose a topic&hellip;</option>
+                    <option value="where-to-find">Where to find us</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="special-orders">Special orders</option>
+                    <option value="wholesale">Wholesale inquiry</option>
+                    <option value="fundraising">Fundraising inquiry</option>
+                    <option value="jobs">Job inquiry</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+            </div>
+            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+            <button type="submit" class="btn btn--primary" style="align-self:flex-start;">Send Message</button>
+        </form>
+        <div id="form-thanks" style="display:none; padding: 2rem 0; text-align: center;">
+            <p style="font-family: var(--font-script); font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--aqua-light); margin-bottom: 0.5rem;">Thanks! Your message is on its way.</p>
+            <p style="color: rgba(250,243,230,0.85);">We&rsquo;ll get back to you soon.</p>
+        </div>
+        <script src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off" async defer></script>
+        <script>
+        (function(){
+            var form = document.getElementById('form');
+            if (!form) return;
+            var submitBtn = form.querySelector('button[type="submit"]');
+            form.addEventListener('submit', async function(e){
+                e.preventDefault();
+                var formData = new FormData(form);
+                var originalText = submitBtn.textContent.trim();
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                try {
+                    var response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    var data = await response.json();
+                    if (response.ok) {
+                        form.style.display = "none";
+                        document.getElementById("form-thanks").style.display = "block";
+                    } else {
+                        alert('Error: ' + (data.message || 'Submission failed.'));
+                    }
+                } catch (error) {
+                    alert('Something went wrong. Please try again.');
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        })();
+        </script>
+    </div>
+    <div class="form-section__image">
+        <img decoding="async" src="/wp-content/uploads/2026/04/contact_pie_vertical.jpg" alt="Berry pie" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+</div>
+
+
+
+<section class="section section--cream">
+    <div class="container container--narrow">
+        <div class="faq-section">
+            <h2 class="faq-section__title">Common Questions</h2>
+
+            <div class="faq-item faq-item--open">
+                <div class="faq-item__question">Can I order pies for shipping?</div>
+                <div class="faq-answer">
+                    <div>
+                        <p>Currently, our pies are available exclusively at the farm stand and through select local retailers. We&#8217;re working on shipping options — sign up for our newsletter to be the first to know!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item faq-item--open">
+                <div class="faq-item__question">Do you take custom flavor requests?</div>
+                <div class="faq-answer">
+                    <div>
+                        <p>Absolutely! For special orders of 6 or more pies, we can work with you on custom flavors and combinations. Give us a call or use the contact form to get started.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item faq-item--open">
+                <div class="faq-item__question">When is U-Pick berry season?</div>
+                <div class="faq-answer">
+                    <div>
+                        <p>U-Pick season typically runs from mid-June through August, depending on weather and crop conditions. Follow us on social media for real-time updates on picking availability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item faq-item--open">
+                <div class="faq-item__question">Are your products gluten-free or vegan?</div>
+                <div class="faq-answer">
+                    <div>
+                        <p>Our traditional pies use a butter-based crust with wheat flour. We occasionally offer gluten-free options during special events — ask us about current availability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item faq-item--open">
+                <div class="faq-item__question">Can I visit the farm with a group?</div>
+                <div class="faq-answer">
+                    <div>
+                        <p>We love hosting groups! For parties of 10 or more, please call ahead so we can make sure we have plenty of pie and a warm welcome ready for you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section--navy" style="padding: 4rem 0;">
+    <div class="container" style="text-align:center;">
+        <div class="section__label" style="color:var(--aqua-light);">Stay Connected</div>
+        <h2 class="section__title" style="color:var(--cream); margin-bottom:0.5rem;">Follow Along</h2>
+        <p class="section__script" style="margin-bottom:2rem;">for harvest updates, new flavors, and farm life</p>
+        <div class="contact__social" style="justify-content:center;">
+            <a href="https://www.facebook.com/blueraevenpie" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/blueraevenpie" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+</div>
+
+</main>
