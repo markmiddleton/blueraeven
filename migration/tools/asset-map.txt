@@ -1,0 +1,2 @@
+/wp-content/themes/blue-raeven-theme/assets/images/blue-raeven-farm-aerial.jpg	/wp-content/uploads/2026/06/blue-raeven-farm-aerial.jpg
+/wp-content/themes/blue-raeven-theme/assets/images/blue-raeven-farmtable.jpg	/wp-content/uploads/2026/06/blue-raeven-farmtable.jpg

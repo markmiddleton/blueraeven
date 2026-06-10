@@ -205,6 +205,15 @@ function blue_raeven_add_image_sizes() {
 add_action( 'after_setup_theme', 'blue_raeven_add_image_sizes' );
 
 /**
+ * Keep uploaded originals intact. WP's default 2560px "big image" threshold
+ * silently replaces large uploads with a -scaled copy, which breaks
+ * pixel-exact assets (e.g. the 2728px hero pan images whose animation
+ * keyframes depend on exact width). All site images are pre-optimized
+ * before upload, so the safety net is unnecessary.
+ */
+add_filter( 'big_image_size_threshold', '__return_false' );
+
+/**
  * Make custom image sizes selectable
  */
 function blue_raeven_custom_image_sizes( $sizes ) {
@@ -374,6 +383,28 @@ function blue_raeven_register_acf_blocks() {
         'keywords'          => array( 'product', 'grid', 'pies', 'jams' ),
         'supports'          => array(
             'align' => array( 'wide', 'full' ),
+        ),
+    ) );
+
+    /*
+     * Component-migration blocks (see MIGRATION-PLAN.md). Render templates
+     * intentionally mirror the legacy hand-coded markup exactly.
+     */
+
+    // Story Banner
+    acf_register_block_type( array(
+        'name'              => 'story-banner',
+        'title'             => __( 'Story Banner', 'blue-raeven' ),
+        'description'       => __( 'Full-width photo banner with title, script subhead, and CTA button.', 'blue-raeven' ),
+        'render_template'   => BLUE_RAEVEN_DIR . '/blocks/story-banner.php',
+        'category'          => 'blue-raeven',
+        'icon'              => 'cover-image',
+        'keywords'          => array( 'banner', 'story', 'photo', 'cta' ),
+        'mode'              => 'preview',
+        'supports'          => array(
+            'align'  => false,
+            'anchor' => false,
+            'mode'   => true,
         ),
     ) );
 }

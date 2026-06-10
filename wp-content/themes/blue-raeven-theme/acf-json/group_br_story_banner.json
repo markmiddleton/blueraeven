@@ -1,0 +1,80 @@
+{
+    "key": "group_br_story_banner",
+    "title": "Story Banner",
+    "fields": [
+        {
+            "key": "field_brsb_bg_image",
+            "label": "Background photo",
+            "name": "bg_image",
+            "type": "image",
+            "instructions": "Wide photo shown behind the text. Recommended at least 1920px wide.",
+            "required": 1,
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_brsb_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Big headline, e.g. “The Story Behind our Handcrafted Pies”. Shown in uppercase automatically.",
+            "required": 1
+        },
+        {
+            "key": "field_brsb_subhead",
+            "label": "Subhead (script line)",
+            "name": "subhead",
+            "type": "text",
+            "instructions": "Short line under the title, shown in the handwritten script font."
+        },
+        {
+            "key": "field_brsb_cta_label",
+            "label": "Button text",
+            "name": "cta_label",
+            "type": "text",
+            "instructions": "Leave empty to hide the button."
+        },
+        {
+            "key": "field_brsb_cta_url",
+            "label": "Button link",
+            "name": "cta_url",
+            "type": "text",
+            "instructions": "Where the button goes, e.g. /story/ or a full https:// address."
+        },
+        {
+            "key": "field_brsb_open_style",
+            "label": "Open style (text directly on photo)",
+            "name": "open_style",
+            "type": "true_false",
+            "instructions": "On: light text directly over the photo. Off: text inside a cream box.",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_brsb_show_spacer",
+            "label": "Breathing room above",
+            "name": "show_spacer",
+            "type": "true_false",
+            "instructions": "Adds a small gap above the banner.",
+            "ui": 1,
+            "default_value": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/story-banner"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 0
+}
