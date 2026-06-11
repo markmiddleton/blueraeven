@@ -116,6 +116,12 @@ The navigation menus and footer are **not** edited on a page — they appear on 
 
 Changes here update the header/footer across the **whole site** at once. Click **Update** to save.
 
+### Floating Badge
+A promotional image that floats in the lower-right corner of every page (e.g. the "We have a new look!" bug).
+- **Show floating badge**: master on/off switch — flip it off to remove the badge sitewide without deleting the image.
+- **Badge image**: the floating image (PNG with transparency recommended).
+- **Badge link**: where it goes when clicked (e.g. `/story/new-brand-look`). Leave blank for a non-clickable badge.
+
 ## Things to know
 
 - **The • separator**: product lists use the "•" character between items. Copy-paste it from existing text rather than typing a regular dash.

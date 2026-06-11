@@ -3184,5 +3184,26 @@ ul { list-style: none; }
   }
 }
 
+/* ---------- FLOATING BADGE ---------- */
+.floating-badge {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  z-index: 999;
+  display: block;
+  width: clamp(120px, 16vw, 200px);
+  line-height: 0;
+  transition: transform 0.25s ease;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25));
+}
+a.floating-badge:hover { transform: scale(1.05); }
+.floating-badge img { width: 100%; height: auto; }
+@media (max-width: 600px) {
+  .floating-badge { width: 110px; right: 0.75rem; bottom: 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-badge { transition: none; }
+}
+
 /* Deployed: Wed May 13 09:49:59 PDT 2026 */
 /* Force sync: 2026-05-13 */

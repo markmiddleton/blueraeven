@@ -333,6 +333,49 @@ function blue_raeven_register_block_styles() {
 add_action( 'init', 'blue_raeven_register_block_styles' );
 
 /**
+ * Floating badge — sitewide image that floats in the lower-right corner,
+ * managed in wp-admin → Theme Settings (Floating Badge). Output at body
+ * level via wp_footer so position:fixed sits above all content; rendered
+ * after the footer template part, so it does not affect header/footer markup.
+ */
+function blue_raeven_floating_badge() {
+    if ( ! function_exists( 'get_field' ) ) {
+        return;
+    }
+    if ( ! get_field( 'enabled', 'option' ) ) {
+        return;
+    }
+    $image = get_field( 'image', 'option' );
+    if ( empty( $image['url'] ) ) {
+        return;
+    }
+    $link    = blue_raeven_nav_url( get_field( 'link', 'option' ) );
+    $img_url = wp_make_link_relative( $image['url'] );
+    $alt     = $image['alt'] ? $image['alt'] : '';
+
+    $img_tag = sprintf(
+        '<img src="%s" alt="%s" decoding="async" loading="lazy">',
+        esc_url( $img_url ),
+        esc_attr( $alt )
+    );
+
+    if ( $link ) {
+        printf(
+            '<a class="floating-badge" href="%s" aria-label="%s">%s</a>',
+            esc_url( $link ),
+            esc_attr( $alt ),
+            $img_tag // phpcs:ignore WordPress.Security.EscapeOutput — built above with esc_url/esc_attr
+        );
+    } else {
+        printf(
+            '<div class="floating-badge">%s</div>',
+            $img_tag // phpcs:ignore WordPress.Security.EscapeOutput
+        );
+    }
+}
+add_action( 'wp_footer', 'blue_raeven_floating_badge', 20 );
+
+/**
  * Resolve a nav/footer link stored in ACF options.
  * Relative paths (e.g. "/story/") are run through home_url() so output
  * matches the legacy hardcoded home_url() links exactly; full URLs

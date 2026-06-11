@@ -1,0 +1,52 @@
+{
+    "key": "group_br_floating_badge",
+    "title": "Floating Badge",
+    "fields": [
+        {
+            "key": "field_brfb_enabled",
+            "label": "Show floating badge",
+            "name": "enabled",
+            "type": "true_false",
+            "ui": 1,
+            "instructions": "Turn the lower-right floating badge on or off across the whole site.",
+            "default_value": 0
+        },
+        {
+            "key": "field_brfb_image",
+            "label": "Badge image",
+            "name": "image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "instructions": "Shown floating in the lower-right corner on every page. PNG with transparency works best.",
+            "conditional_logic": [
+                [
+                    { "field": "field_brfb_enabled", "operator": "==", "value": "1" }
+                ]
+            ]
+        },
+        {
+            "key": "field_brfb_link",
+            "label": "Badge link",
+            "name": "link",
+            "type": "text",
+            "instructions": "Where the badge goes when clicked, e.g. /story/new-brand-look or a full https:// address. Leave blank to show the badge without a link.",
+            "conditional_logic": [
+                [
+                    { "field": "field_brfb_enabled", "operator": "==", "value": "1" }
+                ]
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "blue-raeven-settings"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0
+}
