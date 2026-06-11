@@ -353,25 +353,66 @@ function blue_raeven_floating_badge() {
     $img_url = wp_make_link_relative( $image['url'] );
     $alt     = $image['alt'] ? $image['alt'] : '';
 
+    // Dismissal is keyed to the image filename: swapping in a NEW badge image
+    // gives a new key, so visitors who dismissed the old one see the new one.
+    $key = sanitize_title( basename( (string) wp_parse_url( $img_url, PHP_URL_PATH ) ) );
+
     $img_tag = sprintf(
         '<img src="%s" alt="%s" decoding="async" loading="lazy">',
         esc_url( $img_url ),
         esc_attr( $alt )
     );
 
+    // Image (optionally wrapped in its link) + a sibling dismiss button.
     if ( $link ) {
-        printf(
-            '<a class="floating-badge" href="%s" aria-label="%s">%s</a>',
+        $inner = sprintf(
+            '<a class="floating-badge__link" href="%s" aria-label="%s">%s</a>',
             esc_url( $link ),
             esc_attr( $alt ),
-            $img_tag // phpcs:ignore WordPress.Security.EscapeOutput — built above with esc_url/esc_attr
-        );
-    } else {
-        printf(
-            '<div class="floating-badge">%s</div>',
             $img_tag // phpcs:ignore WordPress.Security.EscapeOutput
         );
+    } else {
+        $inner = '<span class="floating-badge__link">' . $img_tag . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
     }
+
+    $dismiss = '<button type="button" class="floating-badge__dismiss" aria-label="Dismiss">'
+        . '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M18.3 5.71L12 12.01l-6.3-6.3-1.4 1.41 6.29 6.3-6.3 6.3 1.41 1.4 6.3-6.29 6.3 6.3 1.4-1.41-6.29-6.3 6.3-6.3z"/></svg>'
+        . '</button>';
+
+    printf(
+        '<div class="floating-badge" id="brFloatingBadge" data-badge-key="%s">%s%s</div>',
+        esc_attr( $key ),
+        $inner,   // phpcs:ignore WordPress.Security.EscapeOutput
+        $dismiss  // phpcs:ignore WordPress.Security.EscapeOutput
+    );
+    ?>
+    <script>
+    (function(){
+        var b = document.getElementById('brFloatingBadge');
+        if (!b) return;
+        var key = b.getAttribute('data-badge-key') || '1';
+        function getCookie(n){
+            var m = document.cookie.match('(?:^|; )' + n + '=([^;]*)');
+            return m ? decodeURIComponent(m[1]) : '';
+        }
+        // Already dismissed this exact badge? Remove it before it paints.
+        if (getCookie('br_badge_dismissed') === key) {
+            b.parentNode.removeChild(b);
+            return;
+        }
+        var x = b.querySelector('.floating-badge__dismiss');
+        if (x) {
+            x.addEventListener('click', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                document.cookie = 'br_badge_dismissed=' + encodeURIComponent(key) +
+                    '; path=/; max-age=' + (60 * 60 * 24 * 365) + '; SameSite=Lax';
+                b.parentNode.removeChild(b);
+            });
+        }
+    })();
+    </script>
+    <?php
 }
 add_action( 'wp_footer', 'blue_raeven_floating_badge', 20 );
 
