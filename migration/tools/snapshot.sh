@@ -13,6 +13,7 @@ PAGES="
 home /
 story /story/
 our-berries /story/our-berries/
+new-brand-look /story/new-brand-look/
 farmstand /farmstand/
 contact /contact/
 pies /pies-more/pies/

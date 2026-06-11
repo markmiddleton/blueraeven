@@ -71,3 +71,10 @@ A row is ✅ only when DOM + Visual pass (and JS where applicable). See MIGRATIO
 - Gotchas log: see migration/PILOT-NOTES.md (+ wp_kses style-attr rewrite → verbatim intro field on retailer-section; --skip-copy path prefix normalization ×59 + per-import fix thereafter).
 - Mark's test story-banner row on home-rebuild was replaced during final assembly (as agreed).
 - Drift protocol: no content changes to original pages without re-snapshot + log entry here.
+- 2026-06-11 — Header + footer made editable via ACF options (Theme Settings); floating badge added. All gated IDENTICAL.
+- 2026-06-11 — PROD→LOCAL reconciliation. Read-only audit found prod had diverged (client edits after the migration DB upload). Pulled into local to make it a complete superset before any future copy-up:
+  - Page 350 "New Brand Look" (client-built with our page-hero + content-blocks) recreated locally (local id 345, parent Our Story). Images BLUERAEVEN_LOGO_NEW-1.png + Mini-3D-Box_web.png streamed from prod over SSH (scp blocked), imported (local ids 343/344), and remapped in the block content (prod 357→343, 354→344).
+  - Page 49 (Pies) Pre-Order edits (added "Dungeness Crab Pot Pie"; "Beef Pot Pie"→"Smoked Brisket") pulled verbatim from prod; re-snapshotted golden.
+  - Benign/no-action: page 3 (privacy draft, env-URL only), page 6 (redirected, content moot), products (8, all same; CPT unused in current design), key options (match).
+  - Floating badge link /story/new-brand-look now resolves locally (200).
+  - Net: local = prod content + new nav/footer/badge features. A future local→prod DB copy is now safe (superset; nothing prod-only would be lost). Backup: migration/backups/pre-reconcile-2026-06-11.sql.
