@@ -19,10 +19,13 @@ $g = function ( $name ) use ( $has_acf ) {
 $brand_name   = $g( 'brand_name' );
 $brand_script = $g( 'brand_script' );
 $brand_desc   = $g( 'brand_desc' );
-$explore      = $g( 'explore_links' );
-$visit        = $g( 'visit_locations' );
-$connect      = $g( 'connect_links' );
-$social       = $g( 'social' );
+// Repeaters: only ever iterate a real array of rows. If the option is missing
+// or malformed (e.g. ACF returns the raw row-count string), treat as empty so
+// the footer renders instead of fataling. Inner loops also guard each row.
+$explore      = is_array( $g( 'explore_links' ) )   ? $g( 'explore_links' )   : array();
+$visit        = is_array( $g( 'visit_locations' ) ) ? $g( 'visit_locations' ) : array();
+$connect      = is_array( $g( 'connect_links' ) )   ? $g( 'connect_links' )   : array();
+$social       = is_array( $g( 'social' ) )          ? $g( 'social' )          : array();
 
 // Fixed social icon SVGs (footer set, incl. newsletter envelope).
 $social_svgs = array(
@@ -44,19 +47,19 @@ $social_aria = array( 'facebook' => 'Facebook', 'instagram' => 'Instagram', 'new
             <div>
                 <div class="footer__heading"><?php echo esc_html( $g( 'explore_heading' ) ); ?></div>
                 <ul class="footer__link-list">
-<?php foreach ( (array) $explore as $link ) : ?>
-                    <li><a href="<?php echo esc_url( blue_raeven_nav_url( $link['url'] ) ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
+<?php foreach ( $explore as $link ) : if ( ! is_array( $link ) ) { continue; } ?>
+                    <li><a href="<?php echo esc_url( blue_raeven_nav_url( $link['url'] ?? '' ) ); ?>"><?php echo esc_html( $link['label'] ?? '' ); ?></a></li>
 <?php endforeach; ?>
                 </ul>
             </div>
             <div>
                 <div class="footer__heading"><?php echo esc_html( $g( 'visit_heading' ) ); ?></div>
                 <ul class="footer__link-list footer__link-list--visit">
-<?php foreach ( (array) $visit as $loc ) : ?>
+<?php foreach ( $visit as $loc ) : if ( ! is_array( $loc ) ) { continue; } ?>
                     <li>
-                        <a href="<?php echo esc_url( $loc['map_url'] ); ?>" target="_blank" rel="noopener" class="footer__location-name"><?php echo esc_html( $loc['name'] ); ?></a>
-<?php foreach ( (array) ( $loc['hours'] ?? array() ) as $h ) : ?>
-                        <span class="footer__hours"><?php echo esc_html( $h['line'] ); ?></span>
+                        <a href="<?php echo esc_url( $loc['map_url'] ?? '' ); ?>" target="_blank" rel="noopener" class="footer__location-name"><?php echo esc_html( $loc['name'] ?? '' ); ?></a>
+<?php foreach ( ( is_array( $loc['hours'] ?? null ) ? $loc['hours'] : array() ) as $h ) : if ( ! is_array( $h ) ) { continue; } ?>
+                        <span class="footer__hours"><?php echo esc_html( $h['line'] ?? '' ); ?></span>
 <?php endforeach; ?>
                     </li>
 <?php endforeach; ?>
@@ -65,18 +68,18 @@ $social_aria = array( 'facebook' => 'Facebook', 'instagram' => 'Instagram', 'new
             <div>
                 <div class="footer__heading"><?php echo esc_html( $g( 'connect_heading' ) ); ?></div>
                 <ul class="footer__link-list">
-<?php foreach ( (array) $connect as $link ) : ?>
-                    <li><a href="<?php echo esc_url( blue_raeven_nav_url( $link['url'] ) ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
+<?php foreach ( $connect as $link ) : if ( ! is_array( $link ) ) { continue; } ?>
+                    <li><a href="<?php echo esc_url( blue_raeven_nav_url( $link['url'] ?? '' ) ); ?>"><?php echo esc_html( $link['label'] ?? '' ); ?></a></li>
 <?php endforeach; ?>
                 </ul>
                 <div class="footer__social">
-<?php foreach ( (array) $social as $s ) :
-    $p = $s['platform'];
+<?php foreach ( $social as $s ) :
+    $p = is_array( $s ) ? ( $s['platform'] ?? '' ) : '';
     if ( ! isset( $social_svgs[ $p ] ) ) {
         continue;
     }
     ?>
-                    <a href="<?php echo esc_url( blue_raeven_nav_url( $s['url'] ) ); ?>"<?php echo 'newsletter' === $p ? '' : ' target="_blank" rel="noopener"'; ?> aria-label="<?php echo esc_attr( $social_aria[ $p ] ); ?>">
+                    <a href="<?php echo esc_url( blue_raeven_nav_url( $s['url'] ?? '' ) ); ?>"<?php echo 'newsletter' === $p ? '' : ' target="_blank" rel="noopener"'; ?> aria-label="<?php echo esc_attr( $social_aria[ $p ] ); ?>">
                         <?php echo $social_svgs[ $p ]; // phpcs:ignore WordPress.Security.EscapeOutput — static SVG ?>
                     </a>
 <?php endforeach; ?>

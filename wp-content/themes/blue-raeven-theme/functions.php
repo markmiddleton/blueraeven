@@ -346,7 +346,7 @@ function blue_raeven_floating_badge() {
         return;
     }
     $image = get_field( 'image', 'option' );
-    if ( empty( $image['url'] ) ) {
+    if ( ! is_array( $image ) || empty( $image['url'] ) ) {
         return;
     }
     $link    = blue_raeven_nav_url( get_field( 'link', 'option' ) );
@@ -430,7 +430,7 @@ function blue_raeven_nav_url( $url ) {
     if ( '' === $url ) {
         return '';
     }
-    if ( preg_match( '#^(https?:)?//#', $url ) || preg_match( '#^(mailto:|tel:|#)#', $url ) ) {
+    if ( preg_match( '~^(https?:)?//~', $url ) || preg_match( '~^(mailto:|tel:|#)~', $url ) ) {
         return $url;
     }
     return home_url( $url );
