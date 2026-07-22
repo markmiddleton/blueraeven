@@ -941,7 +941,7 @@ function blue_raeven_schema() {
             'name'       => 'Blue Raeven Pie Company – McMinnville',
             'url'        => home_url( '/farmstand/' ),
             'image'      => $logo,
-            'telephone'  => '+1-503-474-2856',
+            'telephone'  => '+1-503-687-4020',
             'address'    => array(
                 '@type'           => 'PostalAddress',
                 'streetAddress'   => '1101 NE Alpine Ave',

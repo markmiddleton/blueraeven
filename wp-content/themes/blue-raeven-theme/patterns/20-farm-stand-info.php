@@ -28,7 +28,7 @@
                     <strong>1101 NE Alpine Ave, McMinnville, OR 97128</strong><br><br>
                     Tuesday &ndash; Saturday: 10 AM to 5:30 PM<br>
                     Sunday &ndash; Monday: Closed<br><br>
-                    <a href="tel:5034742856">(503) 474-2856</a>
+                    <a href="tel:5036874020">(503) 687-4020</a>
                 </div>
             </div>
         </div>
