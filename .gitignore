@@ -43,3 +43,19 @@ node_modules/
 
 # Migration project — never commit DB dumps
 migration/backups/
+
+# Dev artifacts and internal docs — must NOT reach production.
+# The repo root IS the webroot on WPEngine, which deploys the whole repo and
+# honours no ignore file; .htaccess deny is ignored there and dot-prefixing is
+# not reliably blocked either. Keeping these untracked is what keeps them off
+# the public site. They stay on local disk.
+/CLAUDE.md
+/BLUE-RAEVEN-SEO-LAUNCH-SUMMARY.md
+/EDITOR-GUIDE.md
+/GEO-TECHNICAL-AUDIT.md
+/MIGRATION-PLAN.md
+/MIGRATION-TRACKER.md
+/sync-uploads.sh
+/wp-cli.yml
+/migration/
+/image-generator/

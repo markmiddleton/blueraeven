@@ -1,5 +1,0 @@
-@production:
-  ssh: blueraeven@blueraeven.ssh.wpengine.net
-
-@local:
-  path: /Users/markmiddleton/Sites/blueraevenfarmstand
