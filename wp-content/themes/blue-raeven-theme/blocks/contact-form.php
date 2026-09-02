@@ -30,6 +30,14 @@ if ( ! $access_key ) {
         <div class="subtitle"><?php echo esc_html( $subtitle ); ?></div>
         <form id="form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="<?php echo esc_attr( $access_key ); ?>">
+            <?php
+            // Web3Forms treats `subject` and `from_name` as reserved fields: they shape the
+            // notification email's headers and are left out of the body. The visitor's topic
+            // therefore lives in its own field (`topic`) so it shows up in the body, and the
+            // subject line is composed from it at submit time (see inline script below).
+            ?>
+            <input type="hidden" name="subject" id="contact-subject-line" value="Blue Raeven contact form">
+            <input type="hidden" name="from_name" value="Blue Raeven Farms website">
             <div class="form-row">
                 <div class="form-field">
                     <label for="contact-name">Your Name</label>
@@ -43,10 +51,10 @@ if ( ! $access_key ) {
 <?php if ( $subjects ) : ?>
             <div class="form-field">
                 <label for="contact-subject">Subject</label>
-                <select id="contact-subject" name="subject">
+                <select id="contact-subject" name="topic">
                     <option value="">Choose a topic&hellip;</option>
 <?php foreach ( $subjects as $s ) : ?>
-                    <option value="<?php echo esc_attr( $s['value'] ); ?>"><?php echo esc_html( $s['label'] ); ?></option>
+                    <option value="<?php echo esc_attr( $s['label'] ); ?>"><?php echo esc_html( $s['label'] ); ?></option>
 <?php endforeach; ?>
                 </select>
             </div>
@@ -70,6 +78,12 @@ if ( ! $access_key ) {
             var submitBtn = form.querySelector('button[type="submit"]');
             form.addEventListener('submit', async function(e){
                 e.preventDefault();
+                var topicField = document.getElementById('contact-subject');
+                var subjectLine = document.getElementById('contact-subject-line');
+                if (topicField && subjectLine) {
+                    var topic = topicField.value ? topicField.value : 'General';
+                    subjectLine.value = 'Blue Raeven contact: ' + topic;
+                }
                 var formData = new FormData(form);
                 var originalText = submitBtn.textContent.trim();
                 submitBtn.textContent = 'Sending...';
